@@ -1,0 +1,465 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.booking-modal[aria-hidden=false] {
+  opacity: 1;
+  visibility: visible;
+}
+.booking-modal[aria-hidden=false] .booking-modal__container {
+  transform: translateY(0) scale(1);
+}
+.booking-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.booking-modal__container {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(-20px) scale(0.95);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+.booking-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #595959;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.booking-modal__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.booking-modal__content {
+  padding: clamp(20px, 4vw, 30px);
+}
+.booking-modal__header {
+  text-align: center;
+  margin-bottom: clamp(20px, 3vw, 30px);
+}
+.booking-modal__title {
+  font: normal clamp(20px, 3vw, 28px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  margin: 0 0 10px 0;
+}
+.booking-modal__event-name {
+  font: normal clamp(14px, 2vw, 16px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #00A0DE;
+  margin: 0;
+}
+.booking-modal__loading, .booking-modal__error {
+  text-align: center;
+  padding: 40px 20px;
+  color: #595959;
+}
+.booking-modal__loading .spinner, .booking-modal__error .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 160, 222, 0.2);
+  border-top-color: #00A0DE;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+.booking-modal__error p {
+  color: #595959;
+  margin-bottom: 15px;
+}
+
+.booking-form__field {
+  margin-bottom: 20px;
+}
+.booking-form__field label {
+  display: block;
+  font: normal 14px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  margin-bottom: 8px;
+}
+.booking-form__select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #F8F8F8;
+  border-radius: 8px;
+  font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+.booking-form__select:focus {
+  outline: none;
+  border-color: #00A0DE;
+}
+.booking-form__select option:disabled {
+  color: #999;
+}
+.booking-form__details {
+  margin-top: 20px;
+}
+
+.details-card {
+  background: #F8F8F8;
+  border-radius: 12px;
+  padding: clamp(15px, 3vw, 25px);
+}
+.details-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details-card__name {
+  font: normal clamp(16px, 2vw, 20px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  margin: 0;
+}
+.details-card__price {
+  font: normal clamp(20px, 3vw, 28px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #00A0DE;
+}
+.details-card__info {
+  margin-bottom: 20px;
+}
+.details-card__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+.details-card__row:last-child {
+  border-bottom: none;
+}
+.details-card__label {
+  font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #595959;
+}
+.details-card__value {
+  font: normal 14px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+}
+.details-card__value.sold-out {
+  color: #dc3545;
+}
+.details-card__actions {
+  text-align: center;
+  padding-top: 15px;
+}
+.details-card__sold-out {
+  color: #dc3545;
+  font: normal 14px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+}
+
+.booking-form__checkout-btn {
+  width: 100%;
+  padding: 15px 30px;
+  background: #F16122;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font: normal 16px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.booking-form__checkout-btn:hover:not(:disabled) {
+  background: #F16122;
+  transform: translateY(-2px);
+}
+.booking-form__checkout-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.dive-centre-container .site-information__description h2 {
+  color: #fff;
+  font: normal clamp(28px, 4vw, 48px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: clamp(10px, 2vw, 20px) 0;
+}
+.dive-centre-container .site-information__description p {
+  color: #fff;
+  font: normal clamp(16px, 2vw, 24px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: clamp(22px, 3vw, 30px);
+}
+.dive-centre-container .site-information__statistics {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: clamp(10px, 2vw, 20px);
+  padding: clamp(10px, 2vw, 20px) 0;
+}
+@media screen and (max-width: 768px) {
+  .dive-centre-container .site-information__statistics {
+    padding: clamp(14px, 3vw, 28px) clamp(20px, 3vw, 63px);
+  }
+}
+@media screen and (max-width: 576px) {
+  .dive-centre-container .site-information__statistics {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.dive-centre-container .site-information__statistic {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: clamp(14px, 3vw, 28px) clamp(30px, 5vw, 63px);
+}
+@media screen and (max-width: 768px) {
+  .dive-centre-container .site-information__statistic {
+    padding: clamp(14px, 3vw, 28px) clamp(20px, 3vw, 63px);
+  }
+}
+@media screen and (max-width: 576px) {
+  .dive-centre-container .site-information__statistic {
+    width: clamp(40%, 40vw, 100%);
+  }
+}
+.dive-centre-container .site-information__statistic-number {
+  color: #00A0DE;
+  font: normal clamp(24px, 3vw, 36px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 576px) {
+  .dive-centre-container .site-information__statistic-number {
+    font: normal clamp(20px, 2.5vw, 32px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.dive-centre-container .site-information__statistic-text {
+  color: #fff;
+  font: normal clamp(12px, 1vw, 14px) "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.dive-centre-container .site-information__link {
+  padding-top: clamp(10px, 2vw, 20px);
+}
+.dive-centre-container .site-information__link a {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  font: normal clamp(14px, 1.5vw, 18px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: clamp(8px, 1.5vw, 12px) clamp(30px, 4vw, 50px);
+}
+
+.dive-services {
+  background-color: #F8F8F8;
+  padding: clamp(20px, 3vw, 30px) 0 clamp(40px, 5vw, 60px);
+}
+.dive-services__wrap {
+  width: 90%;
+  margin: 0 auto;
+}
+.dive-services__wrap h2 {
+  font: normal clamp(24px, 3vw, 36px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dive-events-section {
+  background-color: #fff;
+  padding: clamp(20px, 3vw, 30px) 0 clamp(40px, 5vw, 60px);
+}
+.dive-events__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.dive-events__item {
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1019607843), 0 10px 15px -3px rgba(0, 0, 0, 0.1019607843);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: clamp(10px, 2vw, 20px);
+  height: clamp(280px, 30vw, 350px);
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .dive-events__item {
+    flex-direction: column;
+    height: auto;
+  }
+}
+.dive-events__item-image {
+  height: 100%;
+  width: 30%;
+}
+@media screen and (max-width: 991px) {
+  .dive-events__item-image {
+    height: clamp(180px, 40vw, 250px);
+    width: 100%;
+  }
+}
+.dive-events__item-image img {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .dive-events__item-image img {
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0;
+  }
+}
+.dive-events__item-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: clamp(15px, 2vw, 20px);
+  position: relative;
+  width: 70%;
+}
+@media screen and (max-width: 991px) {
+  .dive-events__item-details {
+    width: 100%;
+  }
+}
+.dive-events__item-date {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+@media screen and (max-width: 768px) {
+  .dive-events__item-date {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 5px;
+  }
+}
+.dive-events__item-date span {
+  color: #2F2F2F;
+  font: normal 14px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.dive-events__item-title {
+  color: #2F2F2F;
+  font: normal clamp(20px, 2.5vw, 30px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: -10px;
+  width: inherit;
+}
+@media screen and (max-width: 768px) {
+  .dive-events__item-title {
+    margin-top: 0;
+  }
+}
+.dive-events__item-location {
+  color: #595959;
+  font: normal clamp(12px, 1vw, 14px) "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: clamp(5px, 1vw, 10px);
+  width: inherit;
+}
+.dive-events__item-description {
+  color: #595959;
+  font: normal clamp(14px, 1vw, 16px) "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: clamp(22px, 2vw, 26px);
+  padding: clamp(5px, 1vw, 10px) 0 clamp(10px, 1.5vw, 15px);
+  width: inherit;
+}
+.dive-events__item-categories {
+  width: inherit;
+}
+.dive-events__item-categories h5 {
+  color: #2F2F2F;
+  font: normal clamp(12px, 1vw, 14px) "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 5px;
+}
+.dive-events__item-categories .specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(5px, 1vw, 10px);
+}
+.dive-events__item-categories .specialties .specialty {
+  background: rgba(0, 160, 222, 0.1);
+  border-radius: 50px;
+  color: #00A0DE;
+  font: normal clamp(10px, 0.8vw, 12px) "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 3px clamp(8px, 1vw, 10px);
+}
+.dive-events__item-buttons {
+  margin-top: clamp(15px, 2vw, 20px);
+  width: inherit;
+  display: flex;
+  gap: clamp(8px, 1vw, 12px);
+}
+.dive-events__item-buttons a.view-details {
+  background: #fff;
+  border: 1px solid #00A0DE;
+  border-radius: 8px;
+  color: #00A0DE;
+  display: inline-block;
+  font: normal clamp(12px, 1vw, 14px) "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 25px;
+  padding: 7px 20px 8px 25px;
+}
+.dive-events__item-buttons a.book-now {
+  background: #F16122;
+  border: 1px solid #F16122;
+  border-radius: 8px;
+  color: #fff;
+  display: inline-block;
+  font: normal clamp(12px, 1vw, 14px) "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 12px 25px;
+}
+
+/*# sourceMappingURL=dive-centre.css.map */

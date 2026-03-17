@@ -1,0 +1,590 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../components/helper' as *;
+
+.site-header-background {
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: cover;
+  position: absolute;
+  height: clamp(900px, 60vw, 70vw);
+  width: 100%;
+  @include max-media(1499px) {
+    background-position: left top;
+  }
+  @include max-media($page-medium-width) {
+    height: clamp(800px, 50vw, 60vw);
+  }
+}
+.site-header-banner {
+  height: clamp(600px, 30vw, 50vw);
+  margin-bottom: 10px;
+  padding: 100px 0;
+  position: relative;
+  width: 100%;
+  @include max-media($page-medium-width) {
+    height: clamp(300px, 50vw, 50vw);
+    padding: 60px 0;
+  }
+  .site-header-container {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    top: 40%;
+    @include max-media(1499px) {
+      transform: translate(0, clamp(-60px, -3vw, -30px));
+    }
+    @include max-media($page-medium-width) {
+      transform: translate(0, clamp(-90px, -6vw, -60px));
+    }
+  }
+  .site-information {
+    background: rgba($black, .7);
+    color: $white;
+    padding: 25px 30px;
+    width: 52%;
+    @include max-media($page-medium-width) {
+      width: 100%;
+    }
+    &__title {
+      font: normal clamp(28px, 2vw + 16px, 44px) $font-lato-regular;
+      b {
+        font: normal clamp(28px, 2vw + 16px, 44px) $font-lato-extra-bold;
+        text-transform: uppercase;
+      }
+    }
+    &__description {
+      font: normal clamp(32px, 2.5vw + 18px, 54px) $font-lato-light;
+      line-height: 1;
+      margin-top: 10px;
+      @include max-media($page-xsmall-width) {
+        font: normal clamp(24px, 2vw + 12px, 36px) $font-lato-light;
+      }
+      span {
+        color: $blue;
+        font: normal clamp(32px, 2.5vw + 18px, 54px) $font-lato-medium;
+        line-height: 1;
+        @include max-media($page-xsmall-width) {
+          font: normal clamp(24px, 2vw + 12px, 36px) $font-lato-light;
+        }
+      }
+    }
+    &__link {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      a {
+        background: $orange;
+        border-radius: 10px;
+        color: $white;
+        font: normal clamp(14px, 0.5vw + 10px, 18px) $font-lato-bold;
+        padding: 12px 40px;
+        text-transform: uppercase;
+        @include max-media($page-xsmall-width) {
+          padding: 12px 20px;
+        }
+        .icon {
+          top: 4px;
+        }
+      }
+    }
+  }
+}
+
+.site-middle-content {
+  background: url("../images/mid-bg.png") repeat;
+  position: relative;
+  padding: 70px 0 50px;
+  @include max-media($page-xsmall-width) {
+    padding: 70px 0 70px;
+  }
+  &:after {
+    content: "";
+    background: $dark-blue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+  }
+  &__wrap {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 60px;
+
+    @include max-media($page-mobile-width) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @include max-media($page-xsmall-width) {
+      padding-bottom: 20px;
+    }
+  }
+  &__title {
+    color: $white;
+    font: normal clamp(32px, 2vw + 20px, 48px) $font-lato-regular;
+    span {
+      font: normal clamp(32px, 2vw + 20px, 48px) $font-lato-bold;
+    }
+  }
+  &__description {
+    color: $white;
+    font: normal clamp(18px, 1vw + 12px, 24px) $font-lato-regular;
+  }
+  &__options {
+    position: relative;
+
+    // Desktop: disabled state - grid layout
+    &.swiper-disabled {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      //height: 460px;
+
+      .swiper-wrapper {
+        display: contents;
+      }
+
+      .swiper-slide {
+        width: auto !important;
+        margin-right: 0 !important;
+      }
+
+      .swiper-pagination {
+        display: none;
+      }
+    }
+
+    // Mobile: enabled state - swiper
+    &.swiper-enabled {
+      display: block;
+      padding-bottom: 50px;
+
+      .swiper-pagination {
+        display: block;
+        bottom: 0;
+
+        .swiper-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background: rgba($white, 0.4);
+          opacity: 1;
+
+          &-active {
+            background: $orange;
+          }
+        }
+      }
+    }
+
+    // Fallback for initial load (before JS runs)
+    @include min-media($page-mobile-width + 1) {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include max-media($page-mobile-width) {
+      display: block;
+      padding-bottom: 50px;
+    }
+  }
+  &__option {
+    position: relative;
+
+    img {
+      border-radius: 16px;
+      height: 216px;
+      object-fit: cover;
+      width: 100%;
+    }
+    h3 {
+      color: $blue;
+      font: normal clamp(18px, 1vw + 12px, 24px) $font-lato-bold;
+      margin-top: 10px;
+    }
+    &-description {
+      color: $white;
+      font: normal clamp(14px, 0.5vw + 10px, 16px) $font-lato-medium;
+      line-height: 1.5;
+      margin-top: 10px;
+      padding-bottom: 70px;
+    }
+    &-link {
+      margin-top: 20px;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      a {
+        border: 1px solid $white;
+        border-radius: 8px;
+        color: $white;
+        display: block;
+        font: normal clamp(12px, 0.5vw + 8px, 14px) $font-lato-bold;
+        line-height: 24px;
+        padding: 11px 5px;
+        text-transform: uppercase;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.site-booking {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: clamp(356px, 50vw, 560px);
+  width: 100%;
+  &:before {
+    content: "";
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+  }
+  &:after {
+    content: "";
+    background: rgba($black, .1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  &__booking-wrap {
+    padding: 20px 50px 50px;
+    width: 50%;
+    @include max-media($page-mobile-width) {
+      padding: 0;
+      text-align: center;
+      width: 100%;
+    }
+    h2 {
+      color: $white;
+      font: normal clamp(30px, 5vw, 48px) $font-lato-bold;
+      @include max-media($page-small-width) {
+        font: normal clamp(24px, 5vw, 36px) $font-lato-bold;
+      }
+    }
+  }
+  &__description {
+    color: $white;
+    font: normal 24px $font-lato-regular;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    @include max-media($page-small-width) {
+      font: normal 18px $font-lato-regular;
+    }
+  }
+  &__button {
+    background: $orange;
+    border-radius: 10px;
+    color: $white;
+    font: normal 20px $font-lato-bold;
+    padding: 15px 50px;
+    @include max-media($page-mobile-width) {
+      display: block;
+      width: 100%;
+    }
+    @include max-media($page-small-width) {
+      font: normal 18px $font-lato-bold;
+      padding: 9px 30px;
+    }
+  }
+}
+
+.site-blog {
+  background: $white;
+  padding: 30px 0 60px;
+  width: 100%;
+  @include max-media($page-mobile-width) {
+    padding: 30px 0;
+  }
+  &__posts {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+    @include max-media($page-mobile-width) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include max-media($page-medium-width) {
+      margin-top: 20px;
+    }
+  }
+  &__post {
+    background: $white;
+    border-radius: 16px;
+    position: relative;
+    width: 100%;
+    &-image {
+      img {
+        border-radius: 16px;
+        height: 240px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+    &-title {
+      color: $black;
+      font: normal 20px $font-lato-bold;
+      line-height: 26px;
+      margin-top: 15px;
+    }
+    &-description {
+      color: $black;
+      font: normal 16px $font-lato-medium;
+      line-height: 26px;
+      margin-top: 10px;
+      @include min-media($page-mobile-width) {
+        min-height: 200px;
+      }
+    }
+    &-button {
+      margin-top: 20px;
+      text-align: center;
+      a {
+        border: 1px solid $orange;
+        border-radius: 8px;
+        color: $orange;
+        display: block;
+        font: normal 14px $font-lato-bold;
+        line-height: 24px;
+        padding: 3px 9px;
+      }
+    }
+  }
+  &__button-wrap {
+    margin-top: 50px;
+    text-align: center;
+    @include max-media($page-mobile-width) {
+      width: 100%;
+    }
+    a {
+      background: $orange;
+      border-radius: 10px;
+      color: $white;
+      display: inline-block;
+      font: normal 20px $font-lato-bold;
+      padding: 12px 85px;
+      @include max-media($page-mobile-width) {
+        width: 100%;
+      }
+      @include max-media($page-small-width) {
+        font: normal 18px $font-lato-bold;
+        padding: 9px 20px;
+      }
+    }
+  }
+}
+
+.site-faq {
+  background: $light-gray1;
+  padding: 20px 0 60px;
+  @include max-media($page-mobile-width) {
+    padding: 20px 20px 40px;
+  }
+  &__content {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 900px;
+    @include max-media($page-mobile-width) {
+      max-width: 100%;
+      padding: 20px 0;
+    }
+    &-button {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 20px;
+      button {
+        background: $orange;
+        border: 0;
+        border-radius: 8px;
+        color: $white;
+        cursor: pointer;
+        display: block;
+        font: normal 14px $font-lato-bold;
+        padding: 12px 35px;
+        transition: background-color 0.3s ease;
+        @include max-media($page-mobile-width) {
+          width: 100%;
+        }
+      }
+    }
+    &-list {
+      &-item {
+        background: $white;
+        border-left: 3px solid $blue;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px 2px #00000014;
+        margin-bottom: 20px;
+        &.is-active {
+          border-left: 3px solid $orange;
+          .site-faq__content-list-title {
+            &::before {
+              transform: translate(0, -50%) rotate(0deg);
+            }
+          }
+          .site-faq__content-list-description {
+            max-height: 500px;
+            padding: 20px;
+            opacity: 1;
+          }
+        }
+      }
+      &-title {
+        cursor: pointer;
+        font: normal 18px $font-lato-bold;
+        margin: 0;
+        padding: 20px 20px 20px 50px;
+        position: relative;
+        transition: background-color 0.3s ease;
+        &::before {
+          content: '';
+          @include iconBackgroundOption('arrow-up');
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          width: 30px;
+          height: 30px;
+          transition: transform 0.3s ease;
+          transform: translate(0, -50%) rotate(180deg);
+        }
+        &:hover {
+          background: rgba($orange, 0.1);
+        }
+      }
+      &-description {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        margin: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+        font: normal 16px $font-lato-regular;
+        line-height: 1.6;
+        color: $body-text-colour;
+      }
+    }
+  }
+}
+
+.site-reviews {
+  background-size: cover;
+  padding: 30px 0 60px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  &:before {
+    content: "";
+    background: rgba($dark-blue, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  &__title {
+    color: $blue;
+    font: normal 48px $font-lato-bold;
+    padding-top: 40px;
+    @include max-media($page-mobile-width) {
+      font: normal 32px $font-lato-bold;
+    }
+  }
+  &__sub-title {
+    color: $white;
+    font: normal 24px $font-lato-regular;
+    margin-top: 15px;
+    @include max-media($page-mobile-width) {
+      font: normal 18px $font-lato-regular;
+    }
+  }
+
+  &__posts {
+    margin-top: 70px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 80px !important;
+    text-align: left;
+    .swiper-pagination {
+      background: rgba($white, .2);
+      border-radius: 8px;
+      bottom: 0 !important;
+      left: 50% !important;
+      top: auto !important;
+      transform: translate(-50%, 0%);
+      padding: 10px 15px;
+      width: auto !important;
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        background: $light-gray1;
+        margin: 0 8px;
+        opacity: 1;
+        transition: background-color 0.3s ease;
+
+        &-active {
+          background: $orange;
+        }
+      }
+    }
+  }
+
+  .swiper-slide {
+    &:nth-child(odd) {
+      .site-reviews__post {
+        border-left: 8px solid $orange;
+      }
+    }
+  }
+  &__post {
+    background: $white;
+    border-left: 8px solid $blue;
+    border-radius: 16px;
+    padding: 20px;
+    height: 242px;
+    position: relative;
+    z-index: 2;
+    &-icon {
+      @include iconBackgroundOption('quote');
+      height: 32px;
+      width: 32px;
+    }
+    &-description {
+      color: $body-text-colour;
+      font: normal 14px $font-lato-medium;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      margin-top: 15px;
+    }
+    &-user {
+      h5 {
+        color: $body-text-colour;
+        font: normal 16px $font-lato-bold;
+      }
+      span {
+        display: block;
+        color: $body-text-colour;
+        font: normal 14px $font-lato-regular;
+      }
+    }
+  }
+}

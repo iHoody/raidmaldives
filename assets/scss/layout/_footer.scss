@@ -1,0 +1,99 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../components/helper' as *;
+
+footer {
+  background: $gray2;
+  padding: 40px 20px;
+}
+
+.footer-section {
+  display: grid;
+  gap: clamp(2rem, 3vw + 1rem, 5rem);
+  grid-template-columns: repeat(4, 1fr);
+  @include max-media($page-medium-width) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  &__item {
+    h3 {
+      border-bottom: 1px solid $orange;
+      color: $white;
+      font: normal clamp(14px, 0.5vw + 10px, 16px) $font-lato-medium;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      text-transform: uppercase;
+    }
+    p {
+      color: $white;
+      font: normal clamp(12px, 0.5vw + 8px, 14px) $font-lato-light;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .connect-menu {
+      &__wrap {
+        display: flex;
+        ul {
+          li {
+            &.phone-number {
+              a {
+                &:before {
+                  background: url("../images/icon/icon-call.svg") no-repeat left center;
+                }
+              }
+            }
+            &.email {
+              a {
+                &:before {
+                  background: url("../images/icon/icon-email.svg") no-repeat left center;
+                }
+              }
+            }
+            &.facebook {
+              a {
+                &:before {
+                  background: url("../images/icon/icon-facebook-orange.svg") no-repeat left center;
+                }
+              }
+            }
+            &.instagram {
+              a {
+                &:before {
+                  background: url("../images/icon/icon-instagram-orange.svg") no-repeat left center;
+                }
+              }
+            }
+            a {
+
+            }
+          }
+        }
+      }
+    }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    ul {
+      li {
+        display: block;
+        margin-bottom: 10px;
+        a {
+          color: $white;
+          display: block;
+          font: normal 14px $font-lato-light;
+          padding-left: 23px;
+          position: relative;
+          &:before {
+            content: "";
+            background: url("../images/icon/icon-croissant.svg") no-repeat left center;
+            background-size: contain;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

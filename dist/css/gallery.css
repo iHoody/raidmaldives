@@ -1,0 +1,135 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.gallery {
+  padding: 40px 20px;
+}
+.gallery__header {
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+.gallery__header h2 {
+  color: #2F2F2F;
+  font: normal clamp(28px, 4vw, 36px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: clamp(10px, 2vw, 20px) 0;
+}
+.gallery__wrap {
+  border-radius: 16px;
+  border: 1px solid #F2F2F7;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+.gallery__wrap-image img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 256px;
+  object-fit: cover;
+  width: 100%;
+}
+.gallery__wrap-detail {
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.gallery__wrap-detail h3 {
+  color: #2F2F2F;
+  font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 28px;
+  margin: 10px 0;
+}
+.gallery__wrap-detail p {
+  color: #595959;
+  font: normal 18px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+}
+
+.swiper-container-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+.swiper-close:before, .swiper-close:after {
+  content: "";
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  height: 16px;
+  width: 3px;
+}
+.swiper-close:before {
+  transform: rotate(45deg);
+}
+.swiper-close:after {
+  transform: rotate(-45deg);
+}
+.swiper-wrapper .swiper-slide img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.swiper .swiper-button-next svg,
+.swiper .swiper-button-prev svg {
+  display: none;
+}
+.swiper .swiper-button-next:before,
+.swiper .swiper-button-prev:before {
+  content: "";
+  background-color: #fff;
+  mask-image: url("../images/icon/icon-arrow-up.svg");
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 24px;
+  width: 24px;
+}
+.swiper .swiper-button-next:before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.swiper .swiper-button-prev:before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+/*# sourceMappingURL=gallery.css.map */

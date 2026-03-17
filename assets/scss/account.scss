@@ -1,0 +1,503 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// WooCommerce Account Page Styling
+.woocommerce-account {
+
+  .woocommerce {
+    display: flex;
+    gap: 2rem;
+    max-width: $page-max-width;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+
+    @include max-media($page-medium-width) {
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+  }
+
+  // Navigation Sidebar
+  .woocommerce-MyAccount-navigation {
+    flex: 0 0 280px;
+    background: $white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -4px #0000001A, 0 10px 15px -3px #0000001A;
+    float: none;
+    width: auto;
+
+    @include max-media($page-medium-width) {
+      flex: 1;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      border-bottom: 1px solid #e0e0e0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1rem 1.2rem 1.5rem;
+        color: $header-text-colour;
+        font: normal 16px $font-lato-medium;
+        transition: all 0.3s ease;
+        text-decoration: none;
+
+        &:hover {
+          background: rgba($blue, 0.05);
+          color: $blue;
+          transform: translateX(4px);
+        }
+      }
+
+      &.is-active a {
+        background: $blue;
+        color: $white;
+        box-shadow: 0 4px 12px rgba($blue, 0.3);
+      }
+    }
+  }
+
+  // Main Content Area
+  .woocommerce-MyAccount-content {
+    flex: 1;
+    background: $white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -4px #0000001A, 0 10px 15px -3px #0000001A;
+    float: none;
+    font-family: $font-lato-regular;
+    width: auto;
+
+    @include max-media($page-medium-width) {
+      padding: 2rem 1.5rem;
+    }
+
+    // Dashboard Welcome Section
+    p:first-of-type {
+      font-size: 1.2rem;
+      color: $header-text-colour;
+      margin-bottom: 1.5rem;
+
+      strong {
+        font-weight: 700;
+      }
+
+      a {
+        color: $blue;
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease;
+        &:hover {
+          border-bottom-color: $blue;
+        }
+      }
+    }
+
+    // Dashboard Description
+    p:nth-of-type(2) {
+      color: $header-text-colour;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+
+      a {
+        color: $blue;
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease;
+        &:hover {
+          border-bottom-color: $blue;
+        }
+      }
+    }
+
+    // Orders Table
+    .woocommerce-orders-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem 0;
+
+      thead {
+        background: #f8f9fa;
+
+        th {
+          padding: 1rem 1.5rem;
+          text-align: left;
+          font-weight: 600;
+          color: #333;
+          border-bottom: 2px solid #e0e0e0;
+
+          &:first-child {
+            border-top-left-radius: 8px;
+          }
+
+          &:last-child {
+            border-top-right-radius: 8px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: #f8f9fa;
+          }
+
+          th {
+            a {
+              color: $blue;
+              text-decoration: none;
+              font-weight: 500;
+            }
+          }
+
+          td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            color: $body-text-colour;
+
+            a {
+              color: $blue;
+              text-decoration: none;
+              font-weight: 500;
+            }
+
+            &.woocommerce-orders-table__cell-order-number a {
+              color: $blue;
+              font-weight: 600;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            &.woocommerce-orders-table__cell-order-status {
+              .woocommerce-order-status {
+                display: inline-block;
+                padding: 0.4rem 1rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: capitalize;
+
+                &.status-completed {
+                  background: #d4edda;
+                  color: #155724;
+                }
+
+                &.status-processing {
+                  background: #fff3cd;
+                  color: #856404;
+                }
+
+                &.status-on-hold {
+                  background: #f8d7da;
+                  color: #721c24;
+                }
+
+                &.status-pending {
+                  background: #e2e3e5;
+                  color: #383d41;
+                }
+              }
+            }
+
+            &.woocommerce-orders-table__cell-order-actions {
+              a {
+                display: inline-block;
+                padding: 0.6rem 1.2rem;
+                background: $orange;
+                color: $white;
+                text-decoration: none;
+                border-radius: 6px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                transition: all 0.3s ease;
+
+                &:hover {
+                  background: $blue;
+                  transform: translateY(-2px);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Edit Account Form
+    .woocommerce-EditAccountForm {
+      .form-row {
+        margin-bottom: 1.5rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: $body-text-colour;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          width: 100%;
+          padding: 0.8rem 1rem;
+          border: 2px solid #e0e0e0;
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: $blue;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          }
+        }
+      }
+
+      button[type="submit"] {
+        padding: 1rem 2.5rem;
+        background: $orange;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+      }
+    }
+
+    // Address section
+    .woocommerce-Addresses {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+
+      .woocommerce-Address {
+        padding: 2rem;
+        background: $white;
+        border-radius: 12px;
+        border: 2px solid #e0e0e0;
+        transition: all 0.3s ease;
+        float: none;
+        width: auto;
+
+        &:hover {
+          border-color: $blue;
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .woocommerce-Address-title {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          margin-bottom: 1rem;
+          width: 100%;
+
+          h2 {
+            flex: 1;
+          }
+
+          h3 {
+            font-size: 1.2rem;
+            color: $body-text-colour;
+            margin: 0 0 0.5rem 0;
+          }
+
+          .edit {
+            color: $blue;
+            text-decoration: none;
+            font-size: 0.9rem;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        address {
+          font-style: normal;
+          line-height: 1.8;
+          color: $body-text-colour;
+        }
+      }
+    }
+
+    // Enrolled events
+    .dive-events {
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      &__item {
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -4px #0000001A, 0 10px 15px -3px #0000001A;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: clamp(10px, 2vw, 20px) 0;
+        width: 100%;
+        @include max-media($page-mobile-width) {
+          flex-direction: column;
+          height: auto;
+        }
+        &-image {
+          height: 100%;
+          width: 30%;
+          @include max-media($page-mobile-width) {
+            height: clamp(180px, 40vw, 250px);
+            width: 100%;
+          }
+          img {
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            @include max-media($page-mobile-width) {
+              border-top-right-radius: 16px;
+              border-bottom-left-radius: 0;
+            }
+          }
+        }
+        &-details {
+          display: flex;
+          flex-wrap: wrap;
+          padding: clamp(15px, 2vw, 20px);
+          position: relative;
+          width: 70%;
+          @include max-media($page-mobile-width) {
+            width: 100%;
+          }
+        }
+        &-date {
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          @include max-media($page-medium-width) {
+            position: relative;
+            top: 0;
+            right: 0;
+            margin-bottom: 5px;
+          }
+          span {
+            color: $header-text-colour;
+            font: normal 14px $font-lato-bold;
+          }
+        }
+        &-title {
+          color: $header-text-colour;
+          font: normal clamp(20px, 2.5vw, 30px) $font-inter-bold;
+          margin-top: -10px;
+          width: inherit;
+          @include max-media($page-medium-width) {
+            margin-top: 0;
+          }
+        }
+        &-location {
+          color: $body-text-colour;
+          font: normal clamp(12px, 1vw, 14px) $font-inter-regular;
+          margin-bottom: clamp(5px, 1vw, 10px);
+          width: inherit;
+        }
+        &-description {
+          color: $body-text-colour;
+          font: normal clamp(14px, 1vw, 16px) $font-inter-regular;
+          line-height: clamp(22px, 2vw, 26px);
+          padding: clamp(5px, 1vw, 10px) 0 clamp(10px, 1.5vw, 15px);
+          width: inherit;
+        }
+        &-buttons {
+          margin-top: clamp(15px, 2vw, 20px);
+          width: inherit;
+          display: flex;
+          gap: clamp(8px, 1vw, 12px);
+          a {
+            background: $white;
+            border: 1px solid $blue;
+            border-radius: 8px;
+            color: $blue;
+            display: inline-block;
+            font: normal clamp(12px, 1vw, 14px) $font-inter-semi-bold;
+            line-height: 25px;
+            padding: 7px 20px 8px 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.content-area {
+  .post-content {
+    .entry-header {
+      display: none;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .woocommerce-account {
+    .woocommerce {
+      padding: 1rem;
+    }
+
+    .woocommerce-MyAccount-navigation {
+      padding: 1.5rem;
+
+      li a {
+        font-size: 0.95rem;
+        padding: 1rem 0.8rem;
+      }
+    }
+
+    .woocommerce-MyAccount-content {
+      padding: 1.5rem;
+
+      .woocommerce-orders-table {
+        font-size: 0.9rem;
+
+        thead th,
+        tbody td {
+          padding: 0.8rem 1rem;
+        }
+      }
+
+      .woocommerce-EditAccountForm {
+        fieldset {
+          padding: 1rem;
+          label {
+            font: normal 16px $font-lato-medium;
+          }
+        }
+      }
+    }
+  }
+}

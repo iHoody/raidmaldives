@@ -1,0 +1,11 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.site-banner {
+  &.login-banner {
+    height: clamp(300px, 30vw, 40vw);
+    @include max-media($page-mobile-width) {
+      height: clamp(600px, 55vw, 65vw);
+    }
+  }
+}

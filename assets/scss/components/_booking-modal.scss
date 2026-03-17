@@ -1,0 +1,276 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Booking Modal
+// ==========================================================================
+
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+
+    .booking-modal__container {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($black, 0.7);
+    cursor: pointer;
+  }
+
+  &__container {
+    position: relative;
+    background: $white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(-20px) scale(0.95);
+    transition: transform 0.3s ease;
+    z-index: 1;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: $body-text-colour;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba($black, 0.1);
+    }
+  }
+
+  &__content {
+    padding: clamp(20px, 4vw, 30px);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: clamp(20px, 3vw, 30px);
+  }
+
+  &__title {
+    font: normal clamp(20px, 3vw, 28px) $font-lato-bold;
+    color: $header-text-colour;
+    margin: 0 0 10px 0;
+  }
+
+  &__event-name {
+    font: normal clamp(14px, 2vw, 16px) $font-lato-medium;
+    color: $blue;
+    margin: 0;
+  }
+
+  &__loading,
+  &__error {
+    text-align: center;
+    padding: 40px 20px;
+    color: $body-text-colour;
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba($blue, 0.2);
+      border-top-color: $blue;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+  }
+
+  &__error {
+    p {
+      color: $body-text-colour;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// ==========================================================================
+// Booking Form
+// ==========================================================================
+
+.booking-form {
+  &__field {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font: normal 14px $font-inter-semi-bold;
+      color: $header-text-colour;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid $light-gray1;
+    border-radius: 8px;
+    font: normal 14px $font-inter-regular;
+    color: $header-text-colour;
+    background: $white;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+
+    &:focus {
+      outline: none;
+      border-color: $blue;
+    }
+
+    option:disabled {
+      color: #999;
+    }
+  }
+
+  &__details {
+    margin-top: 20px;
+  }
+}
+
+// ==========================================================================
+// Details Card
+// ==========================================================================
+
+.details-card {
+  background: $light-gray1;
+  border-radius: 12px;
+  padding: clamp(15px, 3vw, 25px);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba($black, 0.1);
+  }
+
+  &__name {
+    font: normal clamp(16px, 2vw, 20px) $font-inter-bold;
+    color: $header-text-colour;
+    margin: 0;
+  }
+
+  &__price {
+    font: normal clamp(20px, 3vw, 28px) $font-inter-bold;
+    color: $blue;
+  }
+
+  &__info {
+    margin-bottom: 20px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba($black, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    font: normal 14px $font-inter-regular;
+    color: $body-text-colour;
+  }
+
+  &__value {
+    font: normal 14px $font-inter-semi-bold;
+    color: $header-text-colour;
+
+    &.sold-out {
+      color: #dc3545;
+    }
+  }
+
+  &__actions {
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  &__sold-out {
+    color: #dc3545;
+    font: normal 14px $font-inter-semi-bold;
+    margin: 0;
+  }
+}
+
+.booking-form__checkout-btn {
+  width: 100%;
+  padding: 15px 30px;
+  background: $orange;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  font: normal 16px $font-lato-bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: $orange;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ==========================================================================
+// Body Lock
+// ==========================================================================
+
+body.modal-open {
+  overflow: hidden;
+}
+
+// ==========================================================================
+// Animations
+// ==========================================================================
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

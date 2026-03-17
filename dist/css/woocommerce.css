@@ -1,0 +1,91 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.position-relative {
+  position: relative !important;
+}
+
+.p--0 {
+  padding: 0 !important;
+}
+
+.diveraid-checkout {
+  font-family: "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 40px 0 60px;
+}
+.diveraid-checkout h1, .diveraid-checkout h2, .diveraid-checkout h3, .diveraid-checkout h4, .diveraid-checkout h5, .diveraid-checkout h6 {
+  font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.diveraid-checkout .woocommerce {
+  /**
+   * Select Container
+   */
+}
+.diveraid-checkout .woocommerce .select2-container--default .select2-selection--single {
+  border-radius: 0;
+}
+.diveraid-checkout .woocommerce .select2-container--default .select2-selection--single .select2-selection__rendered {
+  font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 10px 12px;
+}
+.diveraid-checkout .woocommerce {
+  /**
+   * WooCommerce order confirmation
+   */
+}
+.diveraid-checkout .woocommerce .woocommerce-order-details__title {
+  margin-bottom: 10px;
+}
+.diveraid-checkout .woocommerce .woocommerce-order .woocommerce-notice--success {
+  font-size: 30px;
+  padding: 50px 10px;
+  text-align: center;
+}
+.diveraid-checkout .woocommerce .woocommerce-customer-details h2 {
+  margin-bottom: 10px;
+}
+.diveraid-checkout .woocommerce .woocommerce-customer-details address {
+  padding: 15px;
+  line-height: 26px;
+}
+.diveraid-checkout .woocommerce .woocommerce-customer-details address p.woocommerce-customer-details--email {
+  padding: 0 0 0 1.5rem;
+}
+.diveraid-checkout .woocommerce #payment #place_order,
+.diveraid-checkout .woocommerce .woocommerce-page #payment #place_order {
+  background: #F16122;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font: normal 14px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 7px 25px;
+}
+.diveraid-checkout .woocommerce form .form-row .input-text {
+  border: 1px solid #1a1a1a;
+  border-radius: 0;
+  padding: 10px 12px;
+}
+.diveraid-checkout .woocommerce table.shop_table th {
+  font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.diveraid-checkout .woocommerce table.shop_table tfoot td {
+  font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/*# sourceMappingURL=woocommerce.css.map */

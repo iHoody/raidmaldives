@@ -1,0 +1,711 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.position-relative {
+  position: relative !important;
+}
+
+.p--0 {
+  padding: 0 !important;
+}
+
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.booking-modal[aria-hidden=false] {
+  opacity: 1;
+  visibility: visible;
+}
+.booking-modal[aria-hidden=false] .booking-modal__container {
+  transform: translateY(0) scale(1);
+}
+.booking-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.booking-modal__container {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(-20px) scale(0.95);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+.booking-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #595959;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.booking-modal__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.booking-modal__content {
+  padding: clamp(20px, 4vw, 30px);
+}
+.booking-modal__header {
+  text-align: center;
+  margin-bottom: clamp(20px, 3vw, 30px);
+}
+.booking-modal__title {
+  font: normal clamp(20px, 3vw, 28px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  margin: 0 0 10px 0;
+}
+.booking-modal__event-name {
+  font: normal clamp(14px, 2vw, 16px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #00A0DE;
+  margin: 0;
+}
+.booking-modal__loading, .booking-modal__error {
+  text-align: center;
+  padding: 40px 20px;
+  color: #595959;
+}
+.booking-modal__loading .spinner, .booking-modal__error .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 160, 222, 0.2);
+  border-top-color: #00A0DE;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+.booking-modal__error p {
+  color: #595959;
+  margin-bottom: 15px;
+}
+
+.booking-form__field {
+  margin-bottom: 20px;
+}
+.booking-form__field label {
+  display: block;
+  font: normal 14px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  margin-bottom: 8px;
+}
+.booking-form__select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #F8F8F8;
+  border-radius: 8px;
+  font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+.booking-form__select:focus {
+  outline: none;
+  border-color: #00A0DE;
+}
+.booking-form__select option:disabled {
+  color: #999;
+}
+.booking-form__details {
+  margin-top: 20px;
+}
+
+.details-card {
+  background: #F8F8F8;
+  border-radius: 12px;
+  padding: clamp(15px, 3vw, 25px);
+}
+.details-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details-card__name {
+  font: normal clamp(16px, 2vw, 20px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+  margin: 0;
+}
+.details-card__price {
+  font: normal clamp(20px, 3vw, 28px) "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #00A0DE;
+}
+.details-card__info {
+  margin-bottom: 20px;
+}
+.details-card__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+.details-card__row:last-child {
+  border-bottom: none;
+}
+.details-card__label {
+  font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #595959;
+}
+.details-card__value {
+  font: normal 14px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2F2F2F;
+}
+.details-card__value.sold-out {
+  color: #dc3545;
+}
+.details-card__actions {
+  text-align: center;
+  padding-top: 15px;
+}
+.details-card__sold-out {
+  color: #dc3545;
+  font: normal 14px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+}
+
+.booking-form__checkout-btn {
+  width: 100%;
+  padding: 15px 30px;
+  background: #F16122;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font: normal 16px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.booking-form__checkout-btn:hover:not(:disabled) {
+  background: #F16122;
+  transform: translateY(-2px);
+}
+.booking-form__checkout-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.training-mid-content {
+  background: #040B30;
+  padding: 70px 20px 100px;
+}
+@media screen and (max-width: 768px) {
+  .training-mid-content {
+    padding: 30px 20px 50px;
+  }
+}
+.training-mid-content__details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .training-mid-content__details {
+    width: 100%;
+  }
+}
+.training-mid-content__details-image {
+  text-align: right;
+  width: 100%;
+}
+@media screen and (min-width: 991px) {
+  .training-mid-content__details-image {
+    padding-right: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .training-mid-content__details-image {
+    text-align: center;
+  }
+}
+.training-mid-content__details-image img {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .training-mid-content__details-image img {
+    height: 480px;
+    width: auto;
+  }
+}
+@media screen and (min-width: 991px) {
+  .training-mid-content__details-content {
+    padding-left: 30px;
+  }
+}
+.training-mid-content__details-content h4 {
+  color: #F16122;
+  font: normal 38px "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 768px) {
+  .training-mid-content__details-content h4 {
+    font: normal 32px "InterBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-top: 20px;
+  }
+}
+.training-mid-content__details-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 0 30px;
+}
+.training-mid-content__details-content ul li {
+  color: #fff;
+  font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 10px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .training-mid-content__details-content ul li {
+    font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.training-mid-content__details-content ul li:before {
+  content: "";
+  background: url("../images/icon/icon-croissant.svg") no-repeat center center;
+  background-size: contain;
+  height: 20px;
+  left: -30px;
+  position: absolute;
+  top: 5px;
+  width: 20px;
+}
+
+.how-it-works {
+  background: #F8F8F8;
+  padding: 40px 20px 80px;
+}
+@media screen and (max-width: 768px) {
+  .how-it-works {
+    padding: 20px 20px 40px;
+  }
+}
+.how-it-works.section-content h2.section-title {
+  padding-top: 0;
+}
+.how-it-works__wrap {
+  margin: 30px auto 70px;
+  text-align: center;
+  width: 80%;
+}
+@media screen and (min-width: 1500px) {
+  .how-it-works__wrap {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .how-it-works__wrap {
+    margin: 20px auto 30px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .how-it-works__list {
+    padding-right: 30px;
+  }
+}
+.how-it-works__list ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 0 30px;
+}
+.how-it-works__list ul li {
+  color: #2F2F2F;
+  font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 10px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .how-it-works__list ul li {
+    font: normal 18px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.how-it-works__list ul li:before {
+  content: "";
+  background: #F16122;
+  border-radius: 50%;
+  height: 10px;
+  left: -25px;
+  position: absolute;
+  top: 9px;
+  width: 10px;
+}
+@media screen and (min-width: 991px) {
+  .how-it-works__image {
+    padding-left: 30px;
+  }
+}
+
+.courses.start-diving {
+  padding-top: 40px;
+}
+.courses.section-content h2.section-title {
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+.courses__posts {
+  margin: 30px auto 70px;
+  text-align: center;
+  width: 80%;
+}
+.courses__post {
+  background: #fff;
+  border: 1px solid #F2F2F7;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+.courses__post-image {
+  padding: 20px 0 20px 20px;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-image {
+    padding: 20px;
+  }
+}
+.courses__post-image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.courses__post-details {
+  padding: 20px 20px 20px 0;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-details {
+    padding: 0 20px 20px;
+  }
+}
+.courses__post-details-link {
+  color: #000000;
+  font: normal 32px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  display: inline-block;
+  line-height: 26px;
+}
+.courses__post-details-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  background-color: #F16122;
+  width: 0;
+  transition: width 0.3s ease;
+}
+.courses__post-details-link:hover::after {
+  width: 100%;
+}
+.courses__post-details-title {
+  color: #000000;
+  font: normal 32px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 26px;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-details-title {
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
+  }
+}
+.courses__post-details-price {
+  margin-top: -5px;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-details-price {
+    margin-top: 0;
+  }
+}
+.courses__post-details-price .price {
+  color: #595959;
+  font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-left: 5px;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-details-price .price {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.courses__post-details-description {
+  color: #000000;
+  font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 26px;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-details-description {
+    font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 24px;
+  }
+}
+.courses__post-details-button {
+  display: flex;
+  margin-top: 10px;
+  text-align: center;
+}
+.courses__post-details-button a {
+  background: #F16122;
+  border-radius: 8px;
+  color: #fff;
+  display: block;
+  font: normal 14px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 7px 25px;
+}
+@media screen and (max-width: 768px) {
+  .courses__post-details-button a {
+    padding: 5px 20px;
+  }
+}
+.courses__post-details-button a.book-now {
+  margin-left: 10px;
+}
+
+.training--section {
+  padding: 70px 20px;
+}
+@media screen and (max-width: 768px) {
+  .training--section {
+    padding: 30px 20px;
+  }
+}
+.training--gallery {
+  display: flex;
+  flex-direction: column;
+}
+.training--gallery__item {
+  margin-bottom: 25px;
+}
+.training--gallery__item img {
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+.training--content {
+  color: #595959;
+  font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 768px) {
+  .training--content {
+    font: normal 18px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.training--content.big-padding-left {
+  padding-left: 50px;
+}
+@media screen and (max-width: 991px) {
+  .training--content.big-padding-left {
+    padding-left: 0;
+  }
+}
+.training--content.big-padding-right {
+  padding-right: 50px;
+}
+@media screen and (max-width: 991px) {
+  .training--content.big-padding-right {
+    padding-right: 0;
+  }
+}
+.training--content p {
+  line-height: 34px;
+  margin-bottom: 30px;
+}
+.training--content strong, .training--content h1, .training--content h2, .training--content h3, .training--content h4, .training--content h5, .training--content h6 {
+  font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.training--content h1, .training--content h2, .training--content h3, .training--content h4, .training--content h5, .training--content h6 {
+  padding: 10px 0;
+}
+.training--bottom-gallery {
+  margin-top: 40px;
+}
+.training--bottom-gallery__item {
+  width: 100%;
+}
+.training--bottom-gallery__item img {
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+
+/**
+ * Gallery Modal
+ */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;
+}
+.gallery-modal.active {
+  display: block;
+}
+.gallery-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.gallery-modal__content {
+  position: relative;
+  top: 5%;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+.gallery-modal__content .gallery-main {
+  height: 80%;
+}
+.gallery-modal__content .gallery-main .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.gallery-modal__content .gallery-main .swiper-slide img {
+  border-radius: 14px;
+  height: 100%;
+  object-fit: contain;
+  width: auto;
+}
+.gallery-modal__content .gallery-main .swiper-button-next,
+.gallery-modal__content .gallery-main .swiper-button-prev {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.gallery-modal__content .gallery-main .swiper-button-next svg,
+.gallery-modal__content .gallery-main .swiper-button-prev svg {
+  display: none;
+}
+.gallery-modal__content .gallery-main .swiper-button-next:before,
+.gallery-modal__content .gallery-main .swiper-button-prev:before {
+  content: "";
+  background-color: #fff;
+  mask-image: url("../images/icon/icon-arrow-up.svg");
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 24px;
+  width: 24px;
+}
+.gallery-modal__content .gallery-main .swiper-button-next:before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.gallery-modal__content .gallery-main .swiper-button-prev:before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+.gallery-modal__content .gallery-thumbs {
+  height: 60px;
+  margin-top: 20px;
+  width: 40%;
+}
+@media screen and (max-width: 768px) {
+  .gallery-modal__content .gallery-thumbs {
+    width: 80%;
+  }
+}
+.gallery-modal__content .gallery-thumbs .swiper-slide-thumb-active {
+  border: 2px solid #F16122;
+  border-radius: 16px;
+}
+.gallery-modal__content .gallery-thumbs img {
+  border-radius: 16px;
+  cursor: pointer;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+.gallery-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  z-index: 999;
+}
+.gallery-modal__close:before, .gallery-modal__close:after {
+  content: "";
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  top: 13px;
+  left: 18px;
+  height: 16px;
+  width: 3px;
+}
+.gallery-modal__close:before {
+  transform: rotate(45deg);
+}
+.gallery-modal__close:after {
+  transform: rotate(-45deg);
+}
+
+/*# sourceMappingURL=training.css.map */

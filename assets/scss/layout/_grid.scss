@@ -1,0 +1,137 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.container {
+  max-width: $page-max-width;
+  margin: 0 auto;
+  padding: 0 20px;
+  @include max-media(767px) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  &-fluid {
+    padding: 0 30px;
+    width: 100%;
+  }
+}
+
+.row {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(12, 1fr);
+
+  @include max-media(991px) {
+    gap: 1.5rem;
+  }
+
+  @include max-media(767px) {
+    gap: 1rem;
+  }
+
+  &.fluid {
+    margin: initial;
+    max-width: 100%;
+  }
+
+  &.reverse-column {
+    grid-auto-flow: dense;
+    .column {
+      &:first-child {
+        order: 2;
+      }
+      &:last-child {
+        order: 1;
+      }
+    }
+  }
+}
+
+.column {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  &.text-center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.align-right {
+    align-items: flex-end;
+  }
+  &.align-left {
+    align-items: flex-start;
+  }
+  &.justify-center {
+    justify-content: center;
+  }
+  &.justify-right {
+    justify-content: flex-end;
+  }
+  &.justify-left {
+    justify-content: flex-start;
+  }
+  &.justify-between {
+    justify-content: space-between;
+  }
+  &.justify-around {
+    justify-content: space-around;
+  }
+
+  &--1 { grid-column: span 1; }
+  &--2 { grid-column: span 2; }
+  &--3 { grid-column: span 3; }
+  &--4 { grid-column: span 4; }
+  &--5 { grid-column: span 5; }
+  &--6 { grid-column: span 6; }
+  &--7 { grid-column: span 7; }
+  &--8 { grid-column: span 8; }
+  &--9 { grid-column: span 9; }
+  &--10 { grid-column: span 10; }
+  &--11 { grid-column: span 11; }
+  &--12 { grid-column: span 12; }
+
+  // Tablet (768px - 991px)
+  &--1,
+  &--2,
+  &--3,
+  &--4,
+  &--5,
+  &--6,
+  &--7,
+  &--8,
+  &--9,
+  &--10,
+  &--11,
+  &--12 {
+    @include max-media(991px) {
+      // For columns 8 and above on tablet, make full width
+      &.column--8,
+      &.column--9,
+      &.column--10,
+      &.column--11,
+      &.column--12 {
+        grid-column: span 12;
+      }
+
+      // For columns less than 8, make them half width
+      &.column--1,
+      &.column--2,
+      &.column--3,
+      &.column--4,
+      &.column--5,
+      &.column--6,
+      &.column--7 {
+        grid-column: span 6;
+      }
+    }
+
+    // Mobile (767px and below) - all full width
+    @include max-media(767px) {
+      grid-column: span 12 !important;
+    }
+  }
+}

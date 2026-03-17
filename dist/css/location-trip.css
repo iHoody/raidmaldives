@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.position-relative {
+  position: relative !important;
+}
+
+.p--0 {
+  padding: 0 !important;
+}
+
+.why-choose {
+  background: #F8F8F8;
+  padding: 20px 20px 80px;
+}
+@media screen and (max-width: 768px) {
+  .why-choose {
+    padding: 20px 20px 40px;
+  }
+}
+.why-choose__wrap-services .service-wrap .service-title {
+  font: normal clamp(16px, 1.5vw, 20px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.why-choose__wrap-services .service-wrap .service-sub-title {
+  font: normal clamp(14px, 1vw, 16px) "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dive-post-section {
+  padding: 20px 20px 100px;
+}
+.dive-post-section .section-content {
+  padding-bottom: 40px;
+}
+.dive-post-section .dive-post-item {
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.dive-post-section .dive-post-item__image img {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: 256px;
+  object-fit: cover;
+  width: 100%;
+}
+.dive-post-section .dive-post-item__video-placeholder {
+  background: #CDCDCD;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: 256px;
+  position: relative;
+  width: 100%;
+}
+.dive-post-section .dive-post-item__video-placeholder:before {
+  content: "";
+  background-image: url("../images/icon/icon-button-play.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  height: 64px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+}
+.dive-post-section .dive-post-item__details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+.dive-post-section .dive-post-item__title {
+  color: #2F2F2F;
+  font: normal clamp(18px, 1.6vw, 24px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-bottom: 10px;
+}
+.dive-post-section .dive-post-item__sub-title {
+  color: #595959;
+  font: normal clamp(16px, 1.6vw, 18px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-bottom: 10px;
+}
+.dive-post-section .dive-post-item__description {
+  color: #595959;
+  font: normal clamp(14px, 1.6vw, 16px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  padding: 10px 5px 30px;
+  text-align: left;
+}
+.dive-post-section .dive-post-item__description .header-description {
+  font: normal clamp(14px, 1.6vw, 16px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 15px;
+}
+.dive-post-section .dive-post-item__description ul {
+  list-style: none;
+  padding-left: 20px;
+}
+.dive-post-section .dive-post-item__description ul li {
+  position: relative;
+}
+.dive-post-section .dive-post-item__description ul li:before {
+  content: "•";
+  color: #F16122;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.dive-location-section {
+  border-bottom: 1px solid #E5E5EA;
+  margin-bottom: 20px;
+}
+
+.dive-trip-section .dive-trip-item__description {
+  display: block;
+}
+
+/*# sourceMappingURL=location-trip.css.map */

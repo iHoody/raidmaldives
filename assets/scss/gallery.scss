@@ -1,0 +1,125 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.gallery {
+  padding: 40px 20px;
+  &__header {
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
+    h2 {
+      color: $header-text-colour;
+      font: normal clamp(28px, 4vw, 36px) $font-lato-bold;
+      margin: clamp(10px, 2vw, 20px) 0;
+    }
+  }
+  &__wrap {
+    border-radius: 16px;
+    border: 1px solid $light-gray3;
+    box-shadow: 0 4px 6px -4px rgba($black, 0.1), 0 10px 15px -3px rgba($black, 0.1);
+    width: 100%;
+    &-image {
+      img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 256px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+    &-detail {
+      margin-bottom: 10px;
+      padding: 20px;
+      text-align: center;
+      h3 {
+        color: $header-text-colour;
+        font: normal 24px $font-lato-bold;
+        line-height: 28px;
+        margin: 10px 0;
+      }
+      p {
+        color: $body-text-colour;
+        font: normal 18px $font-lato-medium;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.swiper {
+  &-container-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba($black, 0.9);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  &-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    &:before,
+    &:after {
+      content: "";
+      background: $white;
+      border-radius: 2px;
+      position: absolute;
+      top: 0;
+      height: 16px;
+      width: 3px;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  &-wrapper {
+    .swiper-slide {
+      img {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: rgba($white, 0.1);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    svg {
+      display: none;
+    }
+    &:before {
+      content: "";
+      @include iconMaskBackgroundOption('arrow-up', $white);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 24px;
+      width: 24px;
+    }
+  }
+  .swiper-button-next {
+    &:before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+  .swiper-button-prev {
+    &:before {
+      transform: translate(-50%, -50%) rotate(-90deg);
+    }
+  }
+}

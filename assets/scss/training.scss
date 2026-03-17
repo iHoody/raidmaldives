@@ -1,0 +1,437 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'components/helper' as *;
+@use 'components/booking-modal';
+
+.training-mid-content {
+  background: $dark-blue1;
+  padding: 70px 20px 100px;
+  @include max-media($page-medium-width) {
+    padding: 30px 20px 50px;
+  }
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+    @include max-media($page-medium-width) {
+      width: 100%;
+    }
+    &-image {
+      text-align: right;
+      width: 100%;
+      @include min-media($page-mobile-width) {
+        padding-right: 30px;
+      }
+      @include max-media($page-medium-width) {
+        text-align: center;
+      }
+      img {
+        width: 100%;
+        @include max-media($page-medium-width) {
+          height: 480px;
+          width: auto;
+        }
+      }
+    }
+    &-content {
+      @include min-media($page-mobile-width) {
+        padding-left: 30px;
+      }
+      h4 {
+        color: $orange;
+        font: normal 38px $font-inter-bold;
+        @include max-media($page-medium-width) {
+          font: normal 32px $font-inter-bold;
+          margin-top: 20px;
+        }
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 20px 0 0 30px;
+        li {
+          color: $white;
+          font: normal 24px $font-lato-bold;
+          margin-bottom: 10px;
+          position: relative;
+          @include max-media($page-medium-width) {
+            font: normal 20px $font-lato-bold;
+          }
+          &:before {
+            content: '';
+            background: url('../images/icon/icon-croissant.svg') no-repeat center center;
+            background-size: contain;
+            height: 20px;
+            left: -30px;
+            position: absolute;
+            top: 5px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.how-it-works {
+  background: $light-gray1;
+  padding: 40px 20px 80px;
+  @include max-media($page-medium-width) {
+    padding: 20px 20px 40px;
+  }
+  &.section-content {
+    h2.section-title {
+      padding-top: 0;
+    }
+  }
+  &__wrap {
+    margin: 30px auto 70px;
+    text-align: center;
+    width: 80%;
+    @include min-media(1500px) {
+      width: 60%;
+    }
+    @include max-media($page-medium-width) {
+      margin: 20px auto 30px;
+    }
+  }
+  &__list {
+    @include min-media($page-mobile-width) {
+      padding-right: 30px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 20px 0 0 30px;
+      li {
+        color: $header-text-colour;
+        font: normal 20px $font-lato-medium;
+        margin-bottom: 10px;
+        position: relative;
+        @include max-media($page-medium-width) {
+          font: normal 18px $font-lato-medium;
+        }
+        &:before {
+          content: '';
+          background: $orange;
+          border-radius: 50%;
+          height: 10px;
+          left: -25px;
+          position: absolute;
+          top: 9px;
+          width: 10px;
+        }
+      }
+    }
+  }
+  &__image {
+    @include min-media($page-mobile-width) {
+      padding-left: 30px;
+    }
+  }
+}
+
+.courses {
+  &.start-diving {
+    padding-top: 40px;
+  }
+  &.section-content {
+    h2.section-title {
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
+  }
+  &__posts {
+    margin: 30px auto 70px;
+    text-align: center;
+    width: 80%;
+  }
+  &__post {
+    background: $white;
+    border: 1px solid $light-gray3;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -4px rgba($black, 0.1), 0 10px 15px -3px rgba($black, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    &-image {
+      padding: 20px 0 20px 20px;
+      @include max-media($page-medium-width) {
+        padding: 20px;
+      }
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+    &-details {
+      padding: 20px 20px 20px 0;
+      @include max-media($page-medium-width) {
+        padding: 0 20px 20px;
+      }
+      &-link {
+        color: $black;
+        font: normal 32px $font-lato-bold;
+        position: relative;
+        display: inline-block;
+        line-height: 26px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          height: 2px;
+          background-color: $orange;
+          width: 0;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+      &-title {
+        color: $black;
+        font: normal 32px $font-lato-bold;
+        line-height: 26px;
+        @include max-media($page-medium-width) {
+          font: normal 24px $font-lato-bold;
+          line-height: 26px;
+        }
+      }
+      &-price {
+        margin-top: -5px;
+        @include max-media($page-medium-width) {
+          margin-top: 0;
+        }
+        .price {
+          color: $body-text-colour;
+          font: normal 20px $font-lato-bold;
+          margin-left: 5px;
+          @include max-media($page-medium-width) {
+            font: normal 18px $font-lato-bold;
+          }
+        }
+      }
+      &-description {
+        color: $black;
+        font: normal 18px $font-lato-regular;
+        line-height: 26px;
+        @include max-media($page-medium-width) {
+          font: normal 16px $font-lato-regular;
+          line-height: 24px;
+        }
+      }
+      &-button {
+        display: flex;
+        margin-top: 10px;
+        text-align: center;
+        a {
+          background: $orange;
+          border-radius: 8px;
+          color: $white;
+          display: block;
+          font: normal 14px $font-open-sans-bold;
+          line-height: 24px;
+          padding: 7px 25px;
+          @include max-media($page-medium-width) {
+            padding: 5px 20px;
+          }
+          &.book-now {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.training {
+  &--section {
+    padding: 70px 20px;
+    @include max-media($page-medium-width) {
+      padding: 30px 20px;
+    }
+  }
+  &--gallery {
+    display: flex;
+    flex-direction: column;
+    &__item {
+      margin-bottom: 25px;
+      img {
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -4px rgba($black, 0.1), 0 10px 15px -3px rgba($black, 0.1);
+        height: 400px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+  &--content {
+    color: $body-text-colour;
+    font: normal 20px $font-lato-medium;
+    @include max-media($page-medium-width) {
+      font: normal 18px $font-lato-medium;
+    }
+    &.big-padding-left {
+      padding-left: 50px;
+      @include max-media($page-mobile-width) {
+        padding-left: 0;
+      }
+    }
+    &.big-padding-right {
+      padding-right: 50px;
+      @include max-media($page-mobile-width) {
+        padding-right: 0;
+      }
+    }
+    p {
+      line-height: 34px;
+      margin-bottom: 30px;
+    }
+    strong, h1, h2, h3, h4, h5, h6 {
+      font-family: $font-lato-bold;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      padding: 10px 0;
+    }
+  }
+  &--bottom-gallery {
+    margin-top: 40px;
+    &__item {
+      width: 100%;
+      img {
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -4px rgba($black, 0.1), 0 10px 15px -3px rgba($black, 0.1);
+        height: 400px;
+        object-fit: cover;
+        object-position: top;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/**
+ * Gallery Modal
+ */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;
+  &.active {
+    display: block;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($black, 0.8);
+  }
+  &__content {
+    position: relative;
+    top: 5%;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+
+    .gallery-main {
+      height: 80%;
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        img {
+          border-radius: 14px;
+          height: 100%;
+          object-fit: contain;
+          width: auto;
+        }
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        background: rgba($black, 0.7);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        svg {
+          display: none;
+        }
+        &:before {
+          content: "";
+          @include iconMaskBackgroundOption('arrow-up', $white);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 24px;
+          width: 24px;
+        }
+      }
+      .swiper-button-next {
+        &:before {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+      }
+      .swiper-button-prev {
+        &:before {
+          transform: translate(-50%, -50%) rotate(-90deg);
+        }
+      }
+    }
+
+    .gallery-thumbs {
+      height: 60px;
+      margin-top: 20px;
+      width: 40%;
+      @include max-media($page-medium-width) {
+        width: 80%;
+      }
+      .swiper-slide-thumb-active {
+        border: 2px solid $orange;
+        border-radius: 16px;
+      }
+      img {
+        border-radius: 16px;
+        cursor: pointer;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        width: 100%;
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    z-index: 999;
+    &:before,
+    &:after {
+      content: "";
+      background: $white;
+      border-radius: 2px;
+      position: absolute;
+      top: 13px;
+      left: 18px;
+      height: 16px;
+      width: 3px;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}

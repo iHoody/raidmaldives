@@ -1,0 +1,80 @@
+// Colors
+$orange: #F16122;
+$orange1: #BB4D00;
+$blue: #00A0DE;
+$blue1: #21CDD7;
+$blue2: #2B7FFF;
+$blue3: #1447E6;
+$blue4: #155DFC;
+$white: #fff;
+$red: #E7000B;
+$red1: #C70036;
+$header-text-colour: #2F2F2F;
+$body-text-colour: #595959;
+$dark-bg: #1a1a1a;
+$dark-bg2: #333333;
+$light-gray1: #F8F8F8;
+$light-gray2: #F3F4F6;
+$light-gray3: #F2F2F7;
+$light-gray4: #E5E5EA;
+$medium-gray: #999;
+$gray1: #4D4D4D;
+$gray2: #1A1A1A;
+$gray3: #CDCDCD;
+$gray4: #CAD5E2;
+$black: #000000;
+$light-blue: #90A1B9;
+$light-blue1: #DBEAFE;
+$light-blue2: #62748E;
+$dark-blue: #002331;
+$dark-blue1: #040B30;
+$dark-blue2: #1D293D;
+$dark-blue3: #0F172B;
+$yellow1: #FEF3C6;
+$light-green1: #D0FAE5;
+$green1: #007A55;
+$light-red1: #FFE4E6;
+$light-purple1: #EDE9FE;
+$purple1: #7008E7;
+$light-teal1: #CEFAFE;
+$teal1: #007595;
+
+// Page Widths
+$page-max-width: 1500px;
+$page-large-width: 1024px;
+$page-mobile-width: 991px;
+$page-medium-width: 768px;
+$page-small-width: 576px;
+$page-xsmall-width: 440px;
+
+// Transitions
+$transition-smooth: all 0.3s ease;
+$transition-slow: all 0.4s ease;
+
+// Border Radius
+$radius-small: 8px;
+$radius-medium: 15px;
+$radius-large: 20px;
+$radius-pill: 50px;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Typography
+$font-lato-light: 'LatoLight', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-lato-regular: 'LatoRegular', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-lato-medium: 'LatoMedium', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-lato-bold: 'LatoBold', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-lato-extra-bold: 'LatoExtraBold', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-open-sans-bold: 'OpenSansBold', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-inter-regular: 'InterRegular', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-inter-medium: 'InterMedium', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-inter-semi-bold: 'InterSemiBold', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-inter-bold: 'InterBold', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Breakpoints
+$breakpoint-md: 768px;

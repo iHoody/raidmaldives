@@ -1,0 +1,21 @@
+// 1. Forward abstracts to make them available to other modules
+@forward 'abstracts/variables';
+@forward 'abstracts/mixins';
+
+// 2. Use base styles
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/common';
+@use 'base/icon';
+
+// 3. Use layout-related styles
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+
+// 4. Use components?
+@use 'components/helper';
+
+// 5. Pages
+@use 'pages/home';
+

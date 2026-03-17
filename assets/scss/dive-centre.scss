@@ -1,0 +1,222 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'components/booking-modal';
+
+.dive-centre {
+  &-container {
+    .site-information {
+      &__description {
+        h2 {
+          color: $white;
+          font: normal clamp(28px, 4vw, 48px) $font-lato-bold;
+          margin: clamp(10px, 2vw, 20px) 0;
+        }
+        p {
+          color: $white;
+          font: normal clamp(16px, 2vw, 24px) $font-lato-medium;
+          line-height: clamp(22px, 3vw, 30px);
+        }
+      }
+      &__statistics {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: clamp(10px, 2vw, 20px);
+        padding: clamp(10px, 2vw, 20px) 0;
+        @include max-media($page-medium-width) {
+          padding: clamp(14px, 3vw, 28px) clamp(20px, 3vw, 63px);
+        }
+        @include max-media($page-small-width) {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      &__statistic {
+        background: rgba($black, 0.4);
+        border-radius: 10px;
+        padding: clamp(14px, 3vw, 28px) clamp(30px, 5vw, 63px);
+        @include max-media($page-medium-width) {
+          padding: clamp(14px, 3vw, 28px) clamp(20px, 3vw, 63px);
+        }
+        @include max-media($page-small-width) {
+          width: clamp(40%, 40vw, 100%);
+        }
+        &-number {
+          color: $blue;
+          font: normal clamp(24px, 3vw, 36px) $font-inter-bold;
+          @include max-media($page-small-width) {
+            font: normal clamp(20px, 2.5vw, 32px) $font-inter-bold;
+          }
+        }
+        &-text {
+          color: $white;
+          font: normal clamp(12px, 1vw, 14px) $font-inter-regular;
+        }
+      }
+      &__link {
+        padding-top: clamp(10px, 2vw, 20px);
+        a {
+          background: $orange;
+          border-radius: 10px;
+          color: $white;
+          font: normal clamp(14px, 1.5vw, 18px) $font-lato-bold;
+          padding: clamp(8px, 1.5vw, 12px) clamp(30px, 4vw, 50px);
+        }
+      }
+    }
+  }
+}
+
+.dive-services {
+  background-color: $light-gray1;
+  padding: clamp(20px, 3vw, 30px) 0 clamp(40px, 5vw, 60px);
+  &__wrap {
+    width: 90%;
+    margin: 0 auto;
+    h2 {
+      font: normal clamp(24px, 3vw, 36px) $font-inter-bold;
+    }
+  }
+}
+
+.dive-events {
+  &-section {
+    background-color: $white;
+    padding: clamp(20px, 3vw, 30px) 0 clamp(40px, 5vw, 60px);
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &__item {
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -4px #0000001A, 0 10px 15px -3px #0000001A;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: clamp(10px, 2vw, 20px);
+    height: clamp(280px, 30vw, 350px);
+    width: 100%;
+    @include max-media($page-mobile-width) {
+      flex-direction: column;
+      height: auto;
+    }
+    &-image {
+      height: 100%;
+      width: 30%;
+      @include max-media($page-mobile-width) {
+        height: clamp(180px, 40vw, 250px);
+        width: 100%;
+      }
+      img {
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+        @include max-media($page-mobile-width) {
+          border-top-right-radius: 16px;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+    &-details {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: clamp(15px, 2vw, 20px);
+      position: relative;
+      width: 70%;
+      @include max-media($page-mobile-width) {
+        width: 100%;
+      }
+    }
+    &-date {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      @include max-media($page-medium-width) {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 5px;
+      }
+      span {
+        color: $header-text-colour;
+        font: normal 14px $font-lato-bold;
+      }
+    }
+    &-title {
+      color: $header-text-colour;
+      font: normal clamp(20px, 2.5vw, 30px) $font-inter-bold;
+      margin-top: -10px;
+      width: inherit;
+      @include max-media($page-medium-width) {
+        margin-top: 0;
+      }
+    }
+    &-location {
+      color: $body-text-colour;
+      font: normal clamp(12px, 1vw, 14px) $font-inter-regular;
+      margin-bottom: clamp(5px, 1vw, 10px);
+      width: inherit;
+    }
+    &-description {
+      color: $body-text-colour;
+      font: normal clamp(14px, 1vw, 16px) $font-inter-regular;
+      line-height: clamp(22px, 2vw, 26px);
+      padding: clamp(5px, 1vw, 10px) 0 clamp(10px, 1.5vw, 15px);
+      width: inherit;
+    }
+    &-categories {
+      width: inherit;
+      h5 {
+        color: $header-text-colour;
+        font: normal clamp(12px, 1vw, 14px) $font-inter-semi-bold;
+        margin-bottom: 5px;
+      }
+      .specialties {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(5px, 1vw, 10px);
+        .specialty {
+          background: rgba($blue, 0.1);
+          border-radius: 50px;
+          color: $blue;
+          font: normal clamp(10px, 0.8vw, 12px) $font-inter-semi-bold;
+          padding: 3px clamp(8px, 1vw, 10px);
+        }
+      }
+    }
+    &-buttons {
+      margin-top: clamp(15px, 2vw, 20px);
+      width: inherit;
+      display: flex;
+      gap: clamp(8px, 1vw, 12px);
+      a {
+        &.view-details {
+          background: $white;
+          border: 1px solid $blue;
+          border-radius: 8px;
+          color: $blue;
+          display: inline-block;
+          font: normal clamp(12px, 1vw, 14px) $font-inter-semi-bold;
+          line-height: 25px;
+          padding: 7px 20px 8px 25px;
+        }
+        &.book-now {
+          background: $orange;
+          border: 1px solid $orange;
+          border-radius: 8px;
+          color: $white;
+          display: inline-block;
+          font: normal clamp(12px, 1vw, 14px) $font-open-sans-bold;
+          padding: 12px 25px;
+        }
+      }
+    }
+  }
+}

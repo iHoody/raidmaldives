@@ -1,0 +1,95 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@mixin min-media($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin max-media($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin between-media($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin mask($image, $mask: 100%) {
+  -webkit-mask-image: url($image);
+  mask-image: url($image);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: $mask;
+  mask-size: $mask;
+
+  -webkit-mask-position: center center;
+  mask-position: center center;
+}
+
+@mixin background-filter()
+{
+  background: rgba(106, 63,53, 0.83);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+@mixin placeholder()
+{
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+}
+
+@mixin iconBackgroundOption($iconTitle, $size: 100%)
+{
+  background-image: url('../images/icon/icon-' + $iconTitle + '.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: $size;
+}
+
+@mixin iconMaskBackgroundOption($iconTitle, $color, $size: 100%)
+{
+  background-color: $color;
+  mask-image: url('../images/icon/icon-' + $iconTitle + '.svg');
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: $size;
+}

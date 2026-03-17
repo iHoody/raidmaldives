@@ -1,0 +1,110 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/**
+ * Responsive images
+ */
+.is-fluid {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/**
+ * Icons
+ */
+.icon {
+  border-radius: 0;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  height: 20px;
+  width: 20px;
+  &-arrow-right {
+    @include iconBackgroundOption('arrow-right');
+    &-orange {
+      @include iconMaskBackgroundOption('arrow-right', $orange)
+    }
+    &-blue {
+      @include iconMaskBackgroundOption('arrow-right', $blue)
+    }
+    &-lighter-blue {
+      @include iconMaskBackgroundOption('arrow-right', $light-blue);
+    }
+  }
+  &-arrow-up {
+    @include iconBackgroundOption('arrow-up');
+    &-orange {
+      @include iconMaskBackgroundOption('arrow-up', $orange)
+    }
+  }
+  &-book-call {
+    @include iconBackgroundOption('book-call');
+  }
+  &-call {
+    @include iconBackgroundOption('call');
+  }
+  &-contact {
+    @include iconBackgroundOption('contact');
+  }
+  &-croissant {
+    @include iconBackgroundOption('croissant');
+  }
+  &-email {
+    @include iconBackgroundOption('email');
+  }
+  &-facebook {
+    @include iconBackgroundOption('facebook');
+  }
+  &-facebook-orange {
+    @include iconBackgroundOption('facebook-orange');
+  }
+  &-instagram {
+    @include iconBackgroundOption('instagram');
+  }
+  &-instagram-orange {
+    @include iconBackgroundOption('instagram-orange');
+  }
+  &-linkedin {
+    @include iconBackgroundOption('linkedin');
+  }
+  &-telegram {
+    @include iconBackgroundOption('telegram');
+  }
+  &-location {
+    @include iconBackgroundOption('location');
+  }
+  &-calendar {
+    @include iconBackgroundOption('calendar');
+  }
+  &-check {
+    @include iconBackgroundOption('check');
+  }
+  &-price {
+    @include iconBackgroundOption('price');
+  }
+  &-youtube {
+    @include iconBackgroundOption('youtube');
+  }
+  &-calculator {
+    @include iconBackgroundOption('calculator');
+  }
+  &-download {
+    @include iconBackgroundOption('download');
+    &-white {
+      @include iconMaskBackgroundOption('download', $white);
+    }
+  }
+  &-paper {
+    @include iconBackgroundOption('paper');
+  }
+  &-link {
+    @include iconBackgroundOption('link');
+  }
+}
