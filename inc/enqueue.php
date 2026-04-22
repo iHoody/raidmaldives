@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const CURRENT_VERSION = '1.0.26.05';
+const CURRENT_VERSION = '1.1.03.01';
 define("CURRENT_DATE", date('ymdHis'));
 
 /**
@@ -93,8 +93,22 @@ function dive_raid_enqueue_assets(): void {
     if (is_page('account') || is_page('events')) {
         enqueueAccount();
     }
+    
+    if (is_page('crossovers')) {
+        enqueueCrossoverTrips();
+    }
 }
 add_action( 'wp_enqueue_scripts', 'dive_raid_enqueue_assets' );
+
+function enqueueCrossoverTrips(): void
+{
+    wp_enqueue_style(
+        'crossovers-css',
+        get_template_directory_uri() . '/dist/css/crossovers.css',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+}
 
 function enqueueAccount(): void
 {

@@ -1,0 +1,17 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.crossover-content {
+  padding: 60px 0;
+}
+
+.crossover {
+  &-path {
+    background: $dark-blue;
+  }
+  &-content {
+    &__wrap {
+      padding: 60px 0;
+    }
+  }
+}

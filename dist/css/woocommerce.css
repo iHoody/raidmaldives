@@ -24,6 +24,24 @@
   padding: 0 !important;
 }
 
+.background-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background-filter.black {
+  background: rgba(0, 0, 0, 0.6);
+}
+.background-filter.black.light {
+  background: rgba(0, 0, 0, 0.3);
+}
+.background-filter.white {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .diveraid-checkout {
   font-family: "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 40px 0 60px;
@@ -35,6 +53,9 @@
   /**
    * Select Container
    */
+  /**
+   * WooCommerce order confirmation
+   */
 }
 .diveraid-checkout .woocommerce .select2-container--default .select2-selection--single {
   border-radius: 0;
@@ -42,11 +63,6 @@
 .diveraid-checkout .woocommerce .select2-container--default .select2-selection--single .select2-selection__rendered {
   font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 10px 12px;
-}
-.diveraid-checkout .woocommerce {
-  /**
-   * WooCommerce order confirmation
-   */
 }
 .diveraid-checkout .woocommerce .woocommerce-order-details__title {
   margin-bottom: 10px;

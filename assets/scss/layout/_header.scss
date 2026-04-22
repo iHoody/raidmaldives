@@ -57,10 +57,12 @@
   }
   .site-branding {
     img {
-      width: clamp(240px, 27vw + 60px, 460px);
+      width: clamp(240px, 27vw + 60px, 311px);
+      max-width: 311px;
       transition: width 0.3s ease;
       @include max-media($page-small-width) {
         width: clamp(150px, 10vw + 50px, 250px);
+        max-width: 311px;
       }
     }
   }

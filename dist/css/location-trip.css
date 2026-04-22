@@ -25,6 +25,24 @@
   padding: 0 !important;
 }
 
+.background-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background-filter.black {
+  background: rgba(0, 0, 0, 0.6);
+}
+.background-filter.black.light {
+  background: rgba(0, 0, 0, 0.3);
+}
+.background-filter.white {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .why-choose {
   background: #F8F8F8;
   padding: 20px 20px 80px;

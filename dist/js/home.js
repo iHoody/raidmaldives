@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         init: function() {
             this.middleSection();
-            this.reviewClient();
             this.accordion();
         },
 

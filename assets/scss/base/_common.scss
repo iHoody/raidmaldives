@@ -97,6 +97,9 @@
       font: normal clamp(24px, 2vw + 12px, 36px) $font-lato-bold;
       padding-top: 0;
     }
+    span {
+      color: $orange;
+    }
   }
   .sub-title {
     color: $header-text-colour;
@@ -306,6 +309,77 @@
           line-height: 26px;
           padding: 10px 20px;
         }
+      }
+    }
+  }
+}
+
+.content-details {
+  &__wrap {
+    h3 {
+      color: $header-text-colour;
+      font: normal 36px $font-lato-bold;
+      margin-bottom: 20px;
+      span {
+        color: $orange;
+      }
+    }
+    &-description {
+      color: $body-text-colour;
+      font: normal 20px $font-lato-medium;
+      line-height: 32px;
+      margin-bottom: 100px;
+      @include min-media($page-large-width) {
+        padding-right: 50px;
+        padding-left: 0;
+      }
+      @include max-media($page-medium-width) {
+        font: normal 16px $font-lato-medium;
+        line-height: 24px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      ul {
+        padding-left: 40px;
+        margin-bottom: 15px;
+        li {
+          position: relative;
+          &:before {
+            content: '';
+            background: $orange;
+            border-radius: 50%;
+            height: 6px;
+            left: -20px;
+            position: absolute;
+            top: 12px;
+            width: 6px;
+          }
+        }
+      }
+      &.reverse {
+        @include min-media($page-large-width) {
+          padding-right: 0;
+          padding-left: 50px;
+        }
+      }
+    }
+    &-image {
+      margin-bottom: 20px;
+      @include min-media($page-large-width) {
+        padding-left: 50px;
+      }
+      &.reverse {
+        @include min-media($page-large-width) {
+          padding-right: 50px;
+          padding-left: 0;
+        }
+      }
+      img {
+        border-radius: 16px;
+        height: 420px;
+        object-fit: cover;
+        width: 100%;
       }
     }
   }
