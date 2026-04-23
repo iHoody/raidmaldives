@@ -73,9 +73,9 @@ get_header();
         </section>
         <?php endif; ?>
 
-        <section class="crossover-path section-content">
+        <section class="crossover-path">
             <div class="crossover-path__wrap">
-                <h2 class="crossover-path__wrap-title section-title"><?= wp_kses_post($middleContentTitle) ?></h2>
+                <h2 class="crossover-path__wrap-title"><?= wp_kses_post($middleContentTitle) ?></h2>
             </div>
 
             <div class="container">
@@ -94,9 +94,10 @@ get_header();
                                 default => 'column--12',
                             };
                             ?>
-                            <div class="column <?= esc_attr($column) ?>">
+                            <div class="column <?= esc_attr($column) ?> stretch-column">
                                 <div class="crossover-content__wrap">
                                     <div class="crossover-content__wrap-image" style="background-image: url(<?= esc_attr($post['image']) ?>)"></div>
+                                    <div class="background-filter black light"></div>
                                     <div class="crossover-content__wrap-detail">
                                         <h4><?= esc_attr($post['title']) ?></h4>
                                         <div class="crossover-content__wrap-detail__description">
@@ -105,6 +106,7 @@ get_header();
                                         <div class="crossover-content__wrap-detail__button">
                                             <a href="<?= esc_url($post['button_url']) ?>">
                                                 <?= esc_attr($post['button_title']) ?>
+                                                <i class="icon icon-arrow-right"></i>
                                             </a>
                                         </div>
                                     </div>

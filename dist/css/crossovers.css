@@ -16,15 +16,106 @@
     transform: translateY(-20px);
   }
 }
-.crossover-content {
-  padding: 60px 0;
-}
-
 .crossover-path {
   background: #002331;
+  padding: 60px 0;
+}
+.crossover-path__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.crossover-path__wrap h2 {
+  color: #2F2F2F;
+  font: normal clamp(30px, 2vw + 20px, 48px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-top: 40px;
+}
+@media screen and (max-width: 768px) {
+  .crossover-path__wrap h2 {
+    padding-top: 20px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 576px) {
+  .crossover-path__wrap h2 {
+    font: normal clamp(24px, 2vw + 12px, 36px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-top: 0;
+  }
+}
+.crossover-path__wrap h2 span {
+  color: #F16122;
 }
 .crossover-content__wrap {
-  padding: 60px 0;
+  border-radius: 16px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.crossover-content__wrap-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+.crossover-content__wrap .background-filter {
+  z-index: 1;
+}
+.crossover-content__wrap-detail {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+}
+.crossover-content__wrap-detail h4 {
+  color: #fff;
+  font: normal 24px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+.crossover-content__wrap-detail__description {
+  color: #fff;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 30px;
+}
+.crossover-content__wrap-detail__description ul {
+  margin-bottom: 15px;
+  padding-left: 40px;
+}
+.crossover-content__wrap-detail__description ul li {
+  position: relative;
+}
+.crossover-content__wrap-detail__description ul li:before {
+  content: "";
+  background: #F16122;
+  border-radius: 50%;
+  height: 6px;
+  position: absolute;
+  left: -20px;
+  top: 12px;
+  width: 6px;
+}
+.crossover-content__wrap-detail__button {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.crossover-content__wrap-detail__button a {
+  background: #F16122;
+  border-radius: 11px;
+  color: #fff;
+  display: inline-block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 7px 25px;
+  text-align: center;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=crossovers.css.map */
