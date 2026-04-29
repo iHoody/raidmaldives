@@ -77,6 +77,30 @@
         font: normal clamp(16px, 1vw + 12px, 20px) $font-lato-medium;
       }
     }
+    .button-section {
+      margin-top: 40px;
+      a {
+        background: $orange;
+        border-radius: 10px;
+        color: $white;
+        display: inline-block;
+        font: normal 20px $font-lato-bold;
+        padding: 18px 90px;
+        @include max-media($page-small-width) {
+          font: normal 18px $font-lato-bold;
+          padding: 9px 30px;
+        }
+        @include max-media($page-mobile-width) {
+          display: block;
+          width: 100%;
+        }
+        label {
+          display: block;
+          font: normal 20px $font-lato-regular;
+          margin-top: 10px;
+        }
+      }
+    }
   }
 }
 

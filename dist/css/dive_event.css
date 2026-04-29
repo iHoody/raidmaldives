@@ -194,6 +194,34 @@ a {
     font: normal clamp(16px, 1vw + 12px, 20px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
+.site-banner .site-information .button-section {
+  margin-top: 40px;
+}
+.site-banner .site-information .button-section a {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 18px 90px;
+}
+@media screen and (max-width: 576px) {
+  .site-banner .site-information .button-section a {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 9px 30px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .site-banner .site-information .button-section a {
+    display: block;
+    width: 100%;
+  }
+}
+.site-banner .site-information .button-section a label {
+  display: block;
+  font: normal 20px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 10px;
+}
 
 .section-content {
   display: flex;
@@ -741,6 +769,9 @@ img {
 .row.fluid {
   margin: initial;
   max-width: 100%;
+}
+.row.justify-center-grid {
+  justify-content: center;
 }
 .row.reverse-column {
   grid-auto-flow: dense;

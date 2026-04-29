@@ -122,6 +122,48 @@ get_header();
             </div>
         </section>
 
+        <section class="crossover-common">
+          <div class="background-filter black"></div>
+          <style>
+            .crossover-common:before {
+              background-image: url('<?= esc_url($crossoverCommonBGImage) ?>');
+            }
+          </style>
+          <div class="container">
+            <div class="row justify-center-grid">
+              <div class="column column--6 content-details justify-center align-center">
+                <div class="content-details__wrap">
+                  <img src="<?= esc_attr($crossoverCommonImage) ?>" alt="<?= wp_kses_post($crossoverCommonTitle) ?>">
+                </div>
+              </div>
+              <div class="column column--5 content-details justify-center">
+                <div class="content-details__wrap">
+                  <h3><?= wp_kses_post($crossoverCommonTitle) ?></h3>
+                  <div class="content-details__wrap-description"><?= wp_kses_post($crossoverCommonDescription) ?></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bottom-content">
+          <div class="container">
+            <div class="row">
+              <div class="column column--6 content-details">
+                <div class="content-details__wrap image-wrap">
+                  <img src="<?= esc_attr($bottomContentImage) ?>" alt="<?= wp_kses_post($bottomContentTitle) ?>">
+                </div>
+              </div>
+              <div class="column column--6 content-details justify-center">
+                <div class="content-details__wrap content-wrap">
+                  <h3><?= wp_kses_post($bottomContentTitle) ?></h3>
+                  <div class="content-details__wrap-description"><?= wp_kses_post($bottomContentDescription) ?></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
     </div>
 <?php
 get_footer();

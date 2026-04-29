@@ -33,6 +33,10 @@
     max-width: 100%;
   }
 
+  &.justify-center-grid {
+    justify-content: center;
+  }
+
   &.reverse-column {
     grid-auto-flow: dense;
     .column {
