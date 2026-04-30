@@ -21,7 +21,6 @@ $middleContentData = $middleContent['content_title'];
 $centreBenefits = get_field('centre_benefits');
 $centreBenefitsTitle = $centreBenefits['title'];
 $centreBenefitsDescription = $centreBenefits['description'];
-$centreBenefitsList = $centreBenefits['benefits'];
 
 $contentPosts = get_field('content_posts');
 $contentPostsList = $contentPosts['posts'];
@@ -53,12 +52,111 @@ get_header();
     </section>
 
     <section class="middle-content">
-      <div class="middle-content__details">
-        <?= wp_kses_post($middleContentData) ?>
+      <div class="container">
+        <div class="row justify-center-grid">
+          <div class="column column--1"></div>
+          <div class="column column--10">
+            <div class="middle-content__details">
+              <?= wp_kses_post($middleContentData) ?>
+            </div>
+          </div>
+          <div class="column column--1"></div>
+        </div>
       </div>
     </section>
 
+    <section class="benefits">
+      <div class="container">
+
+        <div class="row">
+          <div class="column column--6 justify-center align-center">
+            <div class="benefits__wrap">
+              <h2 class="benefits__wrap-title"><?= esc_attr($centreBenefitsTitle) ?></h2>
+            </div>
+          </div>
+          <div class="column column--6">
+            <div class="benefits__wrap">
+              <div class="benefits__wrap-description"><?= wp_kses_post($centreBenefitsDescription) ?></div>
+            </div>
+          </div>
+          <div class="column column--12">
+            <div class="benefits__wrap">
+              <?php if ($contentPostsList) : ?>
+                <div class="benefits__wrap-list">
+                  <?php foreach ($contentPostsList as $post) : ?>
+                    <div class="benefits__wrap-list__item">
+                      <div class="benefit-item">
+                        <div class="benefit-item__image">
+                          <img src="<?= esc_attr($post['image']) ?>" alt="<?= esc_attr(strip_tags($post['month_display'])) ?>">
+                        </div>
+                        <div class="benefit-item__content">
+                          <h5 class="benefit-item__content-title"><?= wp_kses_post($post['month_display']) ?></h5>
+                          <p class="benefit-item__content-description"><?= wp_kses_post($post['decompression']) ?></p>
+                        </div>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+              <?php endif; ?>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="training-posts">
+
+      <div class="container">
+        <div class="posts__content">
+          <?php if ($contentPostsList) : ?>
+            <?php foreach ($contentPostsList as $post) : ?>
+              <article class="posts__wrap row">
+                <div class="posts__wrap-image column column--4">
+                  <img src="<?= esc_url($post['image']) ?>" alt="<?= esc_attr($post['title']) ?>">
+                </div>
+                <div class="posts__wrap-details column column--8">
+                  <h3 class="posts__wrap-details-title"><?= esc_attr($post['title']) ?></h3>
+                  <div class="posts__wrap-details-sub-title">
+                    <span class="sub-title"><?= esc_attr($post['sub_title']) ?></span>
+                  </div>
+                  <div class="posts__wrap-details-description">
+                    <?= wp_kses_post($post['description']) ?>
+                  </div>
+                  <div class="posts__wrap-details-button">
+                    <a href="<?= esc_url($post['button_link']) ?>">
+                      <?= esc_attr($post['button']) ?> <i class="icon icon-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+      </div>
+
+    </section>
+
   </div>
+
+  <section class="bottom-content">
+    <div class="background-filter black"></div>
+    <style>
+      .bottom-content:before {
+        background-image: url('<?= esc_url($bottomContentBackgroundImage) ?>');
+      }
+    </style>
+    <div class="container">
+      <div class="bottom-content__wrap">
+        <h2 class="bottom-content__title"><?= esc_attr($bottomContentTitle) ?></h2>
+        <div class="bottom-content__description"><?= wp_kses_post($bottomContentDescription) ?></div>
+        <a href="<?= esc_url($bottomContentButtonLink) ?>" class="bottom-content__button">
+          <?= esc_attr($bottomContentButtonTitle) ?> <i class="icon icon-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+  </section>
 
 <?php
 get_footer();

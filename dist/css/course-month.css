@@ -62,4 +62,274 @@
   margin-bottom: 0;
 }
 
+.benefits {
+  padding: 60px 0;
+}
+.benefits__wrap-title {
+  color: #2F2F2F;
+  font: normal 36px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.benefits__wrap-description {
+  color: #595959;
+  font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 32px;
+}
+.benefits__wrap-description ul {
+  margin-bottom: 15px;
+  padding-left: 40px;
+}
+.benefits__wrap-description ul li {
+  position: relative;
+}
+.benefits__wrap-description ul li:before {
+  content: "";
+  background: #F16122;
+  border-radius: 50%;
+  height: 6px;
+  position: absolute;
+  left: -20px;
+  top: 12px;
+  width: 6px;
+}
+.benefits__wrap-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+@media screen and (max-width: 1199px) {
+  .benefits__wrap-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 767px) {
+  .benefits__wrap-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 480px) {
+  .benefits__wrap-list {
+    grid-template-columns: 1fr;
+  }
+}
+.benefits__wrap-list__item {
+  width: 100%;
+}
+.benefits__wrap-list__item .benefit-item__image {
+  margin-bottom: 20px;
+}
+.benefits__wrap-list__item .benefit-item__image img {
+  border-radius: 8px;
+  height: 216px;
+  object-fit: cover;
+  width: 100%;
+}
+.benefits__wrap-list__item .benefit-item__content {
+  text-align: center;
+}
+.benefits__wrap-list__item .benefit-item__content h5 {
+  color: #000000;
+  font: normal 28px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.benefits__wrap-list__item .benefit-item__content h5 span {
+  color: #F16122;
+}
+.benefits__wrap-list__item .benefit-item__content p {
+  color: #2F2F2F;
+  font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.training-posts {
+  background: #002331;
+  padding: 60px 0;
+}
+.training-posts .posts__content {
+  margin: 30px auto 70px;
+  text-align: center;
+  width: 80%;
+}
+.training-posts .posts__wrap {
+  background: #fff;
+  border: 1px solid #F2F2F7;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+.training-posts .posts__wrap-image {
+  padding: 20px 0 20px 20px;
+}
+@media screen and (max-width: 768px) {
+  .training-posts .posts__wrap-image {
+    padding: 20px;
+  }
+}
+.training-posts .posts__wrap-image img {
+  height: 372px;
+  object-fit: cover;
+  width: 100%;
+}
+.training-posts .posts__wrap-details {
+  padding: 20px 20px 20px 0;
+}
+@media screen and (max-width: 768px) {
+  .training-posts .posts__wrap-details {
+    padding: 0 20px 20px;
+  }
+}
+.training-posts .posts__wrap-details-title {
+  color: #000000;
+  font: normal 32px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 26px;
+}
+@media screen and (max-width: 768px) {
+  .training-posts .posts__wrap-details-title {
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
+  }
+}
+.training-posts .posts__wrap-details-sub-title {
+  margin-top: -7px;
+}
+.training-posts .posts__wrap-details-sub-title .sub-title {
+  color: #595959;
+  font: normal 14px "InterRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.training-posts .posts__wrap-details-description {
+  color: #000000;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 26px;
+}
+.training-posts .posts__wrap-details-description ul {
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+.training-posts .posts__wrap-details-description ul li {
+  position: relative;
+}
+.training-posts .posts__wrap-details-description ul li:before {
+  content: "";
+  background: #F16122;
+  border-radius: 50%;
+  height: 6px;
+  left: -20px;
+  position: absolute;
+  top: 12px;
+  width: 6px;
+}
+.training-posts .posts__wrap-details-description strong {
+  font: normal 16px "InterSemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.training-posts .posts__wrap-details-description p {
+  margin-bottom: 15px;
+}
+.training-posts .posts__wrap-details-button {
+  display: flex;
+  margin-top: 10px;
+  text-align: center;
+}
+.training-posts .posts__wrap-details-button a {
+  background: #F16122;
+  border-radius: 8px;
+  color: #fff;
+  display: block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 9px 35px;
+}
+
+.bottom-content {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: clamp(256px, 40vw, 420px);
+  width: 100%;
+}
+.bottom-content:before {
+  content: "";
+  background-size: cover;
+  background-position: 50% 21%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.bottom-content:after {
+  content: "";
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.bottom-content__wrap {
+  margin: 0 auto;
+  padding: 20px 50px 50px;
+  text-align: center;
+  width: 60%;
+}
+@media screen and (max-width: 991px) {
+  .bottom-content__wrap {
+    padding: 0;
+    width: 100%;
+  }
+}
+.bottom-content__wrap h2 {
+  color: #fff;
+  font: normal clamp(20px, 5vw, 32px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__wrap h2 {
+    font: normal clamp(16px, 5vw, 24px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.bottom-content__description {
+  color: #fff;
+  font: normal 24px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 34px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__description {
+    font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.bottom-content__description b {
+  font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__description b {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.bottom-content__button {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 18px 90px;
+}
+@media screen and (max-width: 991px) {
+  .bottom-content__button {
+    display: block;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__button {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 9px 30px;
+  }
+}
+
 /*# sourceMappingURL=course-month.css.map */
