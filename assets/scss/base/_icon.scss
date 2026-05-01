@@ -58,6 +58,9 @@ img {
   }
   &-email {
     @include iconBackgroundOption('email');
+    &-gray {
+      @include iconBackgroundOption('email-gray');
+    }
   }
   &-facebook {
     @include iconBackgroundOption('facebook');
@@ -65,11 +68,17 @@ img {
   &-facebook-orange {
     @include iconBackgroundOption('facebook-orange');
   }
+  &-facebook-gray {
+    @include iconBackgroundOption('facebook-gray');
+  }
   &-instagram {
     @include iconBackgroundOption('instagram');
-  }
-  &-instagram-orange {
-    @include iconBackgroundOption('instagram-orange');
+    &-orange {
+      @include iconBackgroundOption('instagram-orange');
+    }
+    &-gray {
+      @include iconBackgroundOption('instagram-gray');
+    }
   }
   &-linkedin {
     @include iconBackgroundOption('linkedin');
@@ -82,6 +91,9 @@ img {
   }
   &-calendar {
     @include iconBackgroundOption('calendar');
+    &-blue {
+      @include iconMaskBackgroundOption('calendar', $blue);
+    }
   }
   &-check {
     @include iconBackgroundOption('check');
@@ -106,5 +118,11 @@ img {
   }
   &-link {
     @include iconBackgroundOption('link');
+  }
+  &-website {
+    @include iconBackgroundOption('website');
+  }
+  &-author {
+    @include iconBackgroundOption('author');
   }
 }

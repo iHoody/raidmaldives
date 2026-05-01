@@ -26,3 +26,20 @@
     background: rgba($white, 0.6);
   }
 }
+
+/**
+ * Background Colour
+ */
+$bg-colors: (
+  'dark-blue': $dark-blue,
+  'dark-blue1': $dark-blue1,
+  'dark-blue2': $dark-blue2,
+  'dark-blue3': $dark-blue3,
+  'dark-blue4': $dark-blue4,
+);
+
+@each $name, $color in $bg-colors {
+  .bg-#{$name} {
+    background: $color !important;
+  }
+}

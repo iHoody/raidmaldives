@@ -106,6 +106,29 @@ a {
   background: rgba(255, 255, 255, 0.6);
 }
 
+/**
+ * Background Colour
+ */
+.bg-dark-blue {
+  background: #002331 !important;
+}
+
+.bg-dark-blue1 {
+  background: #040B30 !important;
+}
+
+.bg-dark-blue2 {
+  background: #1D293D !important;
+}
+
+.bg-dark-blue3 {
+  background: #0F172B !important;
+}
+
+.bg-dark-blue4 {
+  background: #082B3A !important;
+}
+
 .site-content {
   position: relative;
   width: 100%;
@@ -494,6 +517,14 @@ a {
     line-height: 24px;
   }
 }
+.content-details__wrap-description h3 {
+  color: #2F2F2F;
+  font: normal 36px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 20px;
+}
+.content-details__wrap-description h3 span {
+  color: #F16122;
+}
 .content-details__wrap-description p {
   margin-bottom: 15px;
 }
@@ -539,6 +570,113 @@ a {
   height: 420px;
   object-fit: cover;
   width: 100%;
+}
+
+/**
+ * Bottom Content
+ */
+.bottom-content {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: clamp(256px, 40vw, 420px);
+  width: 100%;
+}
+.bottom-content:before {
+  content: "";
+  background-size: cover;
+  background-position: 50% 21%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.bottom-content:after {
+  content: "";
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.bottom-content__wrap {
+  margin: 0 auto;
+  padding: 20px 50px 50px;
+  text-align: center;
+  width: 70%;
+}
+@media screen and (max-width: 991px) {
+  .bottom-content__wrap {
+    padding: 0;
+    width: 100%;
+  }
+}
+.bottom-content__wrap h2 {
+  color: #fff;
+  font: normal clamp(20px, 5vw, 32px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 20px 20px 40px;
+  position: relative;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__wrap h2 {
+    font: normal clamp(16px, 5vw, 24px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.bottom-content__wrap h2:before {
+  content: "";
+  background: #F16122;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.bottom-content__description {
+  color: #fff;
+  font: normal 24px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 34px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__description {
+    font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.bottom-content__description b {
+  font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__description b {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+.bottom-content__button {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 18px 40px;
+}
+@media screen and (max-width: 991px) {
+  .bottom-content__button {
+    display: block;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .bottom-content__button {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 9px 30px;
+  }
 }
 
 img {
@@ -637,6 +775,12 @@ img {
   background-position: center center;
   background-size: 100%;
 }
+.icon-email-gray {
+  background-image: url("../images/icon/icon-email-gray.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
 .icon-facebook {
   background-image: url("../images/icon/icon-facebook.svg");
   background-repeat: no-repeat;
@@ -649,6 +793,12 @@ img {
   background-position: center center;
   background-size: 100%;
 }
+.icon-facebook-gray {
+  background-image: url("../images/icon/icon-facebook-gray.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
 .icon-instagram {
   background-image: url("../images/icon/icon-instagram.svg");
   background-repeat: no-repeat;
@@ -657,6 +807,12 @@ img {
 }
 .icon-instagram-orange {
   background-image: url("../images/icon/icon-instagram-orange.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+.icon-instagram-gray {
+  background-image: url("../images/icon/icon-instagram-gray.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
@@ -684,6 +840,13 @@ img {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
+}
+.icon-calendar-blue {
+  background-color: #00A0DE;
+  mask-image: url("../images/icon/icon-calendar.svg");
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: 100%;
 }
 .icon-check {
   background-image: url("../images/icon/icon-check.svg");
@@ -730,6 +893,18 @@ img {
 }
 .icon-link {
   background-image: url("../images/icon/icon-link.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+.icon-website {
+  background-image: url("../images/icon/icon-website.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+.icon-author {
+  background-image: url("../images/icon/icon-author.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;

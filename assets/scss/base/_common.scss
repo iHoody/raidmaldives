@@ -358,6 +358,14 @@
         font: normal 16px $font-lato-medium;
         line-height: 24px;
       }
+      h3 {
+        color: $header-text-colour;
+        font: normal 36px $font-lato-bold;
+        margin-bottom: 20px;
+        span {
+          color: $orange;
+        }
+      }
       p {
         margin-bottom: 15px;
       }
@@ -402,6 +410,101 @@
         object-fit: cover;
         width: 100%;
       }
+    }
+  }
+}
+
+/**
+ * Bottom Content
+ */
+.bottom-content {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: clamp(256px, 40vw, 420px);
+  width: 100%;
+  &:before {
+    content: "";
+    background-size: cover;
+    background-position: 50% 21%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    background: rgba($black, .1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  &__wrap {
+    margin: 0 auto;;
+    padding: 20px 50px 50px;
+    text-align: center;
+    width: 70%;
+    @include max-media($page-mobile-width) {
+      padding: 0;
+      width: 100%;
+    }
+    h2 {
+      color: $white;
+      font: normal clamp(20px, 5vw, 32px) $font-lato-bold;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 20px 20px 40px;
+      position: relative;
+      @include max-media($page-small-width) {
+        font: normal clamp(16px, 5vw, 24px) $font-lato-bold;
+      }
+      &:before {
+        content: '';
+        background: $orange;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+  &__description {
+    color: $white;
+    font: normal 24px $font-lato-regular;
+    line-height: 34px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    @include max-media($page-small-width) {
+      font: normal 18px $font-lato-regular;
+    }
+    b {
+      font: normal 24px $font-lato-bold;
+      @include max-media($page-small-width) {
+        font: normal 18px $font-lato-bold;
+      }
+    }
+  }
+  &__button {
+    background: $orange;
+    border-radius: 10px;
+    color: $white;
+    display: inline-block;
+    font: normal 20px $font-lato-bold;
+    padding: 18px 40px;
+    @include max-media($page-mobile-width) {
+      display: block;
+      width: 100%;
+    }
+    @include max-media($page-small-width) {
+      font: normal 18px $font-lato-bold;
+      padding: 9px 30px;
     }
   }
 }

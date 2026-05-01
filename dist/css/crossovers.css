@@ -181,6 +181,7 @@
 .bottom-content {
   background: #002331;
   padding: 60px 0;
+  height: auto;
 }
 .bottom-content .content-details__wrap.image-wrap {
   padding-right: 80px;

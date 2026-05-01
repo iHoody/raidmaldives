@@ -1,0 +1,69 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.blog-section {
+  padding: clamp(130px, 16vw, 170px) 0 60px;
+}
+.blog-section__posts {
+  margin-top: 60px;
+}
+.blog-section__posts .post-item__image img {
+  border-radius: 16px;
+  height: 240px;
+  object-fit: cover;
+  width: 100%;
+}
+.blog-section__posts .post-item__content {
+  padding: 20px 0;
+}
+.blog-section__posts .post-item__content h2 {
+  color: #2F2F2F;
+  font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 5px;
+}
+.blog-section__posts .post-item__sub-content {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 15px;
+}
+.blog-section__posts .post-item__sub-content .author,
+.blog-section__posts .post-item__sub-content .date {
+  color: #595959;
+  font: normal 14px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.blog-section__posts .post-item__excerpt {
+  color: #595959;
+  font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 22px;
+}
+.blog-section__posts .post-item__button {
+  margin-top: 20px;
+}
+.blog-section__posts .post-item__button a {
+  background: #fff;
+  border: 1px solid #F16122;
+  border-radius: 8px;
+  color: #F16122;
+  display: block;
+  font: normal 14px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 18px;
+  padding: 3px 0 7px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=blog.css.map */

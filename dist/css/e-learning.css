@@ -1,0 +1,135 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.header-content {
+  padding: clamp(140px, 18vw, 220px) 0 60px;
+}
+.header-content__details-description {
+  color: #fff;
+  margin-bottom: 0;
+}
+.header-content__details-description h1, .header-content__details-description h2, .header-content__details-description h3, .header-content__details-description h4, .header-content__details-description h5, .header-content__details-description h6 {
+  color: #fff;
+  font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.header-content__details-description strong {
+  font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.header-content__details-description p {
+  padding-bottom: 20px;
+}
+.header-content__details-image img {
+  border-radius: 16px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.middle-content-image {
+  padding: 40px 0;
+}
+
+.middle-content-list {
+  padding: 60px 0;
+}
+.middle-content-list .middle-content-row {
+  margin-bottom: 60px;
+}
+.middle-content-list .middle-content-row:last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 991px) {
+  .middle-content-list .middle-content-row .image-wrap {
+    padding-right: 40px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .middle-content-list .middle-content-row .description-wrap {
+    padding-left: 40px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .middle-content-list .middle-content-row.reverse-column .image-wrap {
+    padding-left: 40px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .middle-content-list .middle-content-row.reverse-column .description-wrap {
+    padding-right: 40px;
+  }
+}
+.middle-content-list__details {
+  width: 100%;
+}
+.middle-content-list__details-image {
+  width: 100%;
+}
+.middle-content-list__details-image img {
+  border-radius: 16px;
+  height: 420px;
+  object-fit: cover;
+  width: 100%;
+}
+.middle-content-list__details-description {
+  color: #fff;
+  line-height: 26px;
+  margin-bottom: 0;
+}
+.middle-content-list__details-description p {
+  margin-bottom: 20px;
+}
+.middle-content-list__details-button {
+  display: flex;
+  padding-top: 10px;
+}
+.middle-content-list__details-button a {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  margin-right: 20px;
+  padding: 10px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.bottom-content .content-details__wrap.image-wrap img {
+  height: 284px;
+  object-fit: contain;
+  width: 415px;
+}
+.bottom-content .content-details__wrap-description {
+  color: #fff;
+  margin-bottom: 30px;
+}
+.bottom-content .content-details__wrap-button a {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 10px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=e-learning.css.map */

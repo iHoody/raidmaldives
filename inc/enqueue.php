@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const CURRENT_VERSION = '1.1.04.01';
+const CURRENT_VERSION = '1.1.05.01';
 define("CURRENT_DATE", date('ymdHis'));
 
 /**
@@ -97,8 +97,36 @@ function dive_raid_enqueue_assets(): void {
     if (is_page('crossovers')) {
         enqueueCrossoverTrips();
     }
+    
+    if (is_page('free-e-learning')) {
+        enqueueELearning();
+    }
+    
+    if (is_page('blog')) {
+        enqueueBlog();
+    }
 }
 add_action( 'wp_enqueue_scripts', 'dive_raid_enqueue_assets' );
+
+function enqueueBlog(): void
+{
+    wp_enqueue_style(
+        'blog',
+        get_template_directory_uri() . '/dist/css/blog.css',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+}
+
+function enqueueELearning(): void
+{
+    wp_enqueue_style(
+        'e-learning',
+        get_template_directory_uri() . '/dist/css/e-learning.css',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+}
 
 function enqueueCrossoverTrips(): void
 {

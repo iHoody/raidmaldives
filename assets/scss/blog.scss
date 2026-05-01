@@ -1,0 +1,56 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.blog-section {
+  padding: clamp(130px, 16vw, 170px) 0 60px;
+  &__posts {
+    margin-top: 60px;
+    .post-item {
+      &__image {
+        img {
+          border-radius: 16px;
+          height: 240px;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+      &__content {
+        padding: 20px 0;
+        h2 {
+          color: $header-text-colour;
+          font: normal 20px $font-lato-bold;
+          margin-bottom: 5px;
+        }
+      }
+      &__sub-content {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 15px;
+        .author,
+        .date {
+          color: $body-text-colour;
+          font: normal 14px $font-lato-medium;
+        }
+      }
+      &__excerpt {
+        color: $body-text-colour;
+        font: normal 16px $font-lato-medium;
+        line-height: 22px;
+      }
+      &__button {
+        margin-top: 20px;
+        a {
+          background: $white;
+          border: 1px solid $orange;
+          border-radius: 8px;
+          color: $orange;
+          display: block;
+          font: normal 14px $font-open-sans-bold;
+          line-height: 18px;
+          padding: 3px 0 7px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

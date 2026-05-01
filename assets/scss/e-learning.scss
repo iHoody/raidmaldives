@@ -1,0 +1,134 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.header-content {
+  padding: clamp(140px, 18vw, 220px) 0 60px;
+  &__details {
+    &-description {
+      color: $white;
+      margin-bottom: 0;
+      h1, h2, h3, h4, h5, h6 {
+        color: $white;
+        font-family: $font-lato-bold;
+      }
+      strong {
+        font-family: $font-lato-bold;
+      }
+      p {
+        padding-bottom: 20px;
+      }
+    }
+    &-image {
+      img {
+        border-radius: 16px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.middle-content-image {
+  padding: 40px 0;
+}
+
+.middle-content-list {
+  padding: 60px 0;
+  .middle-content-row {
+    margin-bottom: 60px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .image-wrap {
+      @include min-media($page-mobile-width) {
+        padding-right: 40px;
+      }
+    }
+    .description-wrap {
+      @include min-media($page-mobile-width) {
+        padding-left: 40px;
+      }
+    }
+    &.reverse-column {
+      .image-wrap {
+        @include min-media($page-mobile-width) {
+          padding-left: 40px;
+        }
+      }
+      .description-wrap {
+        @include min-media($page-mobile-width) {
+          padding-right: 40px;
+        }
+      }
+    }
+  }
+  &__details {
+    width: 100%;
+    &-image {
+      width: 100%;
+      img {
+        border-radius: 16px;
+        height: 420px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+    &-description {
+      color: $white;
+      line-height: 26px;
+      margin-bottom: 0;
+      p {
+        margin-bottom: 20px;
+      }
+    }
+    &-button {
+      display: flex;
+      padding-top: 10px;
+      a {
+        background: $orange;
+        border-radius: 10px;
+        color: $white;
+        display: block;
+        font: normal 18px $font-open-sans-bold;
+        line-height: 24px;
+        margin-right: 20px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.bottom-content {
+  .content-details {
+    &__wrap {
+      &.image-wrap {
+        img {
+          height: 284px;
+          object-fit: contain;
+          width: 415px;
+        }
+      }
+      &-description {
+        color: $white;
+        margin-bottom: 30px;
+      }
+      &-button {
+        a {
+          background: $orange;
+          border-radius: 10px;
+          color: $white;
+          display: inline-block;
+          font: normal 18px $font-open-sans-bold;
+          line-height: 24px;
+          padding: 10px 35px;
+          text-align: center;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
