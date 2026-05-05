@@ -65,6 +65,17 @@
   background: #082B3A !important;
 }
 
+/**
+ * Text Transform
+ */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
 .booking-modal {
   position: fixed;
   top: 0;

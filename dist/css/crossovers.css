@@ -19,6 +19,107 @@
 .crossover-content {
   padding-top: 60px;
 }
+@media screen and (max-width: 768px) {
+  .crossover-content {
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .crossover-content .row:first-child .content-details__wrap:before {
+    display: none;
+  }
+}
+.crossover-content .content-details__wrap {
+  position: relative;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .crossover-content .content-details__wrap:before {
+    content: "";
+    background: #E0E0E0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .crossover-content .content-details__wrap-description {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .crossover-content .content-details__wrap-description h3 {
+    margin-top: 30px;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+.crossover-content .content-details__wrap-image.content {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .crossover-content .content-details__wrap-image.content {
+    display: block;
+  }
+}
+.crossover-content .content-details__wrap-image.not-content {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .crossover-content .content-details__wrap-image.not-content {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .crossover-content__swiper-wrapper.swiper .row {
+    display: grid !important;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-wrapper {
+    display: contents !important;
+    transform: none !important;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-slide {
+    width: auto !important;
+    margin-right: 0 !important;
+    height: auto !important;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-pagination {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .crossover-content__swiper-wrapper.swiper {
+    overflow: hidden;
+    padding-bottom: 50px;
+  }
+  .crossover-content__swiper-wrapper.swiper .row {
+    display: flex;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-wrapper {
+    display: flex;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-slide {
+    flex-shrink: 0;
+    width: 100% !important;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-pagination {
+    bottom: 0;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-pagination .swiper-pagination-bullet {
+    background: #D1D5DC;
+    height: 8px;
+    width: 8px;
+  }
+  .crossover-content__swiper-wrapper.swiper .swiper-pagination .swiper-pagination-bullet-active {
+    background: #F16122;
+    border-radius: 10px;
+    width: 32px;
+  }
+}
 
 .crossover-path {
   background: #002331;
@@ -51,9 +152,43 @@
 .crossover-path__wrap h2 span {
   color: #F16122;
 }
+.crossover-path .crossover-desktop {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .crossover-path .crossover-desktop {
+    display: none;
+  }
+}
+.crossover-path .crossover-mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .crossover-path .crossover-mobile {
+    display: block;
+    width: 100%;
+  }
+}
+.crossover-path #swiper-crossover-posts {
+  padding-bottom: 40px;
+}
+.crossover-path #swiper-crossover-posts .swiper-pagination {
+  bottom: 0;
+}
+.crossover-path #swiper-crossover-posts .swiper-pagination .swiper-pagination-bullet {
+  background: #D1D5DC;
+  height: 8px;
+  width: 8px;
+}
+.crossover-path #swiper-crossover-posts .swiper-pagination .swiper-pagination-bullet-active {
+  background: #F16122;
+  border-radius: 10px;
+  width: 32px;
+}
 .crossover-content__wrap {
   border-radius: 16px;
   height: 100%;
+  margin-bottom: 20px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -127,7 +262,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  height: clamp(356px, 55vw, 638px);
+  min-height: clamp(356px, 55vw, 638px);
+  padding: 40px 0;
   width: 100%;
 }
 .crossover-common:before {
@@ -144,6 +280,11 @@
 .crossover-common .content-details__wrap img {
   object-fit: contain;
   width: 415px;
+}
+@media screen and (max-width: 768px) {
+  .crossover-common .content-details__wrap img {
+    width: 200px;
+  }
 }
 .crossover-common .content-details__wrap h3 {
   color: #fff;
@@ -183,6 +324,11 @@
   padding: 60px 0;
   height: auto;
 }
+@media screen and (max-width: 768px) {
+  .bottom-content {
+    padding: 20px 0;
+  }
+}
 .bottom-content .content-details__wrap.image-wrap {
   padding-right: 80px;
 }
@@ -191,18 +337,31 @@
     padding-right: 0;
   }
 }
+.bottom-content .content-details__wrap.image-wrap.content {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap.image-wrap.content {
+    display: none;
+  }
+}
+.bottom-content .content-details__wrap.image-wrap.not-content {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap.image-wrap.not-content {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
 .bottom-content .content-details__wrap h3 {
   color: #fff;
-  font: normal clamp(20px, 2vw + 8px, 36px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  font: normal 36px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 @media screen and (max-width: 768px) {
   .bottom-content .content-details__wrap h3 {
-    padding-top: 20px;
-  }
-}
-@media screen and (max-width: 576px) {
-  .bottom-content .content-details__wrap h3 {
-    font: normal clamp(16px, 2vw, 26px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    text-align: center;
   }
 }
 .bottom-content .content-details__wrap img {
@@ -216,6 +375,12 @@
   font: normal 20px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 34px;
   margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-description {
+    font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
+  }
 }
 
 /*# sourceMappingURL=crossovers.css.map */

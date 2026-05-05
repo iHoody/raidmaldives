@@ -129,9 +129,23 @@ a {
   background: #082B3A !important;
 }
 
+/**
+ * Text Transform
+ */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
 .site-content {
   position: relative;
   width: 100%;
+}
+.site-content.display-none {
+  display: none;
 }
 
 .site-banner {
@@ -203,7 +217,7 @@ a {
 }
 @media screen and (max-width: 991px) {
   .site-banner .site-information .banner-title {
-    font: normal clamp(32px, 2vw + 12px, 36px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 .site-banner .site-information .banner-description {
@@ -212,9 +226,9 @@ a {
   line-height: 32px;
   margin-top: 20px;
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 768px) {
   .site-banner .site-information .banner-description {
-    font: normal clamp(16px, 1vw + 12px, 20px) "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 .site-banner .site-information .button-section {
@@ -236,14 +250,18 @@ a {
 }
 @media screen and (max-width: 991px) {
   .site-banner .site-information .button-section a {
-    display: block;
-    width: 100%;
+    display: inline-block;
   }
 }
 .site-banner .site-information .button-section a label {
   display: block;
   font: normal 20px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .site-banner .site-information .button-section a label {
+    font: normal 14px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 }
 
 .section-content {
@@ -909,6 +927,12 @@ img {
   background-position: center center;
   background-size: 100%;
 }
+.icon-event {
+  background-image: url("../images/icon/icon-event.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
 
 .container {
   max-width: 1500px;
@@ -954,8 +978,18 @@ img {
 .row.reverse-column .column:first-child {
   order: 2;
 }
+@media screen and (max-width: 768px) {
+  .row.reverse-column .column:first-child {
+    order: 1;
+  }
+}
 .row.reverse-column .column:last-child {
   order: 1;
+}
+@media screen and (max-width: 768px) {
+  .row.reverse-column .column:last-child {
+    order: 2;
+  }
 }
 
 .column {
@@ -1093,14 +1127,17 @@ img {
   }
 }
 .site-header .site-branding img {
-  width: clamp(240px, 27vw + 60px, 311px);
-  max-width: 311px;
+  width: clamp(210px, 27vw + 30px, 279px);
   transition: width 0.3s ease;
+}
+@media screen and (max-width: 768px) {
+  .site-header .site-branding img {
+    width: clamp(180px, 20vw + 30px, 250px);
+  }
 }
 @media screen and (max-width: 576px) {
   .site-header .site-branding img {
-    width: clamp(150px, 10vw + 50px, 250px);
-    max-width: 311px;
+    width: clamp(130px, 10vw + 30px, 230px);
   }
 }
 .site-header .site-nav {
@@ -1521,9 +1558,21 @@ footer {
   position: relative;
   width: 100%;
 }
+@media screen and (max-width: 991px) {
+  .site-header-banner {
+    height: clamp(450px, 50vw, 60vw);
+    padding: 60px 0;
+  }
+}
 @media screen and (max-width: 768px) {
   .site-header-banner {
-    height: clamp(300px, 50vw, 50vw);
+    height: clamp(500px, 50vw, 60vw);
+    padding: 60px 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .site-header-banner {
+    height: clamp(400px, 50vw, 50vw);
     padding: 60px 0;
   }
 }
@@ -1546,7 +1595,7 @@ footer {
 .site-header-banner .site-wrap {
   width: 52%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .site-header-banner .site-wrap {
     width: 100%;
   }
@@ -1556,9 +1605,19 @@ footer {
   color: #fff;
   padding: 25px 30px;
 }
+@media screen and (max-width: 768px) {
+  .site-header-banner .site-information > img {
+    width: 100%;
+  }
+}
 .site-header-banner .site-information.transparent {
   background: transparent;
   padding: 25px 0;
+}
+@media screen and (max-width: 991px) {
+  .site-header-banner .site-information.transparent {
+    padding: 65px 0 25px;
+  }
 }
 .site-header-banner .site-information__title {
   font: normal clamp(28px, 2vw + 16px, 44px) "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1576,6 +1635,9 @@ footer {
   .site-header-banner .site-information__description {
     font: normal clamp(24px, 2vw + 12px, 36px) "LatoLight", -apple-system, BlinkMacSystemFont, sans-serif;
   }
+}
+.site-header-banner .site-information__description strong {
+  font: normal clamp(32px, 2.5vw + 18px, 54px) "LatoExtraBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .site-header-banner .site-information__description span {
   color: #00A0DE;
@@ -1607,13 +1669,18 @@ footer {
 }
 
 .site-middle-content {
-  background: url("../images/mid-bg.png") repeat;
+  background: url("../images/mid-bg.png") repeat-x;
   position: relative;
   padding: 130px 0 50px;
 }
+@media screen and (max-width: 991px) {
+  .site-middle-content {
+    padding: 130px 0 10px;
+  }
+}
 @media screen and (max-width: 440px) {
   .site-middle-content {
-    padding: 70px 0 70px;
+    padding: 70px 0 10px;
   }
 }
 .site-middle-content:after {
@@ -1622,43 +1689,11 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 100px;
+  height: 500px;
   width: 100%;
 }
 .site-middle-content__options {
   position: relative;
-}
-.site-middle-content__options.swiper-disabled {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-.site-middle-content__options.swiper-disabled .swiper-wrapper {
-  display: contents;
-}
-.site-middle-content__options.swiper-disabled .swiper-slide {
-  width: auto !important;
-  margin-right: 0 !important;
-}
-.site-middle-content__options.swiper-disabled .swiper-pagination {
-  display: none;
-}
-.site-middle-content__options.swiper-enabled {
-  display: block;
-  padding-bottom: 50px;
-}
-.site-middle-content__options.swiper-enabled .swiper-pagination {
-  display: block;
-  bottom: 0;
-}
-.site-middle-content__options.swiper-enabled .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.4);
-  opacity: 1;
-}
-.site-middle-content__options.swiper-enabled .swiper-pagination .swiper-pagination-bullet-active {
-  background: #F16122;
 }
 @media screen and (min-width: 992px) {
   .site-middle-content__options {
@@ -1670,7 +1705,6 @@ footer {
 @media screen and (max-width: 991px) {
   .site-middle-content__options {
     display: block;
-    padding-bottom: 50px;
   }
 }
 .site-middle-content__option {
@@ -1679,6 +1713,11 @@ footer {
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .site-middle-content__option {
+    margin-bottom: 20px;
+  }
 }
 .site-middle-content__option .image-wrap {
   background-size: cover;
@@ -1719,8 +1758,13 @@ footer {
   display: flex;
   align-items: center;
   position: relative;
-  height: clamp(356px, 50vw, 560px);
+  min-height: clamp(356px, 50vw, 560px);
   width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .site-booking {
+    padding: 40px 0;
+  }
 }
 .site-booking:before {
   content: "";
@@ -1765,6 +1809,11 @@ footer {
   color: #fff;
   font: normal clamp(20px, 5vw, 32px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
+@media screen and (max-width: 991px) {
+  .site-booking__booking-wrap h2 {
+    font: normal clamp(18px, 5vw, 30px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
 @media screen and (max-width: 576px) {
   .site-booking__booking-wrap h2 {
     font: normal clamp(16px, 5vw, 24px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1777,17 +1826,20 @@ footer {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .site-booking__description {
     font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 30px;
+    margin-bottom: 20px;
   }
 }
 .site-booking__description b {
   font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .site-booking__description b {
     font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 30px;
   }
 }
 .site-booking__button {
@@ -1804,16 +1856,22 @@ footer {
     width: 100%;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .site-booking__button {
     font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 9px 30px;
+    padding: 12px 30px;
   }
 }
 .site-booking__button label {
   display: block;
   font: normal 20px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .site-booking__button label {
+    font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-top: 5px;
+  }
 }
 
 .site-blog {
@@ -1826,20 +1884,82 @@ footer {
     padding: 30px 0;
   }
 }
-.site-blog__posts {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 50px;
-}
-@media screen and (max-width: 991px) {
-  .site-blog__posts {
-    grid-template-columns: repeat(1, 1fr);
+@media screen and (max-width: 768px) {
+  .site-blog .content-desktop {
+    display: none;
   }
+}
+.site-blog .content-mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .site-blog .content-mobile {
+    display: block;
+    width: 100%;
+  }
+}
+.site-blog .content-mobile .site-blog__posts {
+  margin-top: 50px;
+  width: 100%;
+}
+@media screen and (min-width: 769px) {
+  .site-blog .content-mobile .site-blog__posts {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+  }
+  .site-blog .content-mobile .site-blog__posts .swiper-wrapper {
+    display: contents !important;
+    transform: none !important;
+  }
+  .site-blog .content-mobile .site-blog__posts .swiper-slide {
+    width: auto !important;
+    margin-right: 0 !important;
+    height: auto !important;
+  }
+  .site-blog .content-mobile .site-blog__posts .swiper-pagination {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .site-blog .content-mobile .site-blog__posts {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 40px;
+    margin-top: 20px;
+  }
+  .site-blog .content-mobile .site-blog__posts .swiper-pagination {
+    bottom: 0;
+  }
+  .site-blog .content-mobile .site-blog__posts .swiper-pagination .swiper-pagination-bullet {
+    background: #D1D5DC;
+    height: 8px;
+    width: 8px;
+  }
+  .site-blog .content-mobile .site-blog__posts .swiper-pagination .swiper-pagination-bullet-active {
+    background: #F16122;
+    border-radius: 10px;
+    width: 32px;
+  }
+}
+.site-blog__posts {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   .site-blog__posts {
     margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 991px) {
+  .site-blog__posts {
+    grid-template-columns: 1fr;
   }
 }
 .site-blog__post {
@@ -1847,8 +1967,14 @@ footer {
   border-radius: 16px;
   display: flex;
   flex-direction: column;
+  height: 100%;
   position: relative;
   width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .site-blog__post {
+    margin-bottom: 20px;
+  }
 }
 .site-blog__post-image img {
   border-radius: 16px;
@@ -1862,16 +1988,22 @@ footer {
   line-height: 26px;
   margin-top: 15px;
 }
+@media screen and (min-width: 992px) {
+  .site-blog__post-title {
+    min-height: 52px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .site-blog__post-title {
+    text-align: center;
+  }
+}
 .site-blog__post-description {
   color: #000000;
+  flex: 1;
   font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 26px;
   margin-top: 10px;
-}
-@media screen and (min-width: 991px) {
-  .site-blog__post-description {
-    min-height: 200px;
-  }
 }
 .site-blog__post-button {
   margin-top: auto;
@@ -1893,6 +2025,7 @@ footer {
 }
 @media screen and (max-width: 991px) {
   .site-blog__button-wrap {
+    display: none;
     width: 100%;
   }
 }
@@ -1937,8 +2070,16 @@ footer {
     padding: 20px 0;
   }
 }
-.site-faq__content-image {
-  margin-top: 60px;
+@media screen and (max-width: 768px) {
+  .site-faq__content {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .site-faq__content-image {
+    margin-top: 60px;
+  }
 }
 .site-faq__content-image img {
   width: 100%;
@@ -2064,28 +2205,6 @@ footer {
   position: relative;
   padding-bottom: 80px !important;
   text-align: left;
-}
-.site-reviews__posts .swiper-pagination {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  bottom: 0 !important;
-  left: 50% !important;
-  top: auto !important;
-  transform: translate(-50%, 0%);
-  padding: 10px 15px;
-  width: auto !important;
-}
-.site-reviews__posts .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-  background: #F8F8F8;
-  margin: 0 8px;
-  opacity: 1;
-  transition: background-color 0.3s ease;
-}
-.site-reviews__posts .swiper-pagination .swiper-pagination-bullet-active {
-  background: #F16122;
 }
 .site-reviews .swiper-slide:nth-child(odd) .site-reviews__post {
   border-left: 8px solid #F16122;

@@ -1,0 +1,110 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.event-section {
+  padding: 40px 0;
+  &__events {
+    padding: 40px 0;
+    .event-row {
+      border-bottom: rgba($white, 0.3) solid 1px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+    .event-item {
+      width: 100%;
+      &__image {
+        @include min-media($page-mobile-width) {
+          padding-right: 30px;
+        }
+        img {
+          border-radius: 16px;
+          height: 420px;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+      &__content {
+        @include min-media($page-mobile-width) {
+          padding-left: 30px;
+        }
+        h2 {
+          color: $white;
+          font: normal 36px $font-lato-bold;
+          line-height: 36px;
+          margin-bottom: 25px;
+          span {
+            color: $orange;
+          }
+        }
+      }
+      &__sub-content {
+        margin-bottom: 30px;
+        .date {
+          color: $white;
+          font: normal 20px $font-lato-medium;
+        }
+      }
+      &__excerpt {
+        color: $white;
+        font: normal 20px $font-lato-medium;
+        line-height: 26px;
+      }
+      &__button {
+        margin-top: 20px;
+        a {
+          border-radius: 10px;
+          color: $white;
+          background: $orange;
+          display: inline-block;
+          font: normal 18px $font-open-sans-bold;
+          line-height: 24px;
+          padding: 10px 35px;
+          text-align: center;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.bottom-content-image {
+  padding: 40px 0;
+}
+
+.bottom-content {
+  .content-details {
+    &__wrap {
+      &-button {
+        a {
+          background: $orange;
+          border-radius: 10px;
+          color: $white;
+          display: inline-block;
+          font: normal 18px $font-open-sans-bold;
+          line-height: 24px;
+          padding: 10px 35px;
+          text-align: center;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+      }
+      &.image-wrap {
+        img {
+          height: 284px;
+          object-fit: contain;
+          width: 415px;
+        }
+      }
+      &-description {
+        color: $white;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

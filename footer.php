@@ -12,8 +12,13 @@ $reviews = get_field('client_reviews', $front_page_id);
 $reviewsTitle = $reviews['title'];
 $reviewsSubTitle = $reviews['sub_title'];
 $reviewsBackground = $reviews['background_image'];
+
+$hidden = '';
+if (is_page('blog') || is_page('events')) {
+  $hidden = 'display-none';
+}
 ?>
-<div class="site-content">
+<div class="site-content <?= esc_attr($hidden) ?>">
   <section class="site-faq section-content">
     <h2 class="site-faq__title section-title"><?= esc_attr($faqTitle) ?></h2>
     <h5 class="site-faq__sub-title sub-title"><?= esc_attr($faqSubTitle) ?></h5>

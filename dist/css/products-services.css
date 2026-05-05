@@ -66,6 +66,17 @@
   background: #082B3A !important;
 }
 
+/**
+ * Text Transform
+ */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
 .products-services-section {
   padding: 40px 20px 60px;
 }

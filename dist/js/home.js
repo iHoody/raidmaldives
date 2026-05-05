@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const home = {
         optionsSwiper: null,
+        blogSwiper: null,
         mobileBreakpoint: 768,
 
         init: function() {
-            this.middleSection();
+            this.blogSection();
             this.accordion();
         },
 
@@ -64,66 +65,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
 
-        middleSection: function() {
-            const self = this;
-            const container = document.querySelector('#swiper-middle-content');
-
+        blogSection: function() {
+            const container = document.querySelector('#swiper-blog-posts');
             if (!container) return;
 
-            // Initialize Swiper with breakpoint-based enabled option
-            this.optionsSwiper = new Swiper('#swiper-middle-content', {
+            this.blogSwiper = new Swiper('#swiper-blog-posts', {
                 slidesPerView: 1,
                 spaceBetween: 20,
-                enabled: window.innerWidth <= this.mobileBreakpoint,
                 pagination: {
-                    el: '#swiper-middle-content .swiper-pagination',
+                    el: '#swiper-blog-posts .swiper-pagination',
                     clickable: true,
                 },
                 breakpoints: {
-                    480: {
-                        slidesPerView: 1,
-                        spaceBetween: 15,
-                    },
-                },
-                on: {
-                    // Runs after resize
-                    resize: function() {
-                        self.handleResize();
+                    768: {
+                        enabled: false,
                     }
                 }
             });
-
-            // Handle initial state
-            this.updateSwiperState();
-
-            // Also listen to window resize as backup
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => self.handleResize(), 100);
-            });
-        },
-
-        handleResize: function() {
-            this.updateSwiperState();
-        },
-
-        updateSwiperState: function() {
-            if (!this.optionsSwiper) return;
-
-            const container = document.querySelector('#swiper-middle-content');
-
-            if (window.innerWidth <= this.mobileBreakpoint) {
-                // Enable swiper on mobile
-                this.optionsSwiper.enable();
-                container.classList.add('swiper-enabled');
-                container.classList.remove('swiper-disabled');
-            } else {
-                // Disable swiper on desktop
-                this.optionsSwiper.disable();
-                container.classList.remove('swiper-enabled');
-                container.classList.add('swiper-disabled');
-            }
         },
 
         reviewClient: function() {

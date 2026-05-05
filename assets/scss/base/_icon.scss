@@ -125,4 +125,7 @@ img {
   &-author {
     @include iconBackgroundOption('author');
   }
+  &-event {
+    @include iconBackgroundOption('event');
+  }
 }

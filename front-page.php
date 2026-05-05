@@ -46,7 +46,7 @@ get_header();
           <?php if ($bannerImgTitle): ?>
             <img src="<?= esc_url($bannerImgTitle) ?>" alt="" >
           <?php endif; ?>
-          <div class="site-information__description"><?= wp_kses($bannerShortDescription, $allowedposttags) ?></div>
+          <div class="site-information__description text-uppercase"><?= wp_kses($bannerShortDescription, $allowedposttags) ?></div>
           <div class="site-information__link">
             <a href="<?= esc_url($buttonLink) ?>">
               <?= esc_attr($buttonTitle) ?>
@@ -64,27 +64,24 @@ get_header();
   <section class="site-middle-content">
 
     <div class="container">
-      <div id="swiper-middle-content" class="site-middle-content__options swiper">
-        <div class="swiper-wrapper">
-          <?php if ($midOptions) : ?>
-            <?php foreach ($midOptions as $option) : ?>
-              <div class="site-middle-content__option swiper-slide">
-                <div class="image-wrap" style="background-image: url('<?= esc_url($option['image']) ?>')">
-                </div>
-                <div class="detail-wrap">
-                  <h3><?= esc_attr($option['title']) ?></h3>
-                  <div class="site-middle-content__option-link">
-                    <a href="<?= esc_url($option['button_link']) ?>">
-                      <?= esc_attr($option['button_title']) ?>
-                      <i class="icon icon-arrow-right"></i>
-                    </a>
-                  </div>
+      <div class="site-middle-content__options">
+        <?php if ($midOptions) : ?>
+          <?php foreach ($midOptions as $option) : ?>
+            <div class="site-middle-content__option">
+              <div class="image-wrap" style="background-image: url('<?= esc_url($option['image']) ?>')">
+              </div>
+              <div class="detail-wrap">
+                <h3><?= esc_attr($option['title']) ?></h3>
+                <div class="site-middle-content__option-link">
+                  <a href="<?= esc_url($option['button_link']) ?>">
+                    <?= esc_attr($option['button_title']) ?>
+                    <i class="icon icon-arrow-right"></i>
+                  </a>
                 </div>
               </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </div>
-        <div class="swiper-pagination"></div>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </div>
     </div>
 
@@ -116,42 +113,40 @@ get_header();
       <h1 class="site-blog__title section-title"><?= esc_attr($blogTitle) ?></h1>
       <h5 class="site-blog__sub-title sub-title"><?= esc_attr($blogSubTitle) ?></h5>
 
-      <div class="site-blog__posts">
-        <?php
-          $args = [
-            'post_type' => 'post',
-            'posts_per_page' => 3
-          ];
+      <div class="content-desktop">
+        <div class="site-blog__posts">
+          <?php
+            $args = [
+                'post_type' => 'post',
+                'posts_per_page' => 3
+            ];
 
-          $posts = get_posts($args);
+            $posts = get_posts($args);
 
-          if ($posts):
-            foreach ($posts as $post) : setup_postdata($post); ?>
+            if ($posts):
+              echo getFrontPageContentPosts($posts);
+            endif;
+            wp_reset_postdata();
+          ?>
+        </div>
 
-              <article class="site-blog__post">
-                <div class="site-blog__post-image">
-                  <img src="<?= esc_url(get_the_post_thumbnail_url()) ?>" alt="<?= esc_attr(get_the_title()) ?>">
-                </div>
-                <h3 class="site-blog__post-title"><?= esc_attr(get_the_title()) ?></h3>
-                <div class="site-blog__post-description">
-                    <?= wp_kses(get_the_excerpt(), $allowedposttags) ?>
-                </div>
-                <div class="site-blog__post-button">
-                  <a href="<?= esc_url(get_permalink()) ?>">
-                    Read more
-                    <i class="icon icon-arrow-right-orange"></i>
-                  </a>
-                </div>
-              </article>
-            <?php
-            endforeach;
-          endif;
-          wp_reset_postdata();
-        ?>
+        <div class="site-blog__button-wrap">
+          <a href="<?= esc_url($blogButtonLink) ?>" class="site-blog__button"><?= esc_attr($blogButtonTitle) ?></a>
+        </div>
       </div>
 
-      <div class="site-blog__button-wrap">
-        <a href="<?= esc_url($blogButtonLink) ?>" class="site-blog__button"><?= esc_attr($blogButtonTitle) ?></a>
+      <div class="content-mobile">
+        <div class="site-blog__posts swiper" id="swiper-blog-posts">
+          <div class="swiper-wrapper">
+            <?php
+              if ($posts):
+                echo getFrontPageContentPosts($posts);
+              endif;
+              wp_reset_postdata();
+            ?>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
 
     </section>

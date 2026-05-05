@@ -37,6 +37,11 @@
   background: #002331;
   padding: 60px 0;
 }
+@media screen and (max-width: 768px) {
+  .middle-content {
+    padding: 0 0 20px;
+  }
+}
 .middle-content__details {
   text-align: center;
 }
@@ -47,12 +52,8 @@
 }
 @media screen and (max-width: 768px) {
   .middle-content__details h3 {
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
     padding-top: 20px;
-  }
-}
-@media screen and (max-width: 576px) {
-  .middle-content__details h3 {
-    font: normal clamp(16px, 2vw, 26px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 .middle-content__details p {
@@ -61,9 +62,22 @@
   line-height: 34px;
   margin-bottom: 0;
 }
+@media screen and (max-width: 768px) {
+  .middle-content__details p {
+    font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
+  }
+}
 
 .benefits {
   padding: 60px 0;
+}
+@media screen and (max-width: 768px) {
+  .benefits__wrap {
+    overflow: hidden;
+    padding: 0 20px;
+    width: 100%;
+  }
 }
 .benefits__wrap-title {
   color: #2F2F2F;
@@ -71,10 +85,23 @@
   margin-bottom: 20px;
   text-transform: uppercase;
 }
+@media screen and (max-width: 768px) {
+  .benefits__wrap-title {
+    font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
 .benefits__wrap-description {
   color: #595959;
   font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 32px;
+}
+@media screen and (max-width: 768px) {
+  .benefits__wrap-description {
+    font: normal 14px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 14px;
+  }
 }
 .benefits__wrap-description ul {
   margin-bottom: 15px;
@@ -93,6 +120,11 @@
   top: 12px;
   width: 6px;
 }
+@media screen and (max-width: 768px) {
+  .benefits__wrap-description ul li:before {
+    top: 5px;
+  }
+}
 .benefits__wrap-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -103,18 +135,41 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .benefits__wrap-list {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 35px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
-}
-@media screen and (max-width: 480px) {
-  .benefits__wrap-list {
-    grid-template-columns: 1fr;
+  .benefits__wrap-list::-webkit-scrollbar {
+    width: 12px;
+  }
+  .benefits__wrap-list::-webkit-scrollbar-track {
+    background: #cccccc;
+    border-radius: 16px;
+  }
+  .benefits__wrap-list::-webkit-scrollbar-thumb {
+    background: #F16122;
+    border-radius: 16px;
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    .benefits__wrap-list {
+      scrollbar-color: #F16122 #cccccc;
+    }
   }
 }
 .benefits__wrap-list__item {
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .benefits__wrap-list__item {
+    flex: 0 0 220px;
+    scroll-snap-align: start;
+  }
 }
 .benefits__wrap-list__item .benefit-item__image {
   margin-bottom: 20px;

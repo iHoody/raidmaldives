@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const CURRENT_VERSION = '1.1.05.01';
+const CURRENT_VERSION = '1.1.06.04';
 define("CURRENT_DATE", date('ymdHis'));
 
 /**
@@ -50,11 +50,11 @@ function dive_raid_enqueue_assets(): void {
         true
     );
     
-    if (is_singular('event')) {
-        enqueueEventFiles();
+    if (is_page('events') || is_singular('event')) {
+        enqueueEventsFiles();
     }
     
-    if (is_page('dive-centres') || is_singular('event')) {
+    if (is_page('dive-centres')) {
         enqueueDiveCentresFiles();
     }
     
@@ -116,6 +116,14 @@ function enqueueBlog(): void
         [],
         CURRENT_VERSION.'.'.CURRENT_DATE
     );
+    
+    wp_enqueue_script(
+        'blog-js',
+        get_template_directory_uri() . '/dist/js/blog.js',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE,
+        true
+    );
 }
 
 function enqueueELearning(): void
@@ -135,6 +143,14 @@ function enqueueCrossoverTrips(): void
         get_template_directory_uri() . '/dist/css/crossovers.css',
         [],
         CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+    
+    wp_enqueue_script(
+        'crossover-js',
+        get_template_directory_uri() . '/dist/js/crossover.js',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE,
+        true
     );
 }
 
@@ -262,14 +278,11 @@ function enqueueEventFiles(): void
     );
 }
 
-/**
- * @return void
- */
-function enqueueDiveCentresFiles(): void
+function enqueueEventsFiles(): void
 {
     wp_enqueue_style(
-        'dive_centre-css',
-        get_template_directory_uri() . '/dist/css/dive-centre.css',
+        'event-css',
+        get_template_directory_uri() . '/dist/css/event.css',
         [],
         CURRENT_VERSION.'.'.CURRENT_DATE
     );
@@ -294,6 +307,19 @@ function enqueueDiveCentresFiles(): void
             'error' => __('Something went wrong. Please try again.', 'dive-raid'),
         ]
     ]);
+}
+
+/**
+ * @return void
+ */
+function enqueueDiveCentresFiles(): void
+{
+    wp_enqueue_style(
+        'dive_centre-css',
+        get_template_directory_uri() . '/dist/css/dive-centre.css',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE
+    );
 }
 
 /**

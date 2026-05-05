@@ -18,24 +18,66 @@ function accountClass($classes)
 
 add_filter('body_class', 'accountClass');
 
+function formatDateWithOrdinal($dateStr): string
+{
+  $timestamp = strtotime($dateStr);
+  $day = (int) date('j', $timestamp);
+
+  $suffix = 'th';
+  if (!in_array($day % 100, [11, 12, 13])) {
+    switch ($day % 10) {
+      case 1: $suffix = 'st'; break;
+      case 2: $suffix = 'nd'; break;
+      case 3: $suffix = 'rd'; break;
+    }
+  }
+
+  return $day . $suffix;
+}
+
+function formatEventDate($startDateStr, $endDateStr = ''): string
+{
+  $startTimestamp = strtotime($startDateStr);
+  $startDay = formatDateWithOrdinal($startDateStr);
+  $startMonth = date('F', $startTimestamp);
+  $startYear = date('Y', $startTimestamp);
+
+  if (empty($endDateStr)) {
+    return $startDay . ' ' . $startMonth . ' ' . $startYear;
+  }
+
+  $endTimestamp = strtotime($endDateStr);
+  $endDay = formatDateWithOrdinal($endDateStr);
+  $endMonth = date('F', $endTimestamp);
+  $endYear = date('Y', $endTimestamp);
+
+  // Same month and year: "21st - 24th May 2026"
+  if ($startMonth === $endMonth && $startYear === $endYear) {
+    return $startDay . ' - ' . $endDay . ' ' . $endMonth . ' ' . $endYear;
+  }
+
+  // Different month: "30th May 2026 - 3rd June 2026"
+  return $startDay . ' ' . $startMonth . ' ' . $startYear . ' - ' . $endDay . ' ' . $endMonth . ' ' . $endYear;
+}
+
 function contentPostList($postType, $taxonomyArgs = []): void
 {
     global $allowedposttags;
-    
+
     $args = [
         'post_type' => $postType,
         'posts_per_page' => 6,
     ];
-    
+
     if (! empty($taxonomyArgs)) {
         $args['tax_query'] = $taxonomyArgs;
     }
-    
+
     $posts = get_posts($args);
-    
+
     if ($posts):
         foreach ($posts as $post) : setup_postdata($post); ?>
-            
+
             <article class="courses__post row">
                 <div class="courses__post-image column column--4">
                     <img src="<?= esc_url(has_post_thumbnail($post->ID)  ? get_the_post_thumbnail_url($post->ID) : 'https://placehold.co/600x400?text=Hello+World') ?>" alt="<?= esc_attr($post->post_title) ?>">
@@ -83,7 +125,7 @@ function contentPostList($postType, $taxonomyArgs = []): void
                     </div>
                 </div>
             </article>
-        
+
         <?php
         endforeach;
     endif;
@@ -157,4 +199,71 @@ function getPostContentTypes(int $postId): void
         <?php endif; ?>
     </div>
 <?php
+}
+
+/**
+ * Only for Crossover page `template-crossover.php`
+ *
+ * @param array $array
+ * @return void
+ */
+function getMiddleContentPosts(array $array): void
+{
+  foreach ($array as $key => $post): ?>
+    <?php
+    $gridType = $post['grid_type'];
+    $column = match ($gridType) {
+      'col_2' => 'column--6',
+      'col_3' => 'column--4',
+      default => 'column--12',
+    };
+    ?>
+    <div class="column <?= esc_attr($column) ?> stretch-column swiper-slide">
+      <div class="crossover-content__wrap">
+        <div class="crossover-content__wrap-image" style="background-image: url(<?= esc_attr($post['image']) ?>)"></div>
+        <div class="background-filter black light"></div>
+        <div class="crossover-content__wrap-detail">
+          <h4><?= esc_attr($post['title']) ?></h4>
+          <div class="crossover-content__wrap-detail__description">
+            <?= wp_kses_post($post['description']) ?>
+          </div>
+          <div class="crossover-content__wrap-detail__button">
+            <a href="<?= esc_url($post['button_url']) ?>">
+              <?= esc_attr($post['button_title']) ?>
+              <i class="icon icon-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <?php endforeach;
+}
+
+/**
+ * Only for Front page
+ *
+ * @param array $array
+ * @return void
+ */
+function getFrontPageContentPosts(mixed $array): void
+{
+  foreach ($array as $post) : setup_postdata($post); ?>
+    <article class="site-blog__post">
+      <div class="site-blog__post-image">
+        <img src="<?= esc_url(get_the_post_thumbnail_url($post->ID)) ?>" alt="<?= esc_attr(get_the_title($post->ID)) ?>">
+      </div>
+      <h3 class="site-blog__post-title"><?= esc_attr(get_the_title($post->ID)) ?></h3>
+      <div class="site-blog__post-description">
+        <?= wp_kses_post(get_the_excerpt($post->ID)) ?>
+      </div>
+      <div class="site-blog__post-button">
+        <a href="<?= esc_url(get_permalink($post->ID)) ?>">
+          Read more
+          <i class="icon icon-arrow-right-orange"></i>
+        </a>
+      </div>
+    </article>
+  <?php
+  endforeach;
 }

@@ -5,6 +5,9 @@
 .site-content {
   position: relative;
   width: 100%;
+  &.display-none {
+    display: none;
+  }
 }
 
 .site-banner {
@@ -65,7 +68,7 @@
       color: $white;
       font: normal clamp(48px, 2vw + 20px, 50px) $font-lato-bold;
       @include max-media($page-mobile-width) {
-        font: normal clamp(32px, 2vw + 12px, 36px) $font-lato-bold;
+        font: normal 24px $font-lato-bold;
       }
     }
     .banner-description {
@@ -73,8 +76,8 @@
       font: normal clamp(18px, 1vw + 12px, 24px) $font-lato-medium;
       line-height: 32px;
       margin-top: 20px;
-      @include max-media($page-mobile-width) {
-        font: normal clamp(16px, 1vw + 12px, 20px) $font-lato-medium;
+      @include max-media($page-medium-width) {
+        font: normal 18px $font-lato-regular;
       }
     }
     .button-section {
@@ -91,13 +94,15 @@
           padding: 9px 30px;
         }
         @include max-media($page-mobile-width) {
-          display: block;
-          width: 100%;
+          display: inline-block;
         }
         label {
           display: block;
           font: normal 20px $font-lato-regular;
           margin-top: 10px;
+          @include max-media($page-medium-width) {
+            font: normal 14px $font-lato-regular;
+          }
         }
       }
     }

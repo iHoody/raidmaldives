@@ -54,13 +54,16 @@ get_header();
                             <div class="content-details__wrap">
                                 <div class="content-details__wrap-description <?= ($key % 2 === 0) ? '' : 'reverse' ?>">
                                     <h3><?= wp_kses_post($post['title']) ?></h3>
+                                    <div class="content-details__wrap-image content">
+                                        <img src="<?= esc_attr($post['image']) ?>" alt="<?= esc_attr(strip_tags($post['title'])) ?>">
+                                    </div>
                                     <?= wp_kses_post($post['description']) ?>
                                 </div>
                             </div>
                         </div>
                         <div class="column column--6">
                             <div class="content-details__wrap">
-                                <div class="content-details__wrap-image <?= ($key % 2 === 0) ? '' : 'reverse' ?>">
+                                <div class="content-details__wrap-image not-content <?= ($key % 2 === 0) ? '' : 'reverse' ?>">
                                     <img src="<?= esc_attr($post['image']) ?>" alt="<?= esc_attr(strip_tags($post['title'])) ?>">
                                 </div>
                             </div>
@@ -82,39 +85,22 @@ get_header();
 
                 <?php if ($middleContentPosts): ?>
 
-                    <div class="row">
+                    <div class="crossover-desktop">
+                        <div class="row">
 
-                        <?php foreach ($middleContentPosts as $key => $post): ?>
+                          <?php getMiddleContentPosts($middleContentPosts) ?>
 
-                            <?php
-                            $gridType = $post['grid_type'];
-                            $column = match ($gridType) {
-                                'col_2' => 'column--6',
-                                'col_3' => 'column--4',
-                                default => 'column--12',
-                            };
-                            ?>
-                            <div class="column <?= esc_attr($column) ?> stretch-column">
-                                <div class="crossover-content__wrap">
-                                    <div class="crossover-content__wrap-image" style="background-image: url(<?= esc_attr($post['image']) ?>)"></div>
-                                    <div class="background-filter black light"></div>
-                                    <div class="crossover-content__wrap-detail">
-                                        <h4><?= esc_attr($post['title']) ?></h4>
-                                        <div class="crossover-content__wrap-detail__description">
-                                            <?= wp_kses_post($post['description']) ?>
-                                        </div>
-                                        <div class="crossover-content__wrap-detail__button">
-                                            <a href="<?= esc_url($post['button_url']) ?>">
-                                                <?= esc_attr($post['button_title']) ?>
-                                                <i class="icon icon-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="crossover-mobile">
+                      <div class="crossover-content__swiper-wrapper swiper" id="swiper-crossover-posts">
+                        <div class="row swiper-wrapper">
 
-                        <?php endforeach; ?>
+                          <?php getMiddleContentPosts($middleContentPosts) ?>
 
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
                     </div>
 
                 <?php endif; ?>
@@ -150,13 +136,16 @@ get_header();
           <div class="container">
             <div class="row">
               <div class="column column--6 content-details">
-                <div class="content-details__wrap image-wrap">
+                <div class="content-details__wrap image-wrap content">
                   <img src="<?= esc_attr($bottomContentImage) ?>" alt="<?= wp_kses_post($bottomContentTitle) ?>">
                 </div>
               </div>
               <div class="column column--6 content-details justify-center">
                 <div class="content-details__wrap content-wrap">
                   <h3><?= wp_kses_post($bottomContentTitle) ?></h3>
+                  <div class="content-details__wrap image-wrap not-content">
+                    <img src="<?= esc_attr($bottomContentImage) ?>" alt="<?= wp_kses_post($bottomContentTitle) ?>">
+                  </div>
                   <div class="content-details__wrap-description"><?= wp_kses_post($bottomContentDescription) ?></div>
                 </div>
               </div>

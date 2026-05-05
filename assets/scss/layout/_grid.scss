@@ -42,9 +42,15 @@
     .column {
       &:first-child {
         order: 2;
+        @include max-media($page-medium-width) {
+          order: 1;
+        }
       }
       &:last-child {
         order: 1;
+        @include max-media($page-medium-width) {
+          order: 2;
+        }
       }
     }
   }

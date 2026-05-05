@@ -3,6 +3,130 @@
 
 .crossover-content {
   padding-top: 60px;
+  @include max-media($page-medium-width) {
+    padding-top: 20px;
+  }
+  .row {
+    &:first-child {
+      .content-details {
+        &__wrap {
+          &:before {
+            @include max-media($page-medium-width) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .content-details {
+    &__wrap {
+      position: relative;
+      width: 100%;
+      &:before {
+        @include max-media($page-medium-width) {
+          content: "";
+          background: $light-gray6;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 1px;
+          width: 100%;
+        }
+      }
+      &-description {
+        @include max-media($page-medium-width) {
+          margin-bottom: 20px;
+        }
+        h3 {
+          @include max-media($page-medium-width) {
+            margin-top: 30px;
+            padding: 10px 0;
+            text-align: center;
+          }
+        }
+      }
+      &-image {
+        &.content {
+          display: none;
+          @include max-media($page-medium-width) {
+            display: block;
+          }
+        }
+        &.not-content {
+          display: block;
+          @include max-media($page-medium-width) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__swiper-wrapper {
+    // Desktop: Grid layout
+    @include min-media($page-mobile-width + 1) {
+      &.swiper {
+        .row {
+          display: grid !important;
+          gap: 2rem;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .swiper-wrapper {
+          display: contents !important;
+          transform: none !important;
+        }
+
+        .swiper-slide {
+          width: auto !important;
+          margin-right: 0 !important;
+          height: auto !important;
+        }
+
+        .swiper-pagination {
+          display: none !important;
+        }
+      }
+    }
+
+    // Mobile: Swiper layout
+    @include max-media($page-mobile-width) {
+      &.swiper {
+        overflow: hidden;
+        padding-bottom: 50px;
+
+        .row {
+          display: flex;
+        }
+
+        .swiper-wrapper {
+          display: flex;
+        }
+
+        .swiper-slide {
+          flex-shrink: 0;
+          width: 100% !important;
+        }
+
+        .swiper-pagination {
+          bottom: 0;
+
+          .swiper-pagination-bullet {
+            background: $light-gray5;
+            height: 8px;
+            width: 8px;
+
+            &-active {
+              background: $orange;
+              border-radius: 10px;
+              width: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .crossover {
@@ -32,11 +156,42 @@
         }
       }
     }
+    .crossover-desktop {
+      display: block;
+      @include max-media($page-medium-width) {
+        display: none;
+      }
+    }
+    .crossover-mobile {
+      display: none;
+      @include max-media($page-medium-width) {
+        display: block;
+        width: 100%;
+      }
+    }
+    #swiper-crossover-posts {
+      padding-bottom: 40px;
+
+      .swiper-pagination {
+        bottom: 0;
+        .swiper-pagination-bullet {
+          background: $light-gray5;
+          height: 8px;
+          width: 8px;
+          &-active {
+            background: $orange;
+            border-radius: 10px;
+            width: 32px;
+          }
+        }
+      }
+    }
   }
   &-content {
     &__wrap {
       border-radius: 16px;
       height: 100%;
+      margin-bottom: 20px;
       overflow: hidden;
       position: relative;
       width: 100%;
@@ -112,7 +267,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  height: clamp(356px, 55vw, 638px);
+  min-height: clamp(356px, 55vw, 638px);
+  padding: 40px 0;
   width: 100%;
   &:before {
     content: "";
@@ -130,6 +286,9 @@
       img {
         object-fit: contain;
         width: 415px;
+        @include max-media($page-medium-width) {
+          width: 200px;
+        }
       }
       h3 {
         color: $white;
@@ -168,6 +327,9 @@
   background: $dark-blue;
   padding: 60px 0;
   height: auto;
+  @include max-media($page-medium-width) {
+    padding: 20px 0;
+  }
   .content-details {
     &__wrap {
       &.image-wrap {
@@ -175,15 +337,26 @@
         @include max-media($page-mobile-width) {
           padding-right: 0;
         }
+        &.content {
+          display: block;
+          @include max-media($page-medium-width) {
+            display: none;
+          }
+        }
+        &.not-content {
+          display: none;
+          @include max-media($page-medium-width) {
+            display: block;
+            margin-bottom: 20px;
+          }
+        }
       }
       h3 {
         color: $white;
-        font: normal clamp(20px, 2vw + 8px, 36px) $font-lato-bold;
+        font: normal 36px $font-lato-bold;
         @include max-media($page-medium-width) {
-          padding-top: 20px;
-        }
-        @include max-media($page-small-width) {
-          font: normal clamp(16px, 2vw, 26px) $font-lato-bold;
+          font: normal 20px $font-lato-bold;
+          text-align: center;
         }
       }
       img {
@@ -197,6 +370,10 @@
         font: normal 20px $font-lato-regular;
         line-height: 34px;
         margin-bottom: 0;
+        @include max-media($page-medium-width) {
+          font: normal 16px $font-lato-regular;
+          line-height: 26px;
+        }
       }
     }
   }

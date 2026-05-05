@@ -1,0 +1,117 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.event-section {
+  padding: 40px 0;
+}
+.event-section__events {
+  padding: 40px 0;
+}
+.event-section__events .event-row {
+  border-bottom: rgba(255, 255, 255, 0.3) solid 1px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+}
+.event-section__events .event-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.event-section__events .event-item {
+  width: 100%;
+}
+@media screen and (min-width: 991px) {
+  .event-section__events .event-item__image {
+    padding-right: 30px;
+  }
+}
+.event-section__events .event-item__image img {
+  border-radius: 16px;
+  height: 420px;
+  object-fit: cover;
+  width: 100%;
+}
+@media screen and (min-width: 991px) {
+  .event-section__events .event-item__content {
+    padding-left: 30px;
+  }
+}
+.event-section__events .event-item__content h2 {
+  color: #fff;
+  font: normal 36px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 36px;
+  margin-bottom: 25px;
+}
+.event-section__events .event-item__content h2 span {
+  color: #F16122;
+}
+.event-section__events .event-item__sub-content {
+  margin-bottom: 30px;
+}
+.event-section__events .event-item__sub-content .date {
+  color: #fff;
+  font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.event-section__events .event-item__excerpt {
+  color: #fff;
+  font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 26px;
+}
+.event-section__events .event-item__button {
+  margin-top: 20px;
+}
+.event-section__events .event-item__button a {
+  border-radius: 10px;
+  color: #fff;
+  background: #F16122;
+  display: inline-block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 10px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.bottom-content-image {
+  padding: 40px 0;
+}
+
+.bottom-content .content-details__wrap-button a {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 10px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.bottom-content .content-details__wrap.image-wrap img {
+  height: 284px;
+  object-fit: contain;
+  width: 415px;
+}
+.bottom-content .content-details__wrap-description {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/*# sourceMappingURL=event.css.map */

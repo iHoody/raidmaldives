@@ -66,6 +66,17 @@
   background: #082B3A !important;
 }
 
+/**
+ * Text Transform
+ */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
 .why-choose {
   background: #F8F8F8;
   padding: 20px 20px 80px;

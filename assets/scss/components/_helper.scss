@@ -43,3 +43,17 @@ $bg-colors: (
     background: $color !important;
   }
 }
+
+/**
+ * Text Transform
+ */
+$text-transform: (
+  'uppercase': uppercase,
+  'capitalize': capitalize,
+);
+
+@each $name, $type in $text-transform {
+  .text-#{$name} {
+    text-transform: $type !important;
+  }
+}
