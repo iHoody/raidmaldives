@@ -31,7 +31,7 @@ $crossOverContentButtonTitle = $bookACall['button_text'];
 $crossOverContentButtonTitle2 = $bookACall['button_text_2'];
 $crossOverContentButtonLink = $bookACall['button_url'];
 
-$postsPage = get_page_by_path('posts');
+$postsPage = get_page_by_path('blog');
 $blogButtonLink = $postsPage ? get_permalink($postsPage->ID) : '#';
 get_header();
 ?>
@@ -46,7 +46,7 @@ get_header();
           <?php if ($bannerImgTitle): ?>
             <img src="<?= esc_url($bannerImgTitle) ?>" alt="" >
           <?php endif; ?>
-          <div class="site-information__description text-uppercase"><?= wp_kses($bannerShortDescription, $allowedposttags) ?></div>
+          <div class="site-information__description"><?= wp_kses($bannerShortDescription, $allowedposttags) ?></div>
           <div class="site-information__link">
             <a href="<?= esc_url($buttonLink) ?>">
               <?= esc_attr($buttonTitle) ?>
@@ -140,7 +140,7 @@ get_header();
           <div class="swiper-wrapper">
             <?php
               if ($posts):
-                echo getFrontPageContentPosts($posts);
+                echo getFrontPageContentPosts($posts, true);
               endif;
               wp_reset_postdata();
             ?>

@@ -244,12 +244,13 @@ function getMiddleContentPosts(array $array): void
  * Only for Front page
  *
  * @param array $array
+ * @param bool $swiper
  * @return void
  */
-function getFrontPageContentPosts(mixed $array): void
+function getFrontPageContentPosts(mixed $array, bool $swiper = false): void
 {
   foreach ($array as $post) : setup_postdata($post); ?>
-    <article class="site-blog__post">
+    <article class="site-blog__post  <?= esc_attr($swiper ? 'swiper-slide' : '') ?>">
       <div class="site-blog__post-image">
         <img src="<?= esc_url(get_the_post_thumbnail_url($post->ID)) ?>" alt="<?= esc_attr(get_the_title($post->ID)) ?>">
       </div>
@@ -266,4 +267,84 @@ function getFrontPageContentPosts(mixed $array): void
     </article>
   <?php
   endforeach;
+}
+
+/**
+ * Only for the Course of the Month page
+ *
+ * @param array $array
+ * @param bool $swiper
+ * @return void
+ */
+function getTrainingPostList(array $array, bool $swiper = false): void
+{
+  if ($array) : ?>
+    <?php foreach ($array as $post) : ?>
+      <article class="posts__wrap row  <?= esc_attr($swiper ? 'swiper-slide' : '') ?>">
+        <div class="posts__wrap-image column column--4">
+          <img src="<?= esc_url($post['image']) ?>" alt="<?= esc_attr($post['title']) ?>">
+        </div>
+        <div class="posts__wrap-details column column--8">
+          <h3 class="posts__wrap-details-title"><?= esc_attr($post['title']) ?></h3>
+          <div class="posts__wrap-details-sub-title">
+            <span class="sub-title"><?= esc_attr($post['sub_title']) ?></span>
+          </div>
+          <div class="posts__wrap-details-description">
+            <?= wp_kses_post($post['description']) ?>
+          </div>
+          <div class="posts__wrap-details-button">
+            <a href="<?= esc_url($post['button_link']) ?>">
+              <?= esc_attr($post['button']) ?> <i class="icon icon-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    <?php endforeach;
+  endif;
+}
+
+/**
+ * @param array $array
+ * @param bool $swiper
+ * @return void
+ */
+function getDiveCentrePosts(array $array, bool $swiper = false): void
+{
+  if ($array) :
+    foreach ($array as $diver) : ?>
+      <article class="divers__wrap row <?= esc_attr($swiper ? 'swiper-slide' : '') ?>">
+        <div class="divers__wrap-image column column--4">
+          <img src="<?= esc_url($diver['image']) ?>" alt="<?= esc_attr($diver['title']) ?>">
+        </div>
+        <div class="divers__wrap-details column column--8">
+          <h3 class="divers__wrap-details-title"><?= esc_attr($diver['title']) ?></h3>
+          <div class="divers__wrap-details-description">
+            <?= wp_kses_post($diver['description']) ?>
+          </div>
+          <div class="divers__wrap-details-contacts">
+            <?php if (isset($diver['contact']['website_url']) && $diver['contact']['website_url'] !== ''): ?>
+              <a href="<?= esc_url($diver['contact']['website_url']) ?>">
+                <i class="icon icon-website"></i>
+              </a>
+            <?php endif; ?>
+            <?php if (isset($diver['contact']['email']) && $diver['contact']['email'] !== ''): ?>
+              <a href="<?= wp_kses_post('mailto:'.$diver['contact']['email']) ?>">
+                <i class="icon icon-email-gray"></i>
+              </a>
+            <?php endif; ?>
+            <?php if (isset($diver['contact']['facebook_url']) && $diver['contact']['facebook_url'] !== ''): ?>
+              <a href="<?= esc_url($diver['contact']['facebook_url']) ?>">
+                <i class="icon icon-facebook-gray"></i>
+              </a>
+            <?php endif; ?>
+            <?php if (isset($diver['contact']['instagram_url']) && $diver['contact']['instagram_url'] !== ''): ?>
+              <a href="<?= esc_url($diver['contact']['instagram_url']) ?>">
+                <i class="icon icon-instagram-gray"></i>
+              </a>
+            <?php endif; ?>
+          </div>
+        </div>
+      </article>
+    <?php endforeach;
+  endif;
 }

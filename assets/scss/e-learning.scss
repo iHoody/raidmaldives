@@ -3,19 +3,34 @@
 
 .header-content {
   padding: clamp(140px, 18vw, 220px) 0 60px;
+  @include max-media($page-mobile-width) {
+    padding: clamp(120px, 18vw, 140px) 0 30px;
+  }
+  @include max-media($page-small-width) {
+    padding: clamp(100px, 18vw, 120px) 0 20px;
+  }
   &__details {
     &-description {
       color: $white;
       margin-bottom: 0;
+      line-height: 26px;
+      @include max-media($page-medium-width) {
+        font: normal 16px $font-lato-medium;
+      }
       h1, h2, h3, h4, h5, h6 {
         color: $white;
         font-family: $font-lato-bold;
+        @include max-media($page-medium-width) {
+          text-align: left;
+        }
       }
       strong {
         font-family: $font-lato-bold;
       }
       p {
-        padding-bottom: 20px;
+        @include min-media($page-medium-width) {
+          padding-bottom: 20px;
+        }
       }
     }
     &-image {
@@ -34,8 +49,14 @@
 
 .middle-content-list {
   padding: 60px 0;
+  @include max-media($page-medium-width) {
+    padding: 40px 0;
+  }
   .middle-content-row {
     margin-bottom: 60px;
+    @include max-media($page-medium-width) {
+      margin-bottom: 20px;
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -71,19 +92,46 @@
         height: 420px;
         object-fit: cover;
         width: 100%;
+        @include max-media($page-medium-width) {
+          height: 284px;
+        }
+        @include max-media($page-small-width) {
+          height: 213px;
+        }
       }
     }
     &-description {
       color: $white;
       line-height: 26px;
       margin-bottom: 0;
+      @include max-media($page-medium-width) {
+        line-height: 22px;
+      }
       p {
         margin-bottom: 20px;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        @include max-media($page-medium-width) {
+          text-align: left;
+        }
+      }
+      ul {
+        li {
+          &:before {
+            @include max-media($page-medium-width) {
+              top: 8px;
+            }
+          }
+        }
       }
     }
     &-button {
       display: flex;
       padding-top: 10px;
+      @include max-media($page-medium-width) {
+        flex-direction: column;
+        gap: 20px;
+      }
       a {
         background: $orange;
         border-radius: 10px;
@@ -109,11 +157,18 @@
           height: 284px;
           object-fit: contain;
           width: 415px;
+          @include max-media($page-medium-width) {
+            height: 118px;
+            width: 322px;
+          }
         }
       }
       &-description {
         color: $white;
         margin-bottom: 30px;
+        @include max-media($page-medium-width) {
+          text-align: center;
+        }
       }
       &-button {
         a {
@@ -127,6 +182,9 @@
           text-align: center;
           text-transform: uppercase;
           text-decoration: none;
+          @include max-media($page-medium-width) {
+            display: block;
+          }
         }
       }
     }

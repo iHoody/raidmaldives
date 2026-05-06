@@ -16,6 +16,11 @@
     transform: translateY(-20px);
   }
 }
+.crossover-banner.site-banner .site-information .button-section a {
+  font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 11px 30px;
+}
+
 .crossover-content {
   padding-top: 60px;
 }
@@ -28,6 +33,9 @@
   .crossover-content .row:first-child .content-details__wrap:before {
     display: none;
   }
+}
+.crossover-content .row:first-child .content-details__wrap-description h3 {
+  margin-top: 0;
 }
 .crossover-content .content-details__wrap {
   position: relative;
@@ -46,12 +54,13 @@
 }
 @media screen and (max-width: 768px) {
   .crossover-content .content-details__wrap-description {
+    line-height: 20px;
     margin-bottom: 20px;
   }
 }
 @media screen and (max-width: 768px) {
   .crossover-content .content-details__wrap-description h3 {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px 0;
     text-align: center;
   }
@@ -112,6 +121,7 @@
   .crossover-content__swiper-wrapper.swiper .swiper-pagination .swiper-pagination-bullet {
     background: #D1D5DC;
     height: 8px;
+    opacity: 1;
     width: 8px;
   }
   .crossover-content__swiper-wrapper.swiper .swiper-pagination .swiper-pagination-bullet-active {
@@ -125,12 +135,22 @@
   background: #002331;
   padding: 60px 0;
 }
+@media screen and (max-width: 768px) {
+  .crossover-path {
+    padding: 40px 0;
+  }
+}
 .crossover-path__wrap {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   padding-bottom: 50px;
+}
+@media screen and (max-width: 768px) {
+  .crossover-path__wrap {
+    padding-bottom: 30px;
+  }
 }
 .crossover-path__wrap h2 {
   color: #fff;
@@ -170,7 +190,7 @@
   }
 }
 .crossover-path #swiper-crossover-posts {
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 .crossover-path #swiper-crossover-posts .swiper-pagination {
   bottom: 0;
@@ -326,7 +346,7 @@
 }
 @media screen and (max-width: 768px) {
   .bottom-content {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 }
 .bottom-content .content-details__wrap.image-wrap {
@@ -370,6 +390,16 @@
   object-fit: cover;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap img {
+    height: 284px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .bottom-content .content-details__wrap img {
+    height: 164px;
+  }
+}
 .bottom-content .content-details__wrap-description {
   color: #fff;
   font: normal 20px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -379,7 +409,7 @@
 @media screen and (max-width: 768px) {
   .bottom-content .content-details__wrap-description {
     font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 26px;
+    line-height: 24px;
   }
 }
 

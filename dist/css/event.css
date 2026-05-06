@@ -16,11 +16,21 @@
     transform: translateY(-20px);
   }
 }
+.events-banner.site-banner .site-information .button-section a {
+  font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 11px 30px;
+}
+
 .event-section {
   padding: 40px 0;
 }
 .event-section__events {
   padding: 40px 0;
+}
+@media screen and (max-width: 991px) {
+  .event-section__events {
+    padding: 0;
+  }
 }
 .event-section__events .event-row {
   border-bottom: rgba(255, 255, 255, 0.3) solid 1px;
@@ -46,6 +56,16 @@
   object-fit: cover;
   width: 100%;
 }
+@media screen and (max-width: 576px) {
+  .event-section__events .event-item__image img {
+    height: 284px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .event-section__events .event-item__image img {
+    height: 212px;
+  }
+}
 @media screen and (min-width: 991px) {
   .event-section__events .event-item__content {
     padding-left: 30px;
@@ -57,20 +77,49 @@
   line-height: 36px;
   margin-bottom: 25px;
 }
+@media screen and (max-width: 768px) {
+  .event-section__events .event-item__content h2 {
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .event-section__events .event-item__content h2 {
+    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+}
 .event-section__events .event-item__content h2 span {
   color: #F16122;
 }
 .event-section__events .event-item__sub-content {
   margin-bottom: 30px;
 }
+@media screen and (max-width: 768px) {
+  .event-section__events .event-item__sub-content {
+    margin-bottom: 10px;
+  }
+}
 .event-section__events .event-item__sub-content .date {
   color: #fff;
   font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (max-width: 576px) {
+  .event-section__events .event-item__sub-content .date {
+    font-size: 12px;
+  }
 }
 .event-section__events .event-item__excerpt {
   color: #fff;
   font: normal 20px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 26px;
+}
+@media screen and (max-width: 576px) {
+  .event-section__events .event-item__excerpt {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 .event-section__events .event-item__button {
   margin-top: 20px;
@@ -86,6 +135,17 @@
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
+}
+@media screen and (max-width: 768px) {
+  .event-section__events .event-item__button a {
+    display: block;
+  }
+}
+@media screen and (max-width: 576px) {
+  .event-section__events .event-item__button a {
+    font-size: 14px;
+    padding: 9px 35px;
+  }
 }
 
 .bottom-content-image {
@@ -104,14 +164,30 @@
   text-transform: uppercase;
   text-decoration: none;
 }
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-button a {
+    display: block;
+  }
+}
 .bottom-content .content-details__wrap.image-wrap img {
   height: 284px;
   object-fit: contain;
   width: 415px;
 }
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap.image-wrap img {
+    height: 118px;
+    width: 322px;
+  }
+}
 .bottom-content .content-details__wrap-description {
   color: #fff;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-description {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=event.css.map */

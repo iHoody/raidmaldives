@@ -1,6 +1,19 @@
 @use 'abstracts/variables' as *;
 @use 'abstracts/mixins' as *;
 
+.crossover-banner {
+  &.site-banner {
+    .site-information {
+      .button-section {
+        a {
+          font: normal 18px $font-lato-bold;
+          padding: 11px 30px;
+        }
+      }
+    }
+  }
+}
+
 .crossover-content {
   padding-top: 60px;
   @include max-media($page-medium-width) {
@@ -13,6 +26,11 @@
           &:before {
             @include max-media($page-medium-width) {
               display: none;
+            }
+          }
+          &-description {
+            h3 {
+              margin-top: 0;
             }
           }
         }
@@ -36,11 +54,12 @@
       }
       &-description {
         @include max-media($page-medium-width) {
+          line-height: 20px;
           margin-bottom: 20px;
         }
         h3 {
           @include max-media($page-medium-width) {
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 10px 0;
             text-align: center;
           }
@@ -115,6 +134,7 @@
           .swiper-pagination-bullet {
             background: $light-gray5;
             height: 8px;
+            opacity: 1;
             width: 8px;
 
             &-active {
@@ -133,12 +153,18 @@
   &-path {
     background: $dark-blue;
     padding: 60px 0;
+    @include max-media($page-medium-width) {
+      padding: 40px 0;
+    }
     &__wrap {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       align-items: center;
       padding-bottom: 50px;
+      @include max-media($page-medium-width) {
+        padding-bottom: 30px;
+      }
       h2 {
         color: $white;
         font: normal clamp(30px, 2vw + 20px, 48px) $font-lato-bold;
@@ -170,7 +196,7 @@
       }
     }
     #swiper-crossover-posts {
-      padding-bottom: 40px;
+      padding-bottom: 30px;
 
       .swiper-pagination {
         bottom: 0;
@@ -328,7 +354,7 @@
   padding: 60px 0;
   height: auto;
   @include max-media($page-medium-width) {
-    padding: 20px 0;
+    padding: 10px 0;
   }
   .content-details {
     &__wrap {
@@ -364,6 +390,12 @@
         height: 420px;
         object-fit: cover;
         width: 100%;
+        @include max-media($page-medium-width) {
+          height: 284px;
+        }
+        @include max-media($page-small-width) {
+          height: 164px;
+        }
       }
       &-description {
         color: $white;
@@ -372,7 +404,7 @@
         margin-bottom: 0;
         @include max-media($page-medium-width) {
           font: normal 16px $font-lato-regular;
-          line-height: 26px;
+          line-height: 24px;
         }
       }
     }

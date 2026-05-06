@@ -108,30 +108,20 @@ get_header();
     <section class="training-posts">
 
       <div class="container">
-        <div class="posts__content">
-          <?php if ($contentPostsList) : ?>
-            <?php foreach ($contentPostsList as $post) : ?>
-              <article class="posts__wrap row">
-                <div class="posts__wrap-image column column--4">
-                  <img src="<?= esc_url($post['image']) ?>" alt="<?= esc_attr($post['title']) ?>">
-                </div>
-                <div class="posts__wrap-details column column--8">
-                  <h3 class="posts__wrap-details-title"><?= esc_attr($post['title']) ?></h3>
-                  <div class="posts__wrap-details-sub-title">
-                    <span class="sub-title"><?= esc_attr($post['sub_title']) ?></span>
-                  </div>
-                  <div class="posts__wrap-details-description">
-                    <?= wp_kses_post($post['description']) ?>
-                  </div>
-                  <div class="posts__wrap-details-button">
-                    <a href="<?= esc_url($post['button_link']) ?>">
-                      <?= esc_attr($post['button']) ?> <i class="icon icon-arrow-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            <?php endforeach; ?>
-          <?php endif; ?>
+        <div class="post-content-desktop">
+          <div class="posts__content">
+            <?= wp_kses_post(getTrainingPostList($contentPostsList)) ?>
+          </div>
+        </div>
+        <div class="post-content-mobile">
+          <div class="posts__content">
+            <div class="post-training-content swiper" id="swiper-training-posts">
+              <div class="swiper-wrapper">
+                <?= wp_kses_post(getTrainingPostList($contentPostsList, true)) ?>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
         </div>
       </div>
 

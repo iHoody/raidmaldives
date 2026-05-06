@@ -16,12 +16,27 @@
     transform: translateY(-20px);
   }
 }
+.dive-centre-banner.site-banner .site-information .button-section a {
+  font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 11px 30px;
+}
+
 .middle-content {
   padding: 60px 0;
+}
+@media screen and (max-width: 768px) {
+  .middle-content {
+    padding: 30px 0 10px;
+  }
 }
 .middle-content__details-description {
   color: #fff;
   margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .middle-content__details-description {
+    text-align: center;
+  }
 }
 .middle-content__details-description h1, .middle-content__details-description h2, .middle-content__details-description h3, .middle-content__details-description h4, .middle-content__details-description h5, .middle-content__details-description h6 {
   color: #fff;
@@ -29,6 +44,38 @@
 }
 .middle-content__details-description strong {
   font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.middle-content__details-image.content {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .middle-content__details-image.content {
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .middle-content__details-image.content img {
+    height: 360px;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .middle-content__details-image.content img {
+    height: 260px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .middle-content__details-image.content img {
+    height: 160px;
+  }
+}
+.middle-content__details-image.not-content {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .middle-content__details-image.not-content {
+    display: none;
+  }
 }
 .middle-content__details-image img {
   border-radius: 16px;
@@ -40,10 +87,50 @@
 .divers-list {
   padding: 20px 0 60px;
 }
+@media screen and (max-width: 768px) {
+  .divers-list {
+    padding: 20px 0 0;
+  }
+}
 .divers-list .divers__content {
   margin: 30px auto 70px;
   text-align: center;
   width: 80%;
+}
+@media screen and (max-width: 768px) {
+  .divers-list .divers__content {
+    margin: 20px auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .divers-list .divers__content .diver-desktop {
+    display: none;
+  }
+}
+.divers-list .divers__content .diver-mobile {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .divers-list .divers__content .diver-mobile {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+  .divers-list .divers__content .diver-mobile #swiper-diver-posts {
+    padding-bottom: 50px;
+  }
+}
+.divers-list .divers__content .diver-mobile #swiper-diver-posts .swiper-pagination .swiper-pagination-bullet {
+  background: #cccccc;
+  height: 8px;
+  opacity: 1;
+  width: 8px;
+}
+.divers-list .divers__content .diver-mobile #swiper-diver-posts .swiper-pagination .swiper-pagination-bullet-active {
+  background: #F16122;
+  border-radius: 10px;
+  width: 32px;
 }
 .divers-list .divers__wrap {
   background: #fff;
@@ -58,9 +145,11 @@
 .divers-list .divers__wrap-image {
   padding: 20px 0 20px 20px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .divers-list .divers__wrap-image {
     padding: 20px;
+    text-align: center;
+    grid-column: span 12;
   }
 }
 .divers-list .divers__wrap-image img {
@@ -72,7 +161,7 @@
 .divers-list .divers__wrap-details {
   padding: 20px 20px 20px 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .divers-list .divers__wrap-details {
     padding: 0 20px 20px;
   }
@@ -88,10 +177,22 @@
     line-height: 26px;
   }
 }
+@media screen and (max-width: 576px) {
+  .divers-list .divers__wrap-details-title {
+    font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 24px;
+  }
+}
 .divers-list .divers__wrap-details-description {
   color: #000000;
   font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 26px;
+}
+@media screen and (max-width: 576px) {
+  .divers-list .divers__wrap-details-description {
+    font: normal 14px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 18px;
+  }
 }
 .divers-list .divers__wrap-details-description ul {
   padding-left: 30px;
@@ -115,6 +216,9 @@
 }
 .divers-list .divers__wrap-details-description p {
   margin-bottom: 15px;
+}
+.divers-list .divers__wrap-details-description p:last-child {
+  margin-bottom: 0;
 }
 .divers-list .divers__wrap-details-contacts {
   display: flex;

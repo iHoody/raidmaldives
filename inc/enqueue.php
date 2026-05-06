@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const CURRENT_VERSION = '1.1.06.04';
+const CURRENT_VERSION = '1.1.07.01';
 define("CURRENT_DATE", date('ymdHis'));
 
 /**
@@ -320,6 +320,14 @@ function enqueueDiveCentresFiles(): void
         [],
         CURRENT_VERSION.'.'.CURRENT_DATE
     );
+    
+    wp_enqueue_script(
+        'crossover-js',
+        get_template_directory_uri() . '/dist/js/crossover.js',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE,
+        true
+    );
 }
 
 /**
@@ -345,5 +353,13 @@ function enqueueCourseOfTheMonthFiles(): void
         get_template_directory_uri() . '/dist/css/course-month.css',
         [],
         CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+    
+    wp_enqueue_script(
+        'course-js',
+        get_template_directory_uri() . '/dist/js/course.js',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE,
+        true
     );
 }

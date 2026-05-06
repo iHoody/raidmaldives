@@ -19,19 +19,42 @@
 .header-content {
   padding: clamp(140px, 18vw, 220px) 0 60px;
 }
+@media screen and (max-width: 991px) {
+  .header-content {
+    padding: clamp(120px, 18vw, 140px) 0 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .header-content {
+    padding: clamp(100px, 18vw, 120px) 0 20px;
+  }
+}
 .header-content__details-description {
   color: #fff;
   margin-bottom: 0;
+  line-height: 26px;
+}
+@media screen and (max-width: 768px) {
+  .header-content__details-description {
+    font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 }
 .header-content__details-description h1, .header-content__details-description h2, .header-content__details-description h3, .header-content__details-description h4, .header-content__details-description h5, .header-content__details-description h6 {
   color: #fff;
   font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
+@media screen and (max-width: 768px) {
+  .header-content__details-description h1, .header-content__details-description h2, .header-content__details-description h3, .header-content__details-description h4, .header-content__details-description h5, .header-content__details-description h6 {
+    text-align: left;
+  }
+}
 .header-content__details-description strong {
   font-family: "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
-.header-content__details-description p {
-  padding-bottom: 20px;
+@media screen and (min-width: 768px) {
+  .header-content__details-description p {
+    padding-bottom: 20px;
+  }
 }
 .header-content__details-image img {
   border-radius: 16px;
@@ -46,8 +69,18 @@
 .middle-content-list {
   padding: 60px 0;
 }
+@media screen and (max-width: 768px) {
+  .middle-content-list {
+    padding: 40px 0;
+  }
+}
 .middle-content-list .middle-content-row {
   margin-bottom: 60px;
+}
+@media screen and (max-width: 768px) {
+  .middle-content-list .middle-content-row {
+    margin-bottom: 20px;
+  }
 }
 .middle-content-list .middle-content-row:last-child {
   margin-bottom: 0;
@@ -84,17 +117,48 @@
   object-fit: cover;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .middle-content-list__details-image img {
+    height: 284px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .middle-content-list__details-image img {
+    height: 213px;
+  }
+}
 .middle-content-list__details-description {
   color: #fff;
   line-height: 26px;
   margin-bottom: 0;
 }
+@media screen and (max-width: 768px) {
+  .middle-content-list__details-description {
+    line-height: 22px;
+  }
+}
 .middle-content-list__details-description p {
   margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .middle-content-list__details-description h1, .middle-content-list__details-description h2, .middle-content-list__details-description h3, .middle-content-list__details-description h4, .middle-content-list__details-description h5, .middle-content-list__details-description h6 {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 768px) {
+  .middle-content-list__details-description ul li:before {
+    top: 8px;
+  }
 }
 .middle-content-list__details-button {
   display: flex;
   padding-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .middle-content-list__details-button {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 .middle-content-list__details-button a {
   background: #F16122;
@@ -115,9 +179,20 @@
   object-fit: contain;
   width: 415px;
 }
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap.image-wrap img {
+    height: 118px;
+    width: 322px;
+  }
+}
 .bottom-content .content-details__wrap-description {
   color: #fff;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-description {
+    text-align: center;
+  }
 }
 .bottom-content .content-details__wrap-button a {
   background: #F16122;
@@ -130,6 +205,11 @@
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-button a {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=e-learning.css.map */

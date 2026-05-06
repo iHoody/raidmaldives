@@ -52,6 +52,9 @@
 
 .benefits {
   padding: 60px 0;
+  @include max-media($page-medium-width) {
+    padding: 40px 0;
+  }
   &__wrap {
     @include max-media($page-medium-width) {
       overflow: hidden;
@@ -75,7 +78,7 @@
       line-height: 32px;
       @include max-media($page-medium-width) {
         font: normal 14px $font-lato-medium;
-        line-height: 14px;
+        line-height: 18px;
       }
       ul {
         margin-bottom: 15px;
@@ -110,14 +113,15 @@
         flex-wrap: nowrap;
         overflow-x: auto;
         gap: 16px;
-        padding-bottom: 35px;
+        padding-bottom: 25px;
 
         // smooth scrolling on iOS
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
 
         &::-webkit-scrollbar {
-          width: 12px;
+          height: 8px;
+          width: 8px;
         }
 
         &::-webkit-scrollbar-track {
@@ -132,8 +136,7 @@
 
         @supports not selector(::-webkit-scrollbar) {
           & {
-            scrollbar-color: $orange
-            $gray5;
+            scrollbar-color: $orange $gray5;
           }
         }
       }
@@ -176,11 +179,31 @@
 .training-posts {
   background: $dark-blue;
   padding: 60px 0;
+  @include max-media($page-medium-width) {
+    padding: 10px 0 30px;
+  }
+  .post-content {
+    &-desktop {
+      @include max-media($page-medium-width) {
+        display: none;
+      }
+    }
+    &-mobile {
+      display: none;
+      @include max-media($page-medium-width) {
+        display: block;
+      }
+    }
+  }
   .posts {
     &__content {
       margin: 30px auto 70px;
       text-align: center;
       width: 80%;
+      @include max-media($page-medium-width) {
+        margin: 20px auto 0;
+        width: 100%;
+      }
     }
     &__wrap {
       background: $white;
@@ -200,6 +223,9 @@
           height: 372px;
           object-fit: cover;
           width: 100%;
+          @include max-media($page-small-width) {
+            height: 318px;
+          }
         }
       }
       &-details {
@@ -227,6 +253,10 @@
           color: $black;
           font: normal 16px $font-lato-regular;
           line-height: 26px;
+          @include max-media($page-medium-width) {
+            font: normal 14px $font-lato-regular;
+            line-height: 18px;
+          }
           ul {
             padding-left: 30px;
             margin-bottom: 15px;
@@ -241,11 +271,18 @@
                 position: absolute;
                 top: 12px;
                 width: 6px;
+                @include max-media($page-medium-width) {
+                  top: 6px;
+                }
               }
             }
           }
           strong {
             font: normal 16px $font-inter-semi-bold;
+            @include max-media($page-medium-width) {
+              font: normal 14px $font-lato-regular;
+              line-height: 18px;
+            }
           }
           p {
             margin-bottom: 15px;
@@ -255,6 +292,10 @@
           display: flex;
           margin-top: 10px;
           text-align: center;
+          @include max-media($page-medium-width) {
+            display: block;
+            width: 100%;
+          }
           a {
             background: $orange;
             border-radius: 8px;
@@ -263,7 +304,59 @@
             font: normal 18px $font-open-sans-bold;
             line-height: 24px;
             padding: 9px 35px;
+            @include max-media($page-medium-width) {
+              font-size: 14px;
+            }
           }
+        }
+      }
+    }
+  }
+}
+
+// Swiper configuration for training posts
+#swiper-training-posts {
+  @include min-media($page-medium-width + 1) {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+
+    .swiper-wrapper {
+      display: contents !important;
+      transform: none !important;
+    }
+
+    .swiper-slide {
+      width: auto !important;
+      margin-right: 0 !important;
+      height: auto !important;
+    }
+
+    .swiper-pagination {
+      display: none !important;
+    }
+  }
+
+  @include max-media($page-medium-width) {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 40px;
+    margin-top: 20px;
+
+    .swiper-pagination {
+      bottom: 0;
+
+      .swiper-pagination-bullet {
+        background: $white;
+        height: 8px;
+        opacity: 1;
+        width: 8px;
+
+        &-active {
+          background: $orange;
+          border-radius: 10px;
+          width: 32px;
         }
       }
     }

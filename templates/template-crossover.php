@@ -11,6 +11,8 @@ $banner = get_field('banner');
 $bannerBackground = $banner['background_image'];
 $bannerTitle = $banner['title'];
 $bannerSubTitle = $banner['sub_title'];
+$buttonTitle = $banner['button_title'];
+$buttonLink = $banner['button_url'];
 
 $topContent = get_field('top_content');
 $topContentPosts = $topContent['content_post'];
@@ -34,11 +36,16 @@ get_header();
 
     <div class="site-content">
 
-        <section class="gallery-banner site-banner" style="background-image: url('<?= esc_attr($bannerBackground) ?>');">
-            <div class="container site-banner__container gallery-container">
+        <section class="crossover-banner site-banner" style="background-image: url('<?= esc_attr($bannerBackground) ?>');">
+            <div class="container site-banner__container crossover-banner__container">
                 <div class="site-information">
                     <h1 class="banner-title"><?= esc_attr($bannerTitle) ?></h1>
                     <p class="banner-description"><?= esc_attr($bannerSubTitle) ?></p>
+                    <div class="button-section">
+                      <a href="<?= esc_url($buttonLink) ?>" class="text-uppercase">
+                        <?= esc_attr($buttonTitle) ?> <i class="icon icon-arrow-right"></i>
+                      </a>
+                    </div>
                 </div>
             </div>
         </section>

@@ -28,13 +28,13 @@ $bottomContentButtonLink = $bottomContent['button_url'];
 get_header();
 ?>
     <div class="site-content">
-      <section class="course-month-banner site-banner" style="background-image: url('<?= esc_attr($bannerBackground) ?>');">
-        <div class="container site-banner__container course-month__container">
+      <section class="events-banner site-banner" style="background-image: url('<?= esc_attr($bannerBackground) ?>');">
+        <div class="container site-banner__container events__container">
           <div class="site-information">
             <h1 class="banner-title"><?= esc_attr($bannerTitle) ?></h1>
             <p class="banner-description"><?= esc_attr($bannerSubTitle) ?></p>
             <div class="button-section">
-              <a href="<?= esc_url($buttonLink) ?>">
+              <a href="<?= esc_url($buttonLink) ?>" class="text-uppercase">
                 <?= esc_attr($buttonTitle) ?> <i class="icon icon-arrow-right"></i>
               </a>
             </div>

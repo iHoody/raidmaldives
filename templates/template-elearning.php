@@ -4,7 +4,7 @@
  *
  * @package DiveRaid
  */
- 
+
 $headerContent = get_field('header_content');
 $headerContentDescription = $headerContent['content'];
 $headerContentBackgroundImage = $headerContent['image'];
@@ -27,14 +27,14 @@ get_header();
     <section class="header-content bg-dark-blue">
         <div class="container">
             <div class="row">
-                <div class="column column--4 content-details">
+                <div class="column column--5 content-details">
                     <div class="header-content__details content-details__wrap">
                         <div class="header-content__details-description content-details__wrap-description">
                             <?= wp_kses_post($headerContentDescription) ?>
                         </div>
                     </div>
                 </div>
-                <div class="column column--8">
+                <div class="column column--7">
                     <div class="header-content__details">
                         <div class="header-content__details-image">
                             <img src="<?= esc_url($headerContentBackgroundImage) ?>" alt="" />
@@ -44,7 +44,7 @@ get_header();
             </div>
         </div>
     </section>
-    
+
     <section class="middle-content-image bg-dark-blue4">
         <div class="container">
             <div class="row">
@@ -58,7 +58,7 @@ get_header();
             </div>
         </div>
     </section>
-    
+
     <section class="middle-content-list bg-dark-blue">
         <div class="container">
             <?php if ($middleContentList) : ?>
@@ -92,7 +92,7 @@ get_header();
             <?php endif; ?>
         </div>
     </section>
-    
+
     <section class="bottom-content">
         <div class="background-filter black"></div>
         <style>

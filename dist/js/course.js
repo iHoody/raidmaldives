@@ -46,22 +46,12 @@ class ResponsiveSwiper {
 document.addEventListener('DOMContentLoaded', function () {
 
     // Crossover section
-    new ResponsiveSwiper('#swiper-crossover-posts', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-            el: '#swiper-crossover-posts .swiper-pagination',
-            clickable: true,
-        },
-    }, 768);
-
-    // Blog section — reuse the same class, no duplicate logic
-    new ResponsiveSwiper('#swiper-diver-posts', {
+    new ResponsiveSwiper('#swiper-training-posts', {
         slidesPerView: 1,
         spaceBetween: 20,
         autoHeight: true,
         pagination: {
-            el: '#swiper-diver-posts .swiper-pagination',
+            el: '#swiper-training-posts .swiper-pagination',
             clickable: true,
         },
     }, 768);

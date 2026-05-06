@@ -119,11 +119,8 @@
   background: url("../images/mid-bg.png") repeat-x;
   position: relative;
   padding: 130px 0 50px;
-  @include max-media($page-mobile-width) {
-    padding: 130px 0 10px;
-  }
   @include max-media($page-xsmall-width) {
-    padding: 70px 0 10px;
+    padding: 130px 0 10px;
   }
   &:after {
     content: "";
@@ -157,6 +154,9 @@
     @include max-media($page-mobile-width) {
       margin-bottom: 20px;
     }
+    @include max-media($page-small-width) {
+      height: 195px;
+    }
     .image-wrap {
       background-size: cover;
       background-position: 50% 40%;
@@ -167,8 +167,12 @@
       z-index: 1;
     }
     .detail-wrap {
-      padding: 114px 30px 20px;
-      position: relative;
+      bottom: 0;
+      padding: 20px;
+      position: absolute;
+      left: 0;
+      text-align: left;
+      width: 100%;
       z-index: 2;
     }
     h3 {
@@ -177,7 +181,7 @@
       margin-top: 10px;
     }
     &-link {
-      margin-top: 20px;
+      margin-top: 15px;
       a {
         background: $orange;
         border: 0;
@@ -188,6 +192,10 @@
         line-height: 24px;
         padding: 11px 25px;
         text-transform: uppercase;
+        @include max-media($page-small-width) {
+          font: normal 14px $font-lato-bold;
+          padding: 5px 25px 9px;
+        }
       }
     }
   }
@@ -201,7 +209,7 @@
   min-height: clamp(356px, 50vw, 560px);
   width: 100%;
   @include max-media($page-mobile-width) {
-    padding: 40px 0;
+    padding: 120px 20px;
   }
   &:before {
     content: "";
@@ -275,21 +283,13 @@
     color: $white;
     display: inline-block;
     font: normal 20px $font-lato-bold;
-    padding: 18px 90px;
-    @include max-media($page-mobile-width) {
-      display: block;
-      width: 100%;
-    }
-    @include max-media($page-medium-width) {
-      font: normal 18px $font-lato-bold;
-      padding: 12px 30px;
-    }
+    padding: 18px 40px;
     label {
       display: block;
       font: normal 20px $font-lato-regular;
       margin-top: 10px;
       @include max-media($page-medium-width) {
-        font: normal 18px $font-lato-regular;
+        font: normal 14px $font-lato-regular;
         margin-top: 5px;
       }
     }
@@ -303,10 +303,43 @@
   @include max-media($page-mobile-width) {
     padding: 30px 0;
   }
+  &__title {
+    &.section-title {
+      @include max-media($page-mobile-width) {
+        font: normal 30px $font-lato-bold;
+      }
+    }
+  }
+  &__sub-title {
+    &.sub-title {
+      @include max-media($page-mobile-width) {
+        font: normal 18px $font-lato-regular;
+        text-align: center;
+      }
+    }
+  }
   .content {
     &-desktop {
       @include max-media($page-medium-width) {
         display: none;
+      }
+      .site-blog {
+        &__posts {
+          margin-top: 50px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          align-items: stretch;
+          width: 100%;
+          @include max-media($page-medium-width) {
+            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @include max-media($page-mobile-width) {
+            grid-template-columns: 1fr;
+          }
+        }
       }
     }
     &-mobile {
@@ -320,39 +353,17 @@
           margin-top: 50px;
           width: 100%;
 
-          @include min-media($page-medium-width + 1) {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            align-items: stretch;
-
-            .swiper-wrapper {
-              display: contents !important;
-              transform: none !important;
-            }
-
-            .swiper-slide {
-              width: auto !important;
-              margin-right: 0 !important;
-              height: auto !important;
-            }
-
-            .swiper-pagination {
-              display: none !important;
-            }
-          }
-
           @include max-media($page-medium-width) {
             display: block;
             overflow: hidden;
             padding-bottom: 40px;
-            margin-top: 20px;
 
             .swiper-pagination {
               bottom: 0;
               .swiper-pagination-bullet {
                 background: $light-gray5;
                 height: 8px;
+                opacity: 1;
                 width: 8px;
                 &-active {
                   background: $orange;
@@ -368,19 +379,7 @@
   }
   &__posts {
     margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: stretch;
     width: 100%;
-    @include max-media($page-medium-width) {
-      margin-top: 20px;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include max-media($page-mobile-width) {
-      grid-template-columns: 1fr;
-    }
   }
   &__post {
     background: $white;
@@ -390,9 +389,6 @@
     height: 100%;
     position: relative;
     width: 100%;
-    @include max-media($page-mobile-width) {
-      margin-bottom: 20px;
-    }
     &-image {
       img {
         border-radius: 16px;

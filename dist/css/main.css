@@ -172,7 +172,7 @@ a {
 }
 @media screen and (max-width: 991px) {
   .site-banner.dive-centre-banner {
-    height: clamp(600px, 55vw, 65vw);
+    height: 437px;
   }
 }
 .site-banner.is-single {
@@ -229,6 +229,7 @@ a {
 @media screen and (max-width: 768px) {
   .site-banner .site-information .banner-description {
     font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
   }
 }
 .site-banner .site-information .button-section {
@@ -245,12 +246,12 @@ a {
 @media screen and (max-width: 576px) {
   .site-banner .site-information .button-section a {
     font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 9px 30px;
   }
 }
 @media screen and (max-width: 991px) {
   .site-banner .site-information .button-section a {
     display: inline-block;
+    padding: 15px 30px;
   }
 }
 .site-banner .site-information .button-section a label {
@@ -525,13 +526,19 @@ a {
 }
 @media screen and (min-width: 1024px) {
   .content-details__wrap-description {
-    padding-right: 50px;
+    padding-right: 20px;
     padding-left: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .content-details__wrap-description {
+    font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
   }
 }
 @media screen and (max-width: 768px) {
   .content-details__wrap-description {
-    font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 14px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 24px;
   }
 }
@@ -539,6 +546,12 @@ a {
   color: #2F2F2F;
   font: normal 36px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
   margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .content-details__wrap-description h3 {
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    text-align: center;
+  }
 }
 .content-details__wrap-description h3 span {
   color: #F16122;
@@ -598,8 +611,14 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-  height: clamp(256px, 40vw, 420px);
+  min-height: clamp(256px, 40vw, 420px);
+  padding: 40px 0;
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content {
+    padding: 60px 0 100px;
+  }
 }
 .bottom-content:before {
   content: "";
@@ -642,9 +661,11 @@ a {
   padding: 20px 20px 40px;
   position: relative;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .bottom-content__wrap h2 {
-    font: normal clamp(16px, 5vw, 24px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 30px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-bottom: 10px;
+    padding: 20px 20px 30px;
   }
 }
 .bottom-content__wrap h2:before {
@@ -663,17 +684,19 @@ a {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .bottom-content__description {
     font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 28px;
   }
 }
 .bottom-content__description b {
   font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .bottom-content__description b {
     font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 28px;
   }
 }
 .bottom-content__button {
@@ -683,12 +706,6 @@ a {
   display: inline-block;
   font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 18px 40px;
-}
-@media screen and (max-width: 991px) {
-  .bottom-content__button {
-    display: block;
-    width: 100%;
-  }
 }
 @media screen and (max-width: 576px) {
   .bottom-content__button {
@@ -1673,14 +1690,9 @@ footer {
   position: relative;
   padding: 130px 0 50px;
 }
-@media screen and (max-width: 991px) {
-  .site-middle-content {
-    padding: 130px 0 10px;
-  }
-}
 @media screen and (max-width: 440px) {
   .site-middle-content {
-    padding: 70px 0 10px;
+    padding: 130px 0 10px;
   }
 }
 .site-middle-content:after {
@@ -1719,6 +1731,11 @@ footer {
     margin-bottom: 20px;
   }
 }
+@media screen and (max-width: 576px) {
+  .site-middle-content__option {
+    height: 195px;
+  }
+}
 .site-middle-content__option .image-wrap {
   background-size: cover;
   background-position: 50% 40%;
@@ -1729,8 +1746,12 @@ footer {
   z-index: 1;
 }
 .site-middle-content__option .detail-wrap {
-  padding: 114px 30px 20px;
-  position: relative;
+  bottom: 0;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  text-align: left;
+  width: 100%;
   z-index: 2;
 }
 .site-middle-content__option h3 {
@@ -1739,7 +1760,7 @@ footer {
   margin-top: 10px;
 }
 .site-middle-content__option-link {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .site-middle-content__option-link a {
   background: #F16122;
@@ -1752,6 +1773,12 @@ footer {
   padding: 11px 25px;
   text-transform: uppercase;
 }
+@media screen and (max-width: 576px) {
+  .site-middle-content__option-link a {
+    font: normal 14px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 5px 25px 9px;
+  }
+}
 
 .site-booking {
   background-size: cover;
@@ -1763,7 +1790,7 @@ footer {
 }
 @media screen and (max-width: 991px) {
   .site-booking {
-    padding: 40px 0;
+    padding: 120px 20px;
   }
 }
 .site-booking:before {
@@ -1848,19 +1875,7 @@ footer {
   color: #fff;
   display: inline-block;
   font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
-  padding: 18px 90px;
-}
-@media screen and (max-width: 991px) {
-  .site-booking__button {
-    display: block;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .site-booking__button {
-    font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 12px 30px;
-  }
+  padding: 18px 40px;
 }
 .site-booking__button label {
   display: block;
@@ -1869,7 +1884,7 @@ footer {
 }
 @media screen and (max-width: 768px) {
   .site-booking__button label {
-    font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 14px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
     margin-top: 5px;
   }
 }
@@ -1884,9 +1899,39 @@ footer {
     padding: 30px 0;
   }
 }
+@media screen and (max-width: 991px) {
+  .site-blog__title.section-title {
+    font: normal 30px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+@media screen and (max-width: 991px) {
+  .site-blog__sub-title.sub-title {
+    font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    text-align: center;
+  }
+}
 @media screen and (max-width: 768px) {
   .site-blog .content-desktop {
     display: none;
+  }
+}
+.site-blog .content-desktop .site-blog__posts {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .site-blog .content-desktop .site-blog__posts {
+    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 991px) {
+  .site-blog .content-desktop .site-blog__posts {
+    grid-template-columns: 1fr;
   }
 }
 .site-blog .content-mobile {
@@ -1902,32 +1947,11 @@ footer {
   margin-top: 50px;
   width: 100%;
 }
-@media screen and (min-width: 769px) {
-  .site-blog .content-mobile .site-blog__posts {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: stretch;
-  }
-  .site-blog .content-mobile .site-blog__posts .swiper-wrapper {
-    display: contents !important;
-    transform: none !important;
-  }
-  .site-blog .content-mobile .site-blog__posts .swiper-slide {
-    width: auto !important;
-    margin-right: 0 !important;
-    height: auto !important;
-  }
-  .site-blog .content-mobile .site-blog__posts .swiper-pagination {
-    display: none !important;
-  }
-}
 @media screen and (max-width: 768px) {
   .site-blog .content-mobile .site-blog__posts {
     display: block;
     overflow: hidden;
     padding-bottom: 40px;
-    margin-top: 20px;
   }
   .site-blog .content-mobile .site-blog__posts .swiper-pagination {
     bottom: 0;
@@ -1935,6 +1959,7 @@ footer {
   .site-blog .content-mobile .site-blog__posts .swiper-pagination .swiper-pagination-bullet {
     background: #D1D5DC;
     height: 8px;
+    opacity: 1;
     width: 8px;
   }
   .site-blog .content-mobile .site-blog__posts .swiper-pagination .swiper-pagination-bullet-active {
@@ -1945,22 +1970,7 @@ footer {
 }
 .site-blog__posts {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  align-items: stretch;
   width: 100%;
-}
-@media screen and (max-width: 768px) {
-  .site-blog__posts {
-    margin-top: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (max-width: 991px) {
-  .site-blog__posts {
-    grid-template-columns: 1fr;
-  }
 }
 .site-blog__post {
   background: #fff;
@@ -1970,11 +1980,6 @@ footer {
   height: 100%;
   position: relative;
   width: 100%;
-}
-@media screen and (max-width: 991px) {
-  .site-blog__post {
-    margin-bottom: 20px;
-  }
 }
 .site-blog__post-image img {
   border-radius: 16px;

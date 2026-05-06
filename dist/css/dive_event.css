@@ -172,7 +172,7 @@ a {
 }
 @media screen and (max-width: 991px) {
   .site-banner.dive-centre-banner {
-    height: clamp(600px, 55vw, 65vw);
+    height: 437px;
   }
 }
 .site-banner.is-single {
@@ -229,6 +229,7 @@ a {
 @media screen and (max-width: 768px) {
   .site-banner .site-information .banner-description {
     font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
   }
 }
 .site-banner .site-information .button-section {
@@ -245,12 +246,12 @@ a {
 @media screen and (max-width: 576px) {
   .site-banner .site-information .button-section a {
     font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 9px 30px;
   }
 }
 @media screen and (max-width: 991px) {
   .site-banner .site-information .button-section a {
     display: inline-block;
+    padding: 15px 30px;
   }
 }
 .site-banner .site-information .button-section a label {
@@ -525,13 +526,19 @@ a {
 }
 @media screen and (min-width: 1024px) {
   .content-details__wrap-description {
-    padding-right: 50px;
+    padding-right: 20px;
     padding-left: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .content-details__wrap-description {
+    font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 26px;
   }
 }
 @media screen and (max-width: 768px) {
   .content-details__wrap-description {
-    font: normal 16px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 14px "LatoMedium", -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 24px;
   }
 }
@@ -539,6 +546,12 @@ a {
   color: #2F2F2F;
   font: normal 36px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
   margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .content-details__wrap-description h3 {
+    font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    text-align: center;
+  }
 }
 .content-details__wrap-description h3 span {
   color: #F16122;
@@ -598,8 +611,14 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-  height: clamp(256px, 40vw, 420px);
+  min-height: clamp(256px, 40vw, 420px);
+  padding: 40px 0;
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content {
+    padding: 60px 0 100px;
+  }
 }
 .bottom-content:before {
   content: "";
@@ -642,9 +661,11 @@ a {
   padding: 20px 20px 40px;
   position: relative;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .bottom-content__wrap h2 {
-    font: normal clamp(16px, 5vw, 24px) "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font: normal 30px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-bottom: 10px;
+    padding: 20px 20px 30px;
   }
 }
 .bottom-content__wrap h2:before {
@@ -663,17 +684,19 @@ a {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .bottom-content__description {
     font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 28px;
   }
 }
 .bottom-content__description b {
   font: normal 24px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .bottom-content__description b {
     font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 28px;
   }
 }
 .bottom-content__button {
@@ -683,12 +706,6 @@ a {
   display: inline-block;
   font: normal 20px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 18px 40px;
-}
-@media screen and (max-width: 991px) {
-  .bottom-content__button {
-    display: block;
-    width: 100%;
-  }
 }
 @media screen and (max-width: 576px) {
   .bottom-content__button {

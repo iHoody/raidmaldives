@@ -1,12 +1,31 @@
 @use 'abstracts/variables' as *;
 @use 'abstracts/mixins' as *;
 
+.dive-centre-banner {
+  &.site-banner {
+    .site-information {
+      .button-section {
+        a {
+          font: normal 18px $font-lato-bold;
+          padding: 11px 30px;
+        }
+      }
+    }
+  }
+}
+
 .middle-content {
   padding: 60px 0;
+  @include max-media($page-medium-width) {
+    padding: 30px 0 10px;
+  }
   &__details {
     &-description {
       color: $white;
       margin-bottom: 0;
+      @include max-media($page-medium-width) {
+        text-align: center;
+      }
       h1, h2, h3, h4, h5, h6 {
         color: $white;
         font-family: $font-lato-bold;
@@ -16,6 +35,32 @@
       }
     }
     &-image {
+      &.content {
+        display: none;
+        @include max-media($page-medium-width) {
+          display: block;
+          margin-bottom: 30px;
+          text-align: center;
+          img {
+            height: 360px;
+            width: 80%;
+          }
+        }
+        img {
+          @include max-media($page-small-width) {
+            height: 260px;
+          }
+          @include max-media($page-xsmall-width) {
+            height: 160px;
+          }
+        }
+      }
+      &.not-content {
+        display: block;
+        @include max-media($page-medium-width) {
+          display: none;
+        }
+      }
       img {
         border-radius: 16px;
         height: 420px;
@@ -28,11 +73,48 @@
 
 .divers-list {
   padding: 20px 0 60px;
+  @include max-media($page-medium-width) {
+    padding: 20px 0 0;
+  }
   .divers {
     &__content {
       margin: 30px auto 70px;
       text-align: center;
       width: 80%;
+      @include max-media($page-medium-width) {
+        margin: 20px auto;
+        width: 100%;
+      }
+      .diver-desktop {
+        @include max-media($page-medium-width) {
+          display: none;
+        }
+      }
+      .diver-mobile {
+        display: none;
+        @include max-media($page-medium-width) {
+          display: block;
+        }
+        #swiper-diver-posts {
+          @include max-media($page-medium-width) {
+            padding-bottom: 50px;
+          }
+          .swiper-pagination {
+            .swiper-pagination-bullet {
+              background: $gray5;
+              height: 8px;
+              opacity: 1;
+              width: 8px;
+
+              &-active {
+                background: $orange;
+                border-radius: 10px;
+                width: 32px;
+              }
+            }
+          }
+        }
+      }
     }
     &__wrap {
       background: $white;
@@ -45,8 +127,10 @@
       width: 100%;
       &-image {
         padding: 20px 0 20px 20px;
-        @include max-media($page-medium-width) {
+        @include max-media($page-mobile-width) {
           padding: 20px;
+          text-align: center;
+          grid-column: span 12;
         }
         img {
           border-radius: 8px;
@@ -57,7 +141,7 @@
       }
       &-details {
         padding: 20px 20px 20px 0;
-        @include max-media($page-medium-width) {
+        @include max-media($page-mobile-width) {
           padding: 0 20px 20px;
         }
         &-title {
@@ -68,11 +152,19 @@
             font: normal 24px $font-lato-bold;
             line-height: 26px;
           }
+          @include max-media($page-small-width) {
+            font: normal 20px $font-lato-bold;
+            line-height: 24px;
+          }
         }
         &-description {
           color: $black;
           font: normal 16px $font-lato-regular;
           line-height: 26px;
+          @include max-media($page-small-width) {
+            font: normal 14px $font-lato-regular;
+            line-height: 18px;
+          }
           ul {
             padding-left: 30px;
             margin-bottom: 15px;
@@ -95,6 +187,9 @@
           }
           p {
             margin-bottom: 15px;
+            &:last-child {
+              margin-bottom: 0;
+            }
           }
         }
         &-contacts {

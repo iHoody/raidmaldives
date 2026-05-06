@@ -1,10 +1,26 @@
 @use 'abstracts/variables' as *;
 @use 'abstracts/mixins' as *;
 
+.events-banner {
+  &.site-banner {
+    .site-information {
+      .button-section {
+        a {
+          font: normal 18px $font-lato-bold;
+          padding: 11px 30px;
+        }
+      }
+    }
+  }
+}
+
 .event-section {
   padding: 40px 0;
   &__events {
     padding: 40px 0;
+    @include max-media($page-mobile-width) {
+      padding: 0;
+    }
     .event-row {
       border-bottom: rgba($white, 0.3) solid 1px;
       margin-bottom: 40px;
@@ -26,6 +42,12 @@
           height: 420px;
           object-fit: cover;
           width: 100%;
+          @include max-media($page-small-width) {
+            height: 284px;
+          }
+          @include max-media($page-xsmall-width) {
+            height: 212px;
+          }
         }
       }
       &__content {
@@ -37,6 +59,15 @@
           font: normal 36px $font-lato-bold;
           line-height: 36px;
           margin-bottom: 25px;
+          @include max-media($page-medium-width) {
+            font: normal 24px $font-lato-bold;
+            line-height: 26px;
+          }
+          @include max-media($page-small-width) {
+            font: normal 18px $font-lato-bold;
+            line-height: 24px;
+            margin-bottom: 10px;
+          }
           span {
             color: $orange;
           }
@@ -44,15 +75,25 @@
       }
       &__sub-content {
         margin-bottom: 30px;
+        @include max-media($page-medium-width) {
+          margin-bottom: 10px;
+        }
         .date {
           color: $white;
           font: normal 20px $font-lato-medium;
+          @include max-media($page-small-width) {
+            font-size: 12px;
+          }
         }
       }
       &__excerpt {
         color: $white;
         font: normal 20px $font-lato-medium;
         line-height: 26px;
+        @include max-media($page-small-width) {
+          font-size: 14px;
+          line-height: 22px;
+        }
       }
       &__button {
         margin-top: 20px;
@@ -67,6 +108,13 @@
           text-align: center;
           text-transform: uppercase;
           text-decoration: none;
+          @include max-media($page-medium-width) {
+            display: block;
+          }
+          @include max-media($page-small-width) {
+            font-size: 14px;
+            padding: 9px 35px;
+          }
         }
       }
     }
@@ -92,6 +140,9 @@
           text-align: center;
           text-transform: uppercase;
           text-decoration: none;
+          @include max-media($page-medium-width) {
+            display: block;
+          }
         }
       }
       &.image-wrap {
@@ -99,11 +150,18 @@
           height: 284px;
           object-fit: contain;
           width: 415px;
+          @include max-media($page-medium-width) {
+            height: 118px;
+            width: 322px;
+          }
         }
       }
       &-description {
         color: $white;
         margin-bottom: 30px;
+        @include max-media($page-medium-width) {
+          text-align: center;
+        }
       }
     }
   }
