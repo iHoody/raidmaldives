@@ -201,13 +201,14 @@ function getPostContentTypes(int $postId): void
 <?php
 }
 
-/**
- * Only for Crossover page `template-crossover.php`
- *
- * @param array $array
- * @return void
- */
-function getMiddleContentPosts(array $array): void
+  /**
+   * Only for Crossover page `template-crossover.php`
+   *
+   * @param array $array
+   * @param bool $isSwiper
+   * @return void
+   */
+function getMiddleContentPosts(array $array, bool $isSwiper = false): void
 {
   foreach ($array as $key => $post): ?>
     <?php
@@ -218,7 +219,7 @@ function getMiddleContentPosts(array $array): void
       default => 'column--12',
     };
     ?>
-    <div class="column <?= esc_attr($column) ?> stretch-column swiper-slide">
+    <div class="<?= esc_attr($isSwiper ? 'swiper-slide' : 'column stretch-column '.$column) ?>">
       <div class="crossover-content__wrap">
         <div class="crossover-content__wrap-image" style="background-image: url(<?= esc_attr($post['image']) ?>)"></div>
         <div class="background-filter black light"></div>

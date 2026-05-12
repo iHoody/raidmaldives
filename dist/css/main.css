@@ -602,6 +602,11 @@ a {
   object-fit: cover;
   width: 100%;
 }
+@media screen and (max-width: 576px) {
+  .content-details__wrap-image img {
+    height: 164px;
+  }
+}
 
 /**
  * Bottom Content

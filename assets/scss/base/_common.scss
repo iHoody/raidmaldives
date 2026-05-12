@@ -423,6 +423,9 @@
         height: 420px;
         object-fit: cover;
         width: 100%;
+        @include max-media($page-small-width) {
+          height: 164px;
+        }
       }
     }
   }

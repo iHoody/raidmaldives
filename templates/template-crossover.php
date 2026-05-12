@@ -101,9 +101,9 @@ get_header();
                     </div>
                     <div class="crossover-mobile">
                       <div class="crossover-content__swiper-wrapper swiper" id="swiper-crossover-posts">
-                        <div class="row swiper-wrapper">
+                        <div class="swiper-wrapper">
 
-                          <?php getMiddleContentPosts($middleContentPosts) ?>
+                          <?php getMiddleContentPosts($middleContentPosts, true) ?>
 
                         </div>
                         <div class="swiper-pagination"></div>

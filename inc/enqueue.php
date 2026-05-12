@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const CURRENT_VERSION = '1.1.07.01';
+const CURRENT_VERSION = '1.1.08.01';
 define("CURRENT_DATE", date('ymdHis'));
 
 /**
