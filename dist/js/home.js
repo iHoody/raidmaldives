@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         init: function() {
             this.blogSection();
             this.accordion();
+            this.faqSearch();
         },
 
         accordion: function() {
@@ -17,6 +18,27 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.items.length === 0) return;
 
             this.bindEvents();
+        },
+
+        faqSearch: function() {
+            const searchInput = document.querySelector('.site-faq__search-input');
+            if (!searchInput) return;
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                this.items.forEach(item => {
+                    const title = item.querySelector('.site-faq__content-list-title');
+                    const description = item.querySelector('.site-faq__content-list-description');
+                    if (!title) return;
+
+                    const titleText = title.textContent.toLowerCase();
+                    const descriptionText = description ? description.textContent.toLowerCase() : '';
+                    const matches = titleText.includes(searchTerm) || descriptionText.includes(searchTerm);
+
+                    item.style.display = matches ? 'block' : 'none';
+                });
+            })
         },
 
         bindEvents: function() {

@@ -380,6 +380,9 @@
           color: $orange;
         }
       }
+      a {
+        color: $orange;
+      }
       p {
         margin-bottom: 15px;
       }
@@ -408,7 +411,7 @@
       }
     }
     &-image {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       @include min-media($page-large-width) {
         padding-left: 50px;
       }

@@ -66,6 +66,10 @@
   background: #082B3A !important;
 }
 
+.bg-white {
+  background: #fff !important;
+}
+
 /**
  * Text Transform
  */

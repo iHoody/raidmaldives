@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const CURRENT_VERSION = '1.1.08.01';
+const CURRENT_VERSION = '1.1.10.03';
 define("CURRENT_DATE", date('ymdHis'));
 
 /**
@@ -54,7 +54,7 @@ function dive_raid_enqueue_assets(): void {
         enqueueEventsFiles();
     }
     
-    if (is_page('dive-centres')) {
+    if (is_page('dive-centres') || is_singular('dive-centre')) {
         enqueueDiveCentresFiles();
     }
     
@@ -94,7 +94,14 @@ function dive_raid_enqueue_assets(): void {
         enqueueAccount();
     }
     
-    if (is_page('crossovers')) {
+    if (
+        is_page('crossovers') ||
+        is_page('recreational-instructor-crossovers') ||
+        is_page('technical-instructor-crossover') ||
+        is_page('freediving-instructor-crossovers') ||
+        is_page('divemaster-crossovers') ||
+        is_page('dive-centre-crossovers')
+    ) {
         enqueueCrossoverTrips();
     }
     
@@ -105,8 +112,36 @@ function dive_raid_enqueue_assets(): void {
     if (is_page('blog')) {
         enqueueBlog();
     }
+    
+    if (is_page('faq')) {
+        enqueueFAQ();
+    }
+    
+    if (is_page('contact-us')) {
+        enqueueContact();
+    }
 }
 add_action( 'wp_enqueue_scripts', 'dive_raid_enqueue_assets' );
+
+function enqueueContact(): void
+{
+    wp_enqueue_style(
+        'contact',
+        get_template_directory_uri() . '/dist/css/contact.css',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+}
+
+function enqueueFAQ(): void
+{
+    wp_enqueue_style(
+        'faq',
+        get_template_directory_uri() . '/dist/css/faq.css',
+        [],
+        CURRENT_VERSION.'.'.CURRENT_DATE
+    );
+}
 
 function enqueueBlog(): void
 {

@@ -224,16 +224,18 @@ function getMiddleContentPosts(array $array, bool $isSwiper = false): void
         <div class="crossover-content__wrap-image" style="background-image: url(<?= esc_attr($post['image']) ?>)"></div>
         <div class="background-filter black light"></div>
         <div class="crossover-content__wrap-detail">
-          <h4><?= esc_attr($post['title']) ?></h4>
+          <h4><?= wp_kses_post($post['title']) ?></h4>
           <div class="crossover-content__wrap-detail__description">
             <?= wp_kses_post($post['description']) ?>
           </div>
+          <?php if ($post['button_url'] !== null && $post['button_title'] !== null): ?>
           <div class="crossover-content__wrap-detail__button">
             <a href="<?= esc_url($post['button_url']) ?>">
               <?= esc_attr($post['button_title']) ?>
               <i class="icon icon-arrow-right"></i>
             </a>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -305,47 +307,55 @@ function getTrainingPostList(array $array, bool $swiper = false): void
 }
 
 /**
- * @param array $array
+ * @param mixed $posts
  * @param bool $swiper
  * @return void
  */
-function getDiveCentrePosts(array $array, bool $swiper = false): void
+function getDiveCentrePosts(mixed $posts, bool $swiper = false): void
 {
-  if ($array) :
-    foreach ($array as $diver) : ?>
+  if ($posts) :
+    foreach ($posts as $post) : setup_postdata($post); ?>
       <article class="divers__wrap row <?= esc_attr($swiper ? 'swiper-slide' : '') ?>">
         <div class="divers__wrap-image column column--4">
-          <img src="<?= esc_url($diver['image']) ?>" alt="<?= esc_attr($diver['title']) ?>">
+          <?php if (has_post_thumbnail($post->ID)) : ?>
+            <img src="<?= esc_url(get_the_post_thumbnail_url($post->ID)) ?>" alt="<?= esc_attr($post->post_title) ?>">
+          <?php endif; ?>
         </div>
         <div class="divers__wrap-details column column--8">
-          <h3 class="divers__wrap-details-title"><?= esc_attr($diver['title']) ?></h3>
+          <h3 class="divers__wrap-details-title"><?= esc_attr($post->post_title) ?></h3>
           <div class="divers__wrap-details-description">
-            <?= wp_kses_post($diver['description']) ?>
+            <?= wp_kses_post($post->post_content) ?>
           </div>
           <div class="divers__wrap-details-contacts">
-            <?php if (isset($diver['contact']['website_url']) && $diver['contact']['website_url'] !== ''): ?>
-              <a href="<?= esc_url($diver['contact']['website_url']) ?>">
+            <?php if (get_field('website_url', $post->ID) !== null && get_field('website_url', $post->ID) !== ''): ?>
+              <a href="<?= esc_url(get_field('website_url', $post->ID)) ?>">
                 <i class="icon icon-website"></i>
               </a>
             <?php endif; ?>
-            <?php if (isset($diver['contact']['email']) && $diver['contact']['email'] !== ''): ?>
-              <a href="<?= wp_kses_post('mailto:'.$diver['contact']['email']) ?>">
+            <?php if (get_field('email', $post->ID) !== null && get_field('email', $post->ID) !== ''): ?>
+              <a href="<?= wp_kses_post('mailto:'.get_field('email', $post->ID)) ?>">
                 <i class="icon icon-email-gray"></i>
               </a>
             <?php endif; ?>
-            <?php if (isset($diver['contact']['facebook_url']) && $diver['contact']['facebook_url'] !== ''): ?>
-              <a href="<?= esc_url($diver['contact']['facebook_url']) ?>">
+            <?php if (get_field('facebook_url', $post->ID) !== null && get_field('facebook_url', $post->ID) !== ''): ?>
+              <a href="<?= esc_url(get_field('facebook_url', $post->ID)) ?>">
                 <i class="icon icon-facebook-gray"></i>
               </a>
             <?php endif; ?>
-            <?php if (isset($diver['contact']['instagram_url']) && $diver['contact']['instagram_url'] !== ''): ?>
-              <a href="<?= esc_url($diver['contact']['instagram_url']) ?>">
+            <?php if (get_field('instagram_url', $post->ID) !== null && get_field('instagram_url', $post->ID) !== ''): ?>
+              <a href="<?= esc_url(get_field('instagram_url', $post->ID)) ?>">
                 <i class="icon icon-instagram-gray"></i>
               </a>
             <?php endif; ?>
           </div>
+          <div class="divers__wrap-details-button">
+            <a href="<?= esc_url(get_permalink($post->ID)) ?>">
+              See more <i class="icon icon-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </article>
     <?php endforeach;
+    wp_reset_postdata();
   endif;
 }

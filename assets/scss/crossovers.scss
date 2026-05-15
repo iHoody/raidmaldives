@@ -156,6 +156,32 @@
     @include max-media($page-medium-width) {
       padding: 40px 0;
     }
+    &.recreational-instructor-crossover {
+      .crossover-content {
+        &__wrap {
+          &-detail {
+            min-height: 230px;
+          }
+        }
+      }
+    }
+    &.learn-crossover {
+      .crossover-path__wrap {
+        h2 {
+          color: $header-text-colour;
+        }
+        h5 {
+          color: $body-text-colour;
+        }
+      }
+      .crossover-content {
+        &__wrap {
+          &-detail {
+            min-height: 230px;
+          }
+        }
+      }
+    }
     &__wrap {
       display: flex;
       flex-wrap: wrap;
@@ -179,6 +205,14 @@
         }
         span {
           color: $orange;
+        }
+      }
+      h5 {
+        color: $header-text-colour;
+        font: normal clamp(18px, 1vw + 12px, 24px) $font-lato-regular;
+        margin-top: 15px;
+        @include max-media($page-small-width) {
+          font: normal clamp(16px, 1vw + 12px, 20px) $font-lato-regular;
         }
       }
     }
@@ -245,6 +279,9 @@
           font: normal 24px $font-lato-regular;
           line-height: 32px;
           margin-bottom: 10px;
+          span {
+            color: $orange;
+          }
         }
         &__description {
           color: $white;
@@ -356,6 +393,20 @@
   @include max-media($page-medium-width) {
     padding: 10px 0;
   }
+  &.crossover-recreational {
+    .content-details {
+      &__wrap {
+        h3 {
+          span {
+            color: $orange;
+          }
+        }
+        &-description {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
   .content-details {
     &__wrap {
       &.image-wrap {
@@ -405,6 +456,54 @@
         @include max-media($page-medium-width) {
           font: normal 16px $font-lato-regular;
           line-height: 24px;
+        }
+        h3 {
+          @include max-media($page-medium-width) {
+            margin-top: 20px;
+            padding: 10px 0;
+            text-align: center;
+          }
+        }
+      }
+      &-image {
+        &.content {
+          display: none;
+          @include max-media($page-medium-width) {
+            display: block;
+          }
+        }
+        &.not-content {
+          display: block;
+          @include max-media($page-medium-width) {
+            display: none;
+          }
+        }
+      }
+      &-button {
+        margin-top: 40px;
+        a {
+          background: $orange;
+          border-radius: 10px;
+          color: $white;
+          display: inline-block;
+          font: normal 18px $font-lato-bold;
+          padding: 15px 40px;
+          text-align: center;
+          @include max-media($page-small-width) {
+            font: normal 16px $font-lato-bold;
+          }
+          @include max-media($page-mobile-width) {
+            display: inline-block;
+            padding: 15px 30px;
+          }
+          label {
+            display: block;
+            font: normal 18px $font-lato-regular;
+            margin-top: 10px;
+            @include max-media($page-medium-width) {
+              font: normal 14px $font-lato-regular;
+            }
+          }
         }
       }
     }

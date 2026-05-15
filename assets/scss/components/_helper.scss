@@ -36,6 +36,7 @@ $bg-colors: (
   'dark-blue2': $dark-blue2,
   'dark-blue3': $dark-blue3,
   'dark-blue4': $dark-blue4,
+  'white': $white,
 );
 
 @each $name, $color in $bg-colors {

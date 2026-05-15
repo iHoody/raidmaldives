@@ -20,9 +20,6 @@ $middleContentTitle = $middleContent['title'];
 $middleContentDescription = $middleContent['content'];
 $middleContentImage = $middleContent['image'];
 
-$diverLists = get_field('diver_list');
-$divers = $diverLists['divers'];
-
 $bottomContent = get_field('bottom_content');
 $bottomContentTitle = $bottomContent['title'];
 $bottomContentDescription = $bottomContent['sub_title'];
@@ -77,6 +74,15 @@ get_header();
         <div class="container">
           <div class="divers__content">
             <div class="diver-desktop">
+              <?php
+                $args = [
+                    'post_type' => 'dive-centre',
+                    'posts_per_page' => 6,
+                    'post_status' => 'publish',
+                    'order' => 'DESC',
+                ];
+                $divers = get_posts($args);
+              ?>
               <?= wp_kses_post(getDiveCentrePosts($divers)) ?>
             </div>
             <div class="diver-mobile">

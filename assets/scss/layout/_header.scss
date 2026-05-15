@@ -57,13 +57,16 @@
   }
   .site-branding {
     img {
-      width: clamp(210px, 27vw + 30px, 279px);
+      width: 259px;
       transition: width 0.3s ease;
+      @include max-media($page-mobile-width) {
+        width: 190px;
+      }
       @include max-media($page-medium-width) {
-        width: clamp(180px, 20vw + 30px, 250px);
+        width: 160px;
       }
       @include max-media($page-small-width) {
-        width: clamp(130px, 10vw + 30px, 230px);
+        width: 130px;
       }
     }
   }
@@ -250,16 +253,6 @@
               a {
                 .icon {
                   top: 4px;
-                  left: 4px;
-                }
-              }
-            }
-            &.book-link {
-              a {
-                background-color: $orange;
-                border: 1px solid $orange;
-                .icon {
-                  top: 5px;
                   left: 4px;
                 }
               }

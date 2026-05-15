@@ -1,0 +1,123 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'components/helper' as *;
+
+.site-faq {
+  background: $light-gray1;
+  padding: 20px 0 60px;
+  @include max-media($page-mobile-width) {
+    padding: 20px 20px 40px;
+  }
+  &__search {
+    margin-bottom: 20px;
+    &-input {
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px 2px #00000014;
+      color: $body-text-colour;
+      font: normal 16px $font-lato-regular;
+      padding: 20px 20px 20px 30px;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &__content {
+    margin: 40px 0 70px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    @include max-media($page-mobile-width) {
+      padding: 20px 0;
+    }
+    @include max-media($page-medium-width) {
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 20px;
+    }
+    &-image {
+      @include min-media($page-mobile-width + 1) {
+        margin-top: 60px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &-button {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 20px;
+      button {
+        background: $orange;
+        border: 0;
+        border-radius: 8px;
+        color: $white;
+        cursor: pointer;
+        display: block;
+        font: normal 14px $font-lato-bold;
+        padding: 12px 35px;
+        transition: background-color 0.3s ease;
+        @include max-media($page-mobile-width) {
+          width: 100%;
+        }
+      }
+    }
+    &-list {
+      &-item {
+        background: $white;
+        border-left: 3px solid $blue;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px 2px #00000014;
+        margin-bottom: 20px;
+        &.is-active {
+          border-left: 3px solid $orange;
+          .site-faq__content-list-title {
+            &::before {
+              transform: translate(0, -50%) rotate(0deg);
+            }
+          }
+          .site-faq__content-list-description {
+            max-height: 500px;
+            padding: 20px;
+            opacity: 1;
+          }
+        }
+      }
+      &-title {
+        cursor: pointer;
+        font: normal 18px $font-lato-bold;
+        margin: 0;
+        padding: 20px 20px 20px 50px;
+        position: relative;
+        transition: background-color 0.3s ease;
+        &::before {
+          content: '';
+          @include iconBackgroundOption('arrow-up');
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          width: 30px;
+          height: 30px;
+          transition: transform 0.3s ease;
+          transform: translate(0, -50%) rotate(180deg);
+        }
+        &:hover {
+          background: rgba($orange, 0.1);
+        }
+      }
+      &-description {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        margin: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+        font: normal 16px $font-lato-regular;
+        line-height: 1.6;
+        color: $body-text-colour;
+      }
+    }
+  }
+}

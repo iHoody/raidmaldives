@@ -1,0 +1,168 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.position-relative {
+  position: relative !important;
+}
+
+.p--0 {
+  padding: 0 !important;
+}
+
+.background-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background-filter.black {
+  background: rgba(0, 0, 0, 0.6);
+}
+.background-filter.black.light {
+  background: rgba(0, 0, 0, 0.3);
+}
+.background-filter.white {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/**
+ * Background Colour
+ */
+.bg-dark-blue {
+  background: #002331 !important;
+}
+
+.bg-dark-blue1 {
+  background: #040B30 !important;
+}
+
+.bg-dark-blue2 {
+  background: #1D293D !important;
+}
+
+.bg-dark-blue3 {
+  background: #0F172B !important;
+}
+
+.bg-dark-blue4 {
+  background: #082B3A !important;
+}
+
+.bg-white {
+  background: #fff !important;
+}
+
+/**
+ * Text Transform
+ */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.contact-section {
+  padding: 60px 0;
+}
+
+.contact--wrap {
+  display: block;
+  width: 100%;
+}
+.contact--wrap form.invalid .wpcf7-response-output {
+  color: #4e0c0c;
+  background-color: #f68d8d;
+  border-color: #650505;
+}
+.contact--wrap form.sent .wpcf7-response-output {
+  color: #0a3622;
+  background-color: #a3cfbb;
+  border-color: #0a3622;
+}
+.contact--wrap form .wpcf7-response-output {
+  margin: 0 0 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 15px 20px;
+}
+.contact--wrap .form-group {
+  margin-bottom: 20px;
+}
+.contact--wrap .form-group span.wpcf7-not-valid-tip {
+  color: #650505;
+  font: normal 14px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 10px;
+}
+.contact--wrap label {
+  color: #595959;
+  display: block;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-bottom: 5px;
+}
+.contact--wrap label span.required {
+  color: #650505;
+}
+.contact--wrap input[type=text],
+.contact--wrap input[type=tel],
+.contact--wrap input[type=email] {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.0784313725);
+  color: #595959;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 15px 20px;
+  width: 100%;
+}
+.contact--wrap input[type=text]:focus,
+.contact--wrap input[type=tel]:focus,
+.contact--wrap input[type=email]:focus {
+  outline: none;
+}
+.contact--wrap input[type=text].wpcf7-not-valid,
+.contact--wrap input[type=tel].wpcf7-not-valid,
+.contact--wrap input[type=email].wpcf7-not-valid {
+  background-color: #f68d8d;
+}
+.contact--wrap input[type=submit] {
+  background: #F16122;
+  border: 0;
+  border-radius: 11px;
+  color: #fff;
+  display: inline-block;
+  font: normal 18px "OpenSansBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 24px;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+}
+.contact--wrap .wpcf7-form-control-wrap {
+  display: block;
+}
+.contact--wrap .wpcf7-form-control-wrap .wpcf7-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=contact.css.map */

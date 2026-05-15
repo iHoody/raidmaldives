@@ -9,8 +9,8 @@ $bannerBottomDescription = $banner['bottom_description'];
 $buttonTitle = $banner['button_title'];
 $buttonLink = $banner['button_link'];
 
-$midContent = get_field('middle_content');
-$midOptions = $midContent['options'];
+//$midContent = get_field('middle_content');
+//$midOptions = $midContent['options'];
 
 $bookACall = get_field('book_a_call');
 $bookATitle = $bookACall['title'];
@@ -24,13 +24,6 @@ $blogTitle = $blog['title'];
 $blogSubTitle = $blog['sub_title'];
 $blogButtonTitle = $blog['button_title'];
 
-$crossOverContent = get_field('cross_over_content');
-$crossOverContentTitle = $bookACall['title'];
-$crossOverContentContent = $bookACall['description'];
-$crossOverContentButtonTitle = $bookACall['button_text'];
-$crossOverContentButtonTitle2 = $bookACall['button_text_2'];
-$crossOverContentButtonLink = $bookACall['button_url'];
-
 $postsPage = get_page_by_path('blog');
 $blogButtonLink = $postsPage ? get_permalink($postsPage->ID) : '#';
 get_header();
@@ -38,8 +31,7 @@ get_header();
 
 <div class="site-content">
 
-  <div class="site-header-background" style="background-image: url('<?= esc_attr($bannerBackground) ?>');"></div>
-  <section class="site-header-banner">
+  <section class="site-header-banner" style="background-image: url('<?= esc_attr($bannerBackground) ?>');">
     <div class="container site-header-container">
       <div class="site-wrap">
         <div class="site-information">
@@ -59,32 +51,6 @@ get_header();
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="site-middle-content">
-
-    <div class="container">
-      <div class="site-middle-content__options">
-        <?php if ($midOptions) : ?>
-          <?php foreach ($midOptions as $option) : ?>
-            <div class="site-middle-content__option">
-              <div class="image-wrap" style="background-image: url('<?= esc_url($option['image']) ?>')">
-              </div>
-              <div class="detail-wrap">
-                <h3><?= esc_attr($option['title']) ?></h3>
-                <div class="site-middle-content__option-link">
-                  <a href="<?= esc_url($option['button_link']) ?>">
-                    <?= esc_attr($option['button_title']) ?>
-                    <i class="icon icon-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </div>
-    </div>
-
   </section>
 
   <section class="site-booking book-call">
@@ -151,26 +117,6 @@ get_header();
 
     </section>
   </div>
-
-  <section class="site-booking cross-over">
-    <div class="background-filter black"></div>
-    <style>
-      .site-booking.cross-over:before {
-        background-image: url('<?= esc_url($crossOverContent['background_image']) ?>');
-      }
-    </style>
-    <div class="container">
-      <div class="site-booking__booking-wrap">
-        <h2 class="site-booking__title"><?= wp_kses($crossOverContentTitle, $allowedposttags) ?></h2>
-        <div class="site-booking__description"><?= wp_kses($crossOverContentContent, $allowedposttags) ?></div>
-        <a href="<?= esc_url($crossOverContentButtonLink) ?>" class="site-booking__button">
-          <?= esc_attr($crossOverContentButtonTitle) ?> <i class="icon icon-arrow-right"></i>
-          <label><?= esc_attr($crossOverContentButtonTitle2) ?></label>
-        </a>
-      </div>
-    </div>
-
-  </section>
 
 </div>
 

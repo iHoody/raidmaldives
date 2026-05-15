@@ -1,0 +1,210 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.position-relative {
+  position: relative !important;
+}
+
+.p--0 {
+  padding: 0 !important;
+}
+
+.background-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background-filter.black {
+  background: rgba(0, 0, 0, 0.6);
+}
+.background-filter.black.light {
+  background: rgba(0, 0, 0, 0.3);
+}
+.background-filter.white {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/**
+ * Background Colour
+ */
+.bg-dark-blue {
+  background: #002331 !important;
+}
+
+.bg-dark-blue1 {
+  background: #040B30 !important;
+}
+
+.bg-dark-blue2 {
+  background: #1D293D !important;
+}
+
+.bg-dark-blue3 {
+  background: #0F172B !important;
+}
+
+.bg-dark-blue4 {
+  background: #082B3A !important;
+}
+
+.bg-white {
+  background: #fff !important;
+}
+
+/**
+ * Text Transform
+ */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.site-faq {
+  background: #F8F8F8;
+  padding: 20px 0 60px;
+}
+@media screen and (max-width: 991px) {
+  .site-faq {
+    padding: 20px 20px 40px;
+  }
+}
+.site-faq__search {
+  margin-bottom: 20px;
+}
+.site-faq__search-input {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.0784313725);
+  color: #595959;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 20px 20px 20px 30px;
+  width: 100%;
+}
+.site-faq__search-input:focus {
+  outline: none;
+}
+.site-faq__content {
+  margin: 40px 0 70px;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .site-faq__content {
+    padding: 20px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .site-faq__content {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .site-faq__content-image {
+    margin-top: 60px;
+  }
+}
+.site-faq__content-image img {
+  width: 100%;
+}
+.site-faq__content-button {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+.site-faq__content-button button {
+  background: #F16122;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font: normal 14px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 12px 35px;
+  transition: background-color 0.3s ease;
+}
+@media screen and (max-width: 991px) {
+  .site-faq__content-button button {
+    width: 100%;
+  }
+}
+.site-faq__content-list-item {
+  background: #fff;
+  border-left: 3px solid #00A0DE;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.0784313725);
+  margin-bottom: 20px;
+}
+.site-faq__content-list-item.is-active {
+  border-left: 3px solid #F16122;
+}
+.site-faq__content-list-item.is-active .site-faq__content-list-title::before {
+  transform: translate(0, -50%) rotate(0deg);
+}
+.site-faq__content-list-item.is-active .site-faq__content-list-description {
+  max-height: 500px;
+  padding: 20px;
+  opacity: 1;
+}
+.site-faq__content-list-title {
+  cursor: pointer;
+  font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 20px 20px 20px 50px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.site-faq__content-list-title::before {
+  content: "";
+  background-image: url("../images/icon/icon-arrow-up.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+  transform: translate(0, -50%) rotate(180deg);
+}
+.site-faq__content-list-title:hover {
+  background: rgba(241, 97, 34, 0.1);
+}
+.site-faq__content-list-description {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  margin: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #595959;
+}
+
+/*# sourceMappingURL=faq.css.map */

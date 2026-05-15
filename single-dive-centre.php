@@ -1,0 +1,48 @@
+<?php
+/**
+ * Single page template for Training the post-type
+ *
+ * @package DiveRaid
+ */
+
+global $allowedposttags;
+
+$banner = get_field('banner', 'option');
+$bannerBackground = $banner['background_image'];
+
+get_header(); ?>
+
+  <div class="site-content">
+
+    <section class="dive-event-banner site-banner" style="background-image: url('<?= esc_attr($bannerBackground) ?>');">
+      <div class="container site-banner__container dive-event-container">
+        <div class="site-information">
+          <h1 class="banner-title">
+            <?= esc_attr(get_the_title()) ?>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="dive-event-content">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="column column--12">
+            <div class="dive-event-content__details">
+              <?= wp_kses_post(get_the_content()) ?>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+<?php
+get_footer();

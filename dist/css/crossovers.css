@@ -140,6 +140,18 @@
     padding: 40px 0;
   }
 }
+.crossover-path.recreational-instructor-crossover .crossover-content__wrap-detail {
+  min-height: 230px;
+}
+.crossover-path.learn-crossover .crossover-path__wrap h2 {
+  color: #2F2F2F;
+}
+.crossover-path.learn-crossover .crossover-path__wrap h5 {
+  color: #595959;
+}
+.crossover-path.learn-crossover .crossover-content__wrap-detail {
+  min-height: 230px;
+}
 .crossover-path__wrap {
   display: flex;
   flex-wrap: wrap;
@@ -171,6 +183,16 @@
 }
 .crossover-path__wrap h2 span {
   color: #F16122;
+}
+.crossover-path__wrap h5 {
+  color: #2F2F2F;
+  font: normal clamp(18px, 1vw + 12px, 24px) "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 15px;
+}
+@media screen and (max-width: 576px) {
+  .crossover-path__wrap h5 {
+    font: normal clamp(16px, 1vw + 12px, 20px) "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 }
 .crossover-path .crossover-desktop {
   display: block;
@@ -238,6 +260,9 @@
   font: normal 24px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 32px;
   margin-bottom: 10px;
+}
+.crossover-content__wrap-detail h4 span {
+  color: #F16122;
 }
 .crossover-content__wrap-detail__description {
   color: #fff;
@@ -349,6 +374,12 @@
     padding: 10px 0;
   }
 }
+.bottom-content.crossover-recreational .content-details__wrap h3 span {
+  color: #F16122;
+}
+.bottom-content.crossover-recreational .content-details__wrap-description {
+  margin-bottom: 30px;
+}
 .bottom-content .content-details__wrap.image-wrap {
   padding-right: 80px;
 }
@@ -410,6 +441,62 @@
   .bottom-content .content-details__wrap-description {
     font: normal 16px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-description h3 {
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+.bottom-content .content-details__wrap-image.content {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-image.content {
+    display: block;
+  }
+}
+.bottom-content .content-details__wrap-image.not-content {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-image.not-content {
+    display: none;
+  }
+}
+.bottom-content .content-details__wrap-button {
+  margin-top: 40px;
+}
+.bottom-content .content-details__wrap-button a {
+  background: #F16122;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font: normal 18px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 15px 40px;
+  text-align: center;
+}
+@media screen and (max-width: 576px) {
+  .bottom-content .content-details__wrap-button a {
+    font: normal 16px "LatoBold", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+@media screen and (max-width: 991px) {
+  .bottom-content .content-details__wrap-button a {
+    display: inline-block;
+    padding: 15px 30px;
+  }
+}
+.bottom-content .content-details__wrap-button a label {
+  display: block;
+  font: normal 18px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .bottom-content .content-details__wrap-button a label {
+    font: normal 14px "LatoRegular", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 

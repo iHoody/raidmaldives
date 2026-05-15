@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-    
+
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -45,10 +45,8 @@
             <div class="site-nav__sub-contact">
               <ul>
                 <li class="contact-link">
-                  <a href="">Contact Us <i class="icon icon-contact"></i></a>
-                </li>
-                <li class="book-link">
-                  <a href="">Book a Call <i class="icon icon-book-call"></i></a>
+                  <?php $contactPage = get_page_by_path('contact-us'); ?>
+                  <a href="<?= esc_url($contactPage ? get_permalink($contactPage->ID) : '' ) ?>">Contact Us <i class="icon icon-contact"></i></a>
                 </li>
               </ul>
             </div>
